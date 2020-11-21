@@ -1,0 +1,72 @@
+Sprite 
+R	G	B
+255	70	58	114
+Animation Count
+5
+
+
+Name
+Stand
+Frame Count
+1
+
+FrameX		FrameY		FrameWidth		FrameHeight		AnchorX		AnchorY
+0			16			26				18				0			0
+
+
+Name
+Go
+Frame Count
+4
+
+FrameX		FrameY		FrameWidth		FrameHeight		AnchorX		AnchorY
+0			16			26				18				0			0
+26			16			26				18				0			0
+52			16			26				18				0			0
+78			16			26				18				0			0
+
+
+Name
+Jump
+Frame Count
+4
+
+FrameX		FrameY		FrameWidth		FrameHeight		AnchorX		AnchorY
+104			13			26				21				0			0
+130			13			26				21				0			0
+156			13			26				21				0			0
+182			13			26				21				0			0
+
+
+Name
+Animation
+Frame Count
+12
+
+FrameX		FrameY		FrameWidth		FrameHeight		AnchorX		AnchorY
+208			8			25				26				0			0
+233			8			25				26				0			0
+258			8			25				26				0			0
+283			8			25				26				0			0
+308			6			25				28				0			0
+333			6			25				28				0			0
+358			6			25				28				0			0
+383			6			25				28				0			0
+408			4			25				30				0			0
+433			4			25				30				0			0
+458			4			25				30				0			0
+483			4			25				30				0			0
+
+
+Name
+Animation
+Frame Count
+4
+
+FrameX		FrameY		FrameWidth		FrameHeight		AnchorX		AnchorY
+508			0			26				34				0			0
+534			0			26				34				0			0
+560			0			26				34				0			0
+586			0			26				34				0			0
+
+
