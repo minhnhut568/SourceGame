@@ -14,6 +14,7 @@ public:
 
 	void onUpdate(float dt) override;
 
+
 	static void updateAriseObjects(float dt);
 
 	static void renderAriseObjects();
