@@ -39,6 +39,7 @@ public:
 	int changeSpaceCameraY;
 	int changeSpacePlayerX;
 	int changeSpacePlayerY;
+	int cameraMoveDx;
 
 	void Init(const char* tilesheetPath,
 		const char* matrixPath, 

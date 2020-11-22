@@ -19,11 +19,11 @@ PlayerX     PlayerY
 
 Space3
 X       Y       Width       Height
-2304    48      512         175
+1536    1791      512         240
 CameraX     CameraY
-2304        48
+1536    1791
 PlayerX     PlayerY
-2325        178
+1600        1903
 
 Space4
 X       Y       Width       Height

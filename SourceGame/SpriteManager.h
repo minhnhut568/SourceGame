@@ -22,6 +22,8 @@ enum SPRITE_INFO
 
 	SPRITE_INFO_BULLET = 2, /* 1.png sẽ tương ứng với sprite này */
 
+	SPRITE_INFO_WORM = 3,
+
 	// thêm các sprite_info khác ở đây
 
 	SPRITE_COUNT

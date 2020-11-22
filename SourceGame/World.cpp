@@ -1,10 +1,10 @@
 #include "World.h"
 #include"Camera.h"
 #include"Player.h"
-#include"Zoombie.h"
 #include"KEY.h"
 #include <string>
 #include "Gate.h"
+#include "Worm.h"
 using namespace std;
 
 #include"Collision.h"
@@ -47,9 +47,10 @@ void World::Init(const char* tilesheetPath,
 			((Gate*)obj)->world = this;
 			break;
 
-		case SPRITE_INFO_ZOOMBIE:
-			obj = new Zoombie();
+		case SPRITE_INFO_WORM:
+			obj = new Worm();
 			break;
+
 
 		default:
 			obj = new BaseObject();
@@ -175,11 +176,19 @@ void World::update(float dt)
 	case CHANGE_SPACE_START:
 		changeSpace = CHANGE_SPACE_MOVING;
 		player->setRenderActive(false);
-		break;
-	case CHANGE_SPACE_MOVING:
 		if (changeSpaceCameraX > camera->getX())
 		{
-			camera->setX(camera->getX() + 1);
+			cameraMoveDx = 2;
+		}
+		else
+		{
+			cameraMoveDx = -2;
+		}
+		break;
+	case CHANGE_SPACE_MOVING:
+		if (cameraMoveDx >0 &&changeSpaceCameraX > camera->getX() || cameraMoveDx < 0 && changeSpaceCameraX < camera->getX())
+		{
+			camera->setX(camera->getX() + cameraMoveDx);
 		}
 		else
 		{

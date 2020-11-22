@@ -38,6 +38,9 @@ double GameConfiguration::GetConfiguration(const char * key)
 
 		globalsConfigurationDouble->insert(pair<const char*, double>("playerbullet_dx", 3)); 
 
+		globalsConfigurationDouble->insert(pair<const char*, double>("worm_dx", 2)); /* 60 pixel/s */
+		globalsConfigurationDouble->insert(pair<const char*, double>("worm_dy", 2)); /* 60 pixel/s */
+
 
 		/* TODO tạo thêm các giá trị cấu hình double game tại đây 
 		Ví dụ: globalsConfiguration->insert(pair<const char*, double>("gia_tri_key", 10)); 10 la gia tri cua gia_tri_key

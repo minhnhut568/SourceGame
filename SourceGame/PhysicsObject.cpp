@@ -96,6 +96,7 @@ void PhysicsObject::onCollision(MovableRect * other, float collisionTime, int nx
 	/* va chạm sàn là va chạm có phản xạ theo hướng từ dưới lên. mà chiều từ dưới lên là chiều dương nên ny=1 */
 	if (ny == 1)
 	{
+		setVy(0);
 		/* isOnGround = true tức vật có đứng trên sàn */
 		setIsOnGround(true);
 	}
