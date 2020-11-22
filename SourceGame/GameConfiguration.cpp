@@ -28,12 +28,12 @@ double GameConfiguration::GetConfiguration(const char * key)
 		globalsConfigurationDouble->insert(pair<const char*, double>("object_animation_time_default", 100));
 
 		/* trọng lực mặc định của đối tượng 80 (px/s^2) */
-		globalsConfigurationDouble->insert(pair<const char*, double>("object_default_ay", -950));
+		globalsConfigurationDouble->insert(pair<const char*, double>("object_default_ay", -850));
 
 
 		/*  PLAYER  */
 		globalsConfigurationDouble->insert(pair<const char*, double>("player_vx", 150)); /* 60 pixel/s */
-		globalsConfigurationDouble->insert(pair<const char*, double>("player_vy_jump", 520)); /* 60 pixel/s */
+		globalsConfigurationDouble->insert(pair<const char*, double>("player_vy_jump", 360)); /* 60 pixel/s */
 		globalsConfigurationDouble->insert(pair<const char*, double>("player_bulle_delay", 300)); 
 
 		globalsConfigurationDouble->insert(pair<const char*, double>("playerbullet_dx", 3)); 
