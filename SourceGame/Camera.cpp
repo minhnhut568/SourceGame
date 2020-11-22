@@ -88,15 +88,15 @@ void Camera::update()
 
 	// y
 
-	/* nếu player đang chạy sang trái (player->getDy()<0) và phần giữa camera nằm bên phải phần giữa player */
+	
 	if (player->getDy() < 0 && getMidY() > player->getMidY())
 	{
-		/* thì cho camera chạy theo player (về bên trái) */
+		
 		setDy(player->getDy());
 	}
 	else if (player->getDy() > 0 && getMidY() < player->getMidY())
 	{
-		/* thì cho camera chạy theo player (về bên phải) */
+	
 		setDy(player->getDy());
 	}
 	else
@@ -104,35 +104,21 @@ void Camera::update()
 		setDy(0);
 	}
 
-	/* nếu camera chạy sang trái và vượt quá góc trái space  */
+	
 	if (getBottom() + getDy() < space->Y - space->Height && getDy() < 0)
 	{
 		setY(space->Y - space->Height + getHeight());
 		setDy(0);
 	}
 
-	/* nếu camera chạy sang phải và vượt quá góc phải space  */
+
 	if (getTop() + getDy() > space->Y && getDy() > 0)
 	{
 		setY(space->Y);
 		setDy(0);
 	}
 
-	///* nếu player chạy sang trái và vượt quá góc trái space  */
-	//if (player->getY() + player->getDy() < space->Y && player->getDy() < 0)
-	//{
-	//	player->setY(space->Y);
-	//	player->setDy(0);
-	//}
-
-	///* nếu player chạy sang phải và vượt quá góc phải space  */
-	//if (player->getTop() + player->getDy() > space->Y + space->Height && player->getDy() > 0)
-	//{
-	//	player->setY(space->Y + space->Height - player->getHeight());
-	//	player->setDy(0);
-	//}
-
-	/* cập nhật vị trí camera */
+	
 	goX();
 	goY();
 }
