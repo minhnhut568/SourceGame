@@ -18,7 +18,6 @@ WindowGame* WindowGame::getInstance()
 	return instance;
 }
 
-/* Hướng dẫn đọc hướng dẫn về handle window. phần này không quan trọng*/
 void WindowGame::initHandleWindows(HINSTANCE hInstance, int nCmdShow)
 {
 	WNDCLASSEXA wcex;
@@ -42,13 +41,13 @@ void WindowGame::initHandleWindows(HINSTANCE hInstance, int nCmdShow)
 	this->hWnd = hWnd;
 }
 
-/* Hướng dẫn đọc hướng dẫn về handle window. phần này không quan trọng*/
+
 HWND WindowGame::getHandleWindow()
 {
 	return hWnd;
 }
 
-/* Hướng dẫn đọc hướng dẫn về handle window. phần này không quan trọng*/
+
 LRESULT WindowGame::WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
 {
 	int wmId, wmEvent;
