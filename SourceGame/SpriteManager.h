@@ -18,8 +18,6 @@ enum SPRITE_INFO
 	/* đối tượng có hình ảnh ta sẽ đặt số dương */
 	SPRITE_INFO_PLAYER = 0,
 
-	SPRITE_INFO_ZOOMBIE = 1, /* 1.png sẽ tương ứng với sprite này */
-
 	SPRITE_INFO_BULLET = 2, /* 1.png sẽ tương ứng với sprite này */
 
 	SPRITE_INFO_WORM = 3,

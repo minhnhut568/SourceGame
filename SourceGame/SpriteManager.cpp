@@ -20,9 +20,9 @@ SpriteManager::SpriteManager()
 		sprites._Add(new Sprite());
 	}
 
-	/* thêm sprite ở đây */
+	
 
-	/* đăng ký sprite cho simon */
+	/* đăng ký sprite cho player */
 	sprites[SPRITE_INFO_PLAYER]->InitFromFile("assets/sprites/player");
 	sprites[SPRITE_INFO_PLAYER]->image->direction = TEXTURE_DIRECTION_RIGHT;
 

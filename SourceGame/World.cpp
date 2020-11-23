@@ -184,13 +184,34 @@ void World::update(float dt)
 		{
 			cameraMoveDx = -2;
 		}
+		if (changeSpaceCameraY > camera->getY())
+		{
+			cameraMoveDy = 2;
+		}
+		else
+		{
+			cameraMoveDy = -2;
+		}
 		break;
 	case CHANGE_SPACE_MOVING:
-		if (cameraMoveDx >0 &&changeSpaceCameraX > camera->getX() || cameraMoveDx < 0 && changeSpaceCameraX < camera->getX())
+		if (cameraMoveDx > 0 &&changeSpaceCameraX > camera->getX() || cameraMoveDx < 0 && changeSpaceCameraX < camera->getX())
 		{
 			camera->setX(camera->getX() + cameraMoveDx);
 		}
 		else
+		{
+			cameraMoveDx = 0;
+		}
+		
+		if (cameraMoveDy > 0 && changeSpaceCameraY > camera->getY() || cameraMoveDy < 0 && changeSpaceCameraY < camera->getY())
+		{
+			camera->setY(camera->getY() + cameraMoveDy);
+		}
+		else
+		{
+			cameraMoveDy = 0;
+		}
+		if (cameraMoveDx == 0 && cameraMoveDy == 0)
 		{
 			changeSpace = CHANGE_SPACE_MOVING_END;
 		}
