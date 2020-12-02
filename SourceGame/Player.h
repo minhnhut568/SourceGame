@@ -6,12 +6,13 @@
 
 enum PLAYER_ACTION
 {
-	/* animation đầu tiên */
 	PLAYER_ACTION_STAND,
-	/* animation thứ 2 */
 	PLAYER_ACTION_RUN,
-	/* animation thứ 3 */
 	PLAYER_ACTION_JUMP,
+	PLAYER_ACTION_JUMP_DOWN,
+	PLAYER_ACTION_SHOOTING_UP,
+	PLAYER_ACTION_SHOOT_UP,
+	PLAYER_ACTION_SHOOTING_DOWN
 };
 
 class Player :
@@ -27,4 +28,3 @@ public:
 	Player();
 	~Player();
 };
-

@@ -1,6 +1,6 @@
 #include "Player.h"
 #include "PlayerBullet.h"
-
+#include<string>
 
 Player * Player::instance = 0;
 Player * Player::getInstance()
@@ -28,31 +28,75 @@ void Player::onUpdate(float dt)
 
 	float vx = GLOBALS_D("player_vx");
 
+	int animation = getAnimation();
+	int frame = getFrameAnimation();
+	/* nếu giữ key trái */
+	if (keyLeftDown)
+	{
+		/* set animation chạy */
+		setVx(-vx);
+		setDirection(TEXTURE_DIRECTION_LEFT);
+	}
+	/* nếu giữ key phải */
+	else if (keyRightDown)
+	{
+		/* set animation chạy */
+		setVx(vx);
+		setDirection(TEXTURE_DIRECTION_RIGHT);
+	}
+	else
+	{
+		/* set animation đứng yên */
+		setVx(0);
+	}
+
 	/* nếu vật đứng trên sàn */
 	if (getIsOnGround())
 	{
-		/* nếu giữ key trái */
-		if (keyLeftDown)
+
+
+
+		// nếu nhấn key lên
+		if (keyUpDown)
 		{
-			/* set animation chạy */
-			setAnimation(PLAYER_ACTION_RUN);
-			setVx(-vx);
-			setDirection(TEXTURE_DIRECTION_LEFT);
-		}
-		/* nếu giữ key phải */
-		else if (keyRightDown)
-		{
-			/* set animation chạy */
-			setAnimation(PLAYER_ACTION_RUN);
-			setVx(vx);
-			setDirection(TEXTURE_DIRECTION_RIGHT);
+			if (animation != PLAYER_ACTION_SHOOT_UP)
+			{
+				setAnimation(PLAYER_ACTION_SHOOTING_UP);
+				if (animation == PLAYER_ACTION_SHOOTING_DOWN || animation == PLAYER_ACTION_SHOOTING_UP)
+				{
+					setFrameAnimation(frame);
+				}
+			}
+			if (getIsLastFrameAnimationDone())
+			{
+				setAnimation(PLAYER_ACTION_SHOOT_UP);
+			}
 		}
 		else
 		{
+
+			if ((animation == PLAYER_ACTION_SHOOT_UP) || (animation == PLAYER_ACTION_SHOOTING_UP))
+			{
+				setAnimation(PLAYER_ACTION_SHOOTING_DOWN);
+				if (animation == PLAYER_ACTION_SHOOTING_DOWN || animation == PLAYER_ACTION_SHOOTING_UP)
+				{
+					setFrameAnimation(frame);
+				}
+			}
+			else if (animation != PLAYER_ACTION_SHOOTING_DOWN || (animation == PLAYER_ACTION_SHOOTING_DOWN && getIsLastFrameAnimationDone()))
+			{
+				if (getVx() == 0)
+				{
+					setAnimation(PLAYER_ACTION_STAND);
+				}
+				else
+				{
+					setAnimation(PLAYER_ACTION_RUN);
+				}
+			}
 			/* set animation đứng yên */
-			setAnimation(PLAYER_ACTION_STAND);
-			setVx(0);
 		}
+
 		/* nếu đứng trên sàn mà nhấn key jump thì sẽ cho nhân vật nhảy. còn nếu ở trên không mà nhấn key jump thì nó sẽ
 		không vào chỗ này vì không thỏa mãn isOnGround = true*/
 		if (keyJumpPress)
@@ -62,15 +106,39 @@ void Player::onUpdate(float dt)
 	}
 	else /* nếu nhân vật không đứng trên sàn (đang lơ lững trên không) */
 	{
-		setAnimation(PLAYER_ACTION_JUMP);
+		if (getVy() > 0)
+		{
+			setAnimation(PLAYER_ACTION_JUMP);
+			if (getFrameAnimation() == getLastFrameCurrentAnimation())
+			{
+				setPauseAnimation(true);
+			}
+		}
+		else
+		{
+			setPauseAnimation(false);
+			setAnimation(PLAYER_ACTION_JUMP_DOWN);
+		}
 	}
 
 	if (KEY::getInstance()->isAttackDown && !bulletDelay.isOnTime())
 	{
 		PlayerBullet* bullet = new PlayerBullet();
-		bullet->setX(getX());
+		bullet->setX(getMidX());
 		bullet->setY(getY());
 		bullet->setDirection(getDirection());
+		if (keyUpDown)
+		{
+			bullet->setDx(0);
+			bullet->setDy(S("playerbullet_dx"));
+			bullet->setAnimation(BULLET_ANIMATION_VER);
+		}
+		else
+		{
+			bullet->setDx(getDirection() * S("playerbullet_dx"));
+			bullet->setDy(0);
+			bullet->setAnimation(BULLET_ANIMATION_HOR);
+		}
 		bulletDelay.start();
 	}
 
@@ -93,6 +161,7 @@ Player::Player()
 {
 	setSprite(SPR(SPRITE_INFO_PLAYER));
 	bulletDelay.init(S("player_bulle_delay"));
+	setDirection(TEXTURE_DIRECTION::TEXTURE_DIRECTION_RIGHT);
 }
 
 

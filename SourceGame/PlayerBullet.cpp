@@ -3,7 +3,10 @@
 
 void PlayerBullet::onUpdate(float dt)
 {
-	setDx(getDirection()* S("playerbullet_dx"));
+	if (getDx() == 0 && getDy() == 0)
+	{
+		this->markForDelete = true;
+	}
 }
 
 PlayerBullet::PlayerBullet()

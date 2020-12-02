@@ -27,7 +27,7 @@ SpriteManager::SpriteManager()
 	sprites[SPRITE_INFO_PLAYER]->image->direction = TEXTURE_DIRECTION_RIGHT;
 
 	// bullet
-	sprites[SPRITE_INFO_BULLET]->InitFromImage("assets/sprites/bullet/image.png");
+	sprites[SPRITE_INFO_BULLET]->InitFromFile("assets/sprites/bullet");
 	sprites[SPRITE_INFO_BULLET]->image->direction = TEXTURE_DIRECTION_LEFT;
 
 	//worm

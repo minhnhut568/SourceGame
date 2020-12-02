@@ -75,6 +75,8 @@ public:
 	TEXTURE_DIRECTION getDirection();
 	void setDirection(TEXTURE_DIRECTION direction);
 
+	int getLastFrameCurrentAnimation();
+
 
 
 	BaseObject();

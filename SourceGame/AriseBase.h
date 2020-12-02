@@ -6,6 +6,7 @@ class AriseBase :
 {
 private:
 	static List<AriseBase*>* ariseObjects;
+protected:
 	bool markForDelete;
 public:
 	static List<AriseBase*>* getAriseObjects();

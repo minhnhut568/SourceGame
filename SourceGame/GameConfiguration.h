@@ -6,6 +6,12 @@ using namespace std;
 #define GLOBALS_S(name) GameConfiguration::GetConfigurationString(name)
 
 #define S GLOBALS_D
+
+#define TRACE(str) OutputDebugStringA(str)
+#define TRACE_LN(str) OutputDebugStringA((string(str) + "\n").c_str())
+
+#define TRACE_VAL(val) OutputDebugStringA((std::to_string(val)).c_str())
+#define TRACE_VAL_LN(val) OutputDebugStringA((std::to_string(val) + "\n").c_str())
 class GameConfiguration
 {
 	/* Kiểu ánh xạ từ key ra value kiểu double để sử dụng thông số cấu hình qua 1 cái key*/

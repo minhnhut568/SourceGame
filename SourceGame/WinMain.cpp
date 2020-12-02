@@ -24,6 +24,7 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine
 
 	MSG msg;
 	ZeroMemory(&msg, sizeof(msg));
+	auto fps = GLOBALS_D("fps");
 
 	/* Tính thời gian cho mỗi frame */
 	DWORD timePerFrame = 1000 / GLOBALS_D("fps");

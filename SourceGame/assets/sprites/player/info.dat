@@ -1,8 +1,8 @@
-Sprite 
+Sprite player_final
 R	G	B
 255	70	58	114
 Animation Count
-5
+7
 
 
 Name
@@ -15,58 +15,77 @@ FrameX		FrameY		FrameWidth		FrameHeight		AnchorX		AnchorY
 
 
 Name
-Go
+Run
 Frame Count
-4
+12
 
 FrameX		FrameY		FrameWidth		FrameHeight		AnchorX		AnchorY
-0			16			26				18				0			0
-26			16			26				18				0			0
-52			16			26				18				0			0
-78			16			26				18				0			0
+0			16			26				18				0			2
+104			17			26				18				0			1
+208			18			26				18				0			0
+234			16			26				18				0			2
+26			17			26				18				0			1
+130			18			26				18				0			0
+156			16			26				18				0			2
+260			17			26				18				0			1
+52			18			26				18				0			0
+78			16			26				18				0			2
+182			17			26				18				0			1
+286			18			26				18				0			0
 
 
 Name
 Jump
 Frame Count
-4
+3
 
 FrameX		FrameY		FrameWidth		FrameHeight		AnchorX		AnchorY
-104			13			26				21				0			0
-130			13			26				21				0			0
-156			13			26				21				0			0
-182			13			26				21				0			0
+52			18			26				16				0			0
+0			16			26				18				0			0
+312			13			26				21				0			0
 
 
 Name
-Animation
+JumpDown
 Frame Count
-12
+3
 
 FrameX		FrameY		FrameWidth		FrameHeight		AnchorX		AnchorY
-208			8			25				26				0			0
-233			8			25				26				0			0
-258			8			25				26				0			0
-283			8			25				26				0			0
-308			6			25				28				0			0
-333			6			25				28				0			0
-358			6			25				28				0			0
-383			6			25				28				0			0
-408			4			25				30				0			0
-433			4			25				30				0			0
-458			4			25				30				0			0
-483			4			25				30				0			0
+0			16			26				18				0			0
+26			17			26				17				0			0
+52			18			26				16				0			0
 
 
 Name
-Animation
+ShootingUp
 Frame Count
 4
 
 FrameX		FrameY		FrameWidth		FrameHeight		AnchorX		AnchorY
-508			0			26				34				0			0
-534			0			26				34				0			0
-560			0			26				34				0			0
-586			0			26				34				0			0
+338			8			25				26				0			8
+363			6			25				28				0			10
+388			4			25				30				0			12
+413			0			26				34				4			16
+
+
+Name
+ShootUp
+Frame Count
+1
+
+FrameX		FrameY		FrameWidth		FrameHeight		AnchorX		AnchorY
+413			0			26				34				4			16
+
+
+Name
+ShootingDown
+Frame Count
+4
+
+FrameX		FrameY		FrameWidth		FrameHeight		AnchorX		AnchorY
+413			0			26				34				4			16
+388			4			25				30				0			12
+363			6			25				28				0			10
+338			8			25				26				0			8
 
 

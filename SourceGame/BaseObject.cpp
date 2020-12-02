@@ -168,6 +168,11 @@ void BaseObject::setDirection(TEXTURE_DIRECTION direction)
 	this->direction = direction;
 }
 
+int BaseObject::getLastFrameCurrentAnimation()
+{
+	return sprite->animations[animationIndex]->frames.Count-1;
+}
+
 
 BaseObject::BaseObject()
 {
