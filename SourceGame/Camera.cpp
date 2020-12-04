@@ -42,7 +42,7 @@ void Camera::update()
 	/* mặc định cho camera đứng yên, chỉ khi player chạy nó mới chạy theo */
 	setDx(0);
 
-	Player* player = Player::getInstance();
+	auto player = Player::getInstance();
 	/* nếu player đang chạy sang trái (player->getDx()<0) và phần giữa camera nằm bên phải phần giữa player */
 	if (player->getDx() < 0 && getMidX() > player->getMidX())
 	{

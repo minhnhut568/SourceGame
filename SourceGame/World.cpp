@@ -16,7 +16,11 @@ void World::Init(const char* tilesheetPath,
 	const char* spacePath)
 {
 	/* khởi tạo vị trí player */
-	Player::getInstance()->set(52, 350, 16, 18);
+
+
+	Player::getPlayerMini()->set(52, 350, 16, 18);
+	Player::getPlayerMain()->set(52, 350, 16, 18);
+	Player::changeToPlayerMain();
 
 	/* khởi tạo tilemap */
 	tilemap.Init(tilesheetPath, matrixPath);
@@ -170,7 +174,7 @@ Tilemap* World::getTileMap()
 void World::update(float dt)
 {
 	Camera* camera = Camera::getInstance();
-	Player* player = Player::getInstance();
+	auto player = Player::getInstance();
 	switch (changeSpace)
 	{
 	case CHANGE_SPACE_START:
@@ -260,7 +264,8 @@ void World::update(float dt)
 		for (size_t i = 0; i < allObjects.Count; i++)
 		{
 			allObjects[i]->update(dt);
-			Collision::CheckCollision(Player::getInstance(), allObjects[i]);
+			Collision::CheckCollision(Player::getPlayerMain(), allObjects[i]);
+			Collision::CheckCollision(Player::getPlayerMini(), allObjects[i]);
 		}
 
 		/* xét va chạm cho các loại đối tượng với nhau */
@@ -284,7 +289,7 @@ void World::update(float dt)
 			}
 		}
 
-		Player::getInstance()->update(dt);
+		Player::updatePlayer(dt);
 		Camera::getInstance()->update();
 		break;
 	}
@@ -307,10 +312,10 @@ Space* World::getCurrentSpace()
 void World::resetLocationInSpace()
 {
 	Camera* camera = Camera::getInstance();
-	Player* player = Player::getInstance();
 
 	camera->setLocation(getCurrentSpace()->CameraX, getCurrentSpace()->CameraY);
-	player->setLocation(getCurrentSpace()->PlayerX, getCurrentSpace()->PlayerY);
+	Player::getPlayerMain()->setLocation(getCurrentSpace()->PlayerX, getCurrentSpace()->PlayerY);
+	Player::getPlayerMini()->setLocation(getCurrentSpace()->PlayerX, getCurrentSpace()->PlayerY);
 }
 
 void World::render()
@@ -321,7 +326,7 @@ void World::render()
 		/* vẽ đối tượng */
 		allObjects[i]->render(Camera::getInstance());
 	}
-	Player::getInstance()->render(Camera::getInstance());
+	Player::renderPlayer();
 }
 
 World::World()

@@ -18,7 +18,10 @@ public:
 		isSpace2Down,
 		isSpace3Down,
 		isSpace4Down,
-		isSpace5Down;
+		isSpace5Down,
+		changePlayerDown,
+		previousChangePlayerDown,
+		changePlayer;
 
 	static KEY* instance;
 	static KEY* getInstance();

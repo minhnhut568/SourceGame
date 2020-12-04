@@ -18,13 +18,27 @@ enum PLAYER_ACTION
 class Player :
 	public PhysicsObject
 {
-	static Player* instance;
+	static PhysicsObject* playerMain;
+	static PhysicsObject* playerMini;
+public:
+	static PhysicsObject* getPlayerMain();
+	static PhysicsObject* getPlayerMini();
+
+	static PhysicsObject* instance;
 	DelayTime bulletDelay;
 
-public:
-	static Player* getInstance();
+	static PhysicsObject* currentPlayer;
+
+	static void changeToPlayerMini();
+	static void changeToPlayerMain();
+
+	static PhysicsObject* getInstance();
 	void onUpdate(float dt) override;
 	void onCollision(MovableRect* other, float collisionTime, int nx, int ny) override;
+
+	static void updatePlayer(float dt);
+	static void renderPlayer();
+
 	Player();
 	~Player();
 };

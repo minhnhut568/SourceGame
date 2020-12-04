@@ -138,6 +138,9 @@
     <ClInclude Include="Enemy.h">
       <Filter>Objects\Enemies</Filter>
     </ClInclude>
+    <ClInclude Include="PlayerMini.h">
+      <Filter>Objects</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Sprite.cpp">
@@ -220,6 +223,9 @@
     </ClCompile>
     <ClCompile Include="Enemy.cpp">
       <Filter>Objects\Enemies</Filter>
+    </ClCompile>
+    <ClCompile Include="PlayerMini.cpp">
+      <Filter>Objects</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

@@ -22,6 +22,8 @@ enum SPRITE_INFO
 
 	SPRITE_INFO_WORM = 3,
 
+	SPRITE_INFO_PLAYER_MINI = 4,
+
 	// thêm các sprite_info khác ở đây
 
 	SPRITE_COUNT

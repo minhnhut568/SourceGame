@@ -1,9 +1,10 @@
 #include "Game.h"
 #include "AriseBase.h"
+#include"Player.h"
 
 /* singleton pattern */
-Game * Game::instance = 0;
-Game * Game::getInstance()
+Game* Game::instance = 0;
+Game* Game::getInstance()
 {
 	if (instance == 0)
 		instance = new Game();
@@ -19,7 +20,7 @@ void Game::GameInit()
 
 	Camera::getInstance()->setSize(
 		/* kích thước của camera bằng với kích thước của backbuffer */
-		GLOBALS_D("backbuffer_width"), 
+		GLOBALS_D("backbuffer_width"),
 		GLOBALS_D("backbuffer_height"));
 }
 /* Các câu lệnh cập nhật game */
@@ -42,6 +43,7 @@ void Game::GameRender()
 
 Game::Game()
 {
+
 }
 
 

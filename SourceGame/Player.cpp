@@ -1,21 +1,62 @@
 #include "Player.h"
 #include "PlayerBullet.h"
+#include"PlayerMini.h"
 #include<string>
 
-Player * Player::instance = 0;
-Player * Player::getInstance()
+PhysicsObject* Player::instance = 0;
+
+
+PhysicsObject* Player::playerMain = 0;
+PhysicsObject* Player::playerMini = 0;
+PhysicsObject* Player::currentPlayer = 0;
+
+PhysicsObject* Player::getPlayerMain()
 {
-	if (instance == 0)
+	if (playerMain == 0)
 	{
-		instance = new Player();
+		playerMain = new Player();
 	}
-	return instance;
+	return playerMain;
+}
+
+PhysicsObject* Player::getPlayerMini()
+{
+	if (playerMini == 0)
+	{
+		playerMini = new PlayerMini();
+	}
+	return playerMini;
+}
+
+void Player::changeToPlayerMini()
+{
+	playerMain->setVx(0);
+	playerMain->setVy(0);
+	playerMain->setDx(0);
+	playerMain->setDy(0);
+	playerMain->setAnimation(PLAYER_ACTION_STAND);
+	playerMini->setX(playerMain->getMidX());
+	playerMini->setY(playerMain->getY());
+	currentPlayer = getPlayerMini();
+}
+void Player::changeToPlayerMain()
+{
+	currentPlayer = getPlayerMain();
+}
+PhysicsObject* Player::getInstance()
+{
+	return currentPlayer;
 }
 
 void Player::onUpdate(float dt)
 {
+	if (currentPlayer == playerMini)
+	{
+		PhysicsObject::onUpdate(dt);
+		return;
+	}
 	bulletDelay.update();
-	bool keyLeftDown, keyRightDown, keyUpDown, keyDownDown, keyJumpPress;
+	bool keyLeftDown, keyRightDown, keyUpDown, keyDownDown, keyJumpPress, changePlayerDown;
 	/* kiểm tra key bên trái có được giữ */
 	keyLeftDown = KEY::getInstance()->isLeftDown;
 	/* kiểm tra key bên phải có được giữ */
@@ -25,6 +66,12 @@ void Player::onUpdate(float dt)
 
 	/* kiểm tra key jump có được nhấn */
 	keyJumpPress = KEY::getInstance()->isJumpPress;
+	changePlayerDown = KEY::getInstance()->changePlayer;
+
+	if (changePlayerDown)
+	{
+		Player::changeToPlayerMini();
+	}
 
 	float vx = GLOBALS_D("player_vx");
 
@@ -53,9 +100,6 @@ void Player::onUpdate(float dt)
 	/* nếu vật đứng trên sàn */
 	if (getIsOnGround())
 	{
-
-
-
 		// nếu nhấn key lên
 		if (keyUpDown)
 		{
@@ -87,10 +131,12 @@ void Player::onUpdate(float dt)
 			{
 				if (getVx() == 0)
 				{
+					setPauseAnimation(false);
 					setAnimation(PLAYER_ACTION_STAND);
 				}
 				else
 				{
+					setPauseAnimation(true);
 					setAnimation(PLAYER_ACTION_RUN);
 				}
 			}
@@ -154,6 +200,32 @@ void Player::onCollision(MovableRect * other, float collisionTime, int nx, int n
 		/* ngăn chặn di chuyển */
 		preventMovementWhenCollision(collisionTime, nx, ny);
 		PhysicsObject::onCollision(other, collisionTime, nx, ny);
+	}
+}
+
+void Player::updatePlayer(float dt)
+{
+	if (currentPlayer == playerMini)
+	{
+		playerMain->update(dt);
+		playerMini->update(dt);
+	}
+	else
+	{
+		playerMain->update(dt);
+	}
+}
+
+void Player::renderPlayer()
+{
+	if (currentPlayer == playerMini)
+	{
+		playerMain->render(Camera::getInstance());
+		playerMini->render(Camera::getInstance());
+	}
+	else
+	{
+		playerMain->render(Camera::getInstance());
 	}
 }
 

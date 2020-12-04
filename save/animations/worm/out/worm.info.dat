@@ -1,0 +1,37 @@
+Sprite worm
+R	G	B
+255	255	93	0
+Animation Count
+3
+
+
+Name
+Animation
+Frame Count
+2
+
+FrameX		FrameY		FrameWidth		FrameHeight		AnchorX		AnchorY
+0			16			18				10				0			0
+18			16			17				10				0			0
+
+
+Name
+Animation
+Frame Count
+2
+
+FrameX		FrameY		FrameWidth		FrameHeight		AnchorX		AnchorY
+35			7			13				19				0			0
+48			8			12				18				0			0
+
+
+Name
+Animation
+Frame Count
+2
+
+FrameX		FrameY		FrameWidth		FrameHeight		AnchorX		AnchorY
+60			0			14				26				0			0
+74			1			13				25				0			0
+
+

@@ -25,6 +25,9 @@ void KEY::update()
 	/* giả sử nhấn key x là player sẽ nhảy */
 	isJumpDown = GetAsyncKeyState(getKeyChar('x'));
 	isAttackDown = GetAsyncKeyState(getKeyChar('z'));
+
+	previousChangePlayerDown = changePlayerDown;
+	changePlayerDown = GetAsyncKeyState(getKeyChar('m'));
 	/* nếu lần trước chưa nhấn key jump mà lần này nhấn key jump thì isJumpPress sẽ là true */
 	isJumpPress = (isPreviousJumpDown==false && isJumpDown==true);
 
@@ -34,6 +37,7 @@ void KEY::update()
 	isSpace3Down = GetAsyncKeyState(getKeyChar('e'));
 	isSpace4Down = GetAsyncKeyState(getKeyChar('r'));
 	isSpace5Down = GetAsyncKeyState(getKeyChar('t'));
+	changePlayer = (previousChangePlayerDown == false && changePlayerDown == true);
 }
 
 KEY::KEY()

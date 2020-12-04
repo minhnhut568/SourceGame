@@ -1,0 +1,77 @@
+Sprite player_final
+R	G	B
+255	70	58	114
+Animation Count
+6
+
+
+Name
+Stand
+Frame Count
+1
+
+FrameX		FrameY		FrameWidth		FrameHeight		AnchorX		AnchorY
+0			16			26				18				0			0
+
+
+Name
+Run
+Frame Count
+12
+
+FrameX		FrameY		FrameWidth		FrameHeight		AnchorX		AnchorY
+0			16			26				18				0			0
+26			17			26				17				0			0
+52			18			26				16				0			0
+78			16			26				18				0			0
+104			17			26				17				0			0
+130			18			26				16				0			0
+156			16			26				18				0			0
+182			17			26				17				0			0
+208			18			26				16				0			0
+234			16			26				18				0			0
+260			17			26				17				0			0
+286			18			26				16				0			0
+
+
+Name
+Jump
+Frame Count
+3
+
+FrameX		FrameY		FrameWidth		FrameHeight		AnchorX		AnchorY
+0			16			26				18				0			0
+26			17			26				17				0			0
+52			18			26				16				0			0
+
+
+Name
+JumpDown
+Frame Count
+1
+
+FrameX		FrameY		FrameWidth		FrameHeight		AnchorX		AnchorY
+312			13			26				21				0			0
+
+
+Name
+Shooting
+Frame Count
+4
+
+FrameX		FrameY		FrameWidth		FrameHeight		AnchorX		AnchorY
+338			8			25				26				0			0
+363			6			25				28				0			0
+388			4			25				30				0			0
+413			0			26				34				4			0
+
+
+Name
+Shoot
+Frame Count
+1
+
+FrameX		FrameY		FrameWidth		FrameHeight		AnchorX		AnchorY
+413			0			26				34				0			0
+
+

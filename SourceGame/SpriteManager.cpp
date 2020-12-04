@@ -34,6 +34,10 @@ SpriteManager::SpriteManager()
 	sprites[SPRITE_INFO_WORM]->InitFromFile("assets/sprites/worm");
 	sprites[SPRITE_INFO_WORM]->image->direction = TEXTURE_DIRECTION_RIGHT;
 
+	//player mini
+	sprites[SPRITE_INFO_PLAYER_MINI]->InitFromFile("assets/sprites/player-mini");
+	sprites[SPRITE_INFO_PLAYER_MINI]->image->direction = TEXTURE_DIRECTION_RIGHT;
+
 }
 SpriteManager::~SpriteManager()
 {

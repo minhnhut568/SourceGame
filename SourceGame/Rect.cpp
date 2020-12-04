@@ -1,5 +1,5 @@
 #include "Rect.h"
-
+#include"Player.h"
 
 
 Rect::Rect()
