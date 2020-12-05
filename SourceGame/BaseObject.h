@@ -15,9 +15,6 @@ class BaseObject :
 	/* animation hiện tại và frame index hiện tại */
 	int animationIndex, frameIndex;
 
-	/* dùng để làm chậm animation */
-	GameTime animationGameTime;
-
 	/* dừng animation */
 	bool pauseAnimation;
 	/* kiểm tra xem frame cuối cùng đã hoàn thành hay chưa
@@ -35,6 +32,9 @@ class BaseObject :
 
 public:
 
+
+	/* dùng để làm chậm animation */
+	GameTime animationGameTime;
 	map<string,string> customProperties;
 
 
@@ -73,7 +73,7 @@ public:
 	void setFrameAnimation(int frameAnimation);
 
 	TEXTURE_DIRECTION getDirection();
-	void setDirection(TEXTURE_DIRECTION direction);
+	void setDirection(int direction);
 
 	int getLastFrameCurrentAnimation();
 

@@ -36,9 +36,6 @@ void Game::GameRender()
 {
 	/* vẽ đối tượng trong world */
 	world->render();
-
-	AriseBase::renderAriseObjects();
-
 }
 
 Game::Game()

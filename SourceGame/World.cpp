@@ -8,6 +8,7 @@
 using namespace std;
 
 #include"Collision.h"
+#include "AriseBase.h"
 
 void World::Init(const char* tilesheetPath,
 	const char* matrixPath,
@@ -326,6 +327,7 @@ void World::render()
 		/* vẽ đối tượng */
 		allObjects[i]->render(Camera::getInstance());
 	}
+	AriseBase::renderAriseObjects();
 	Player::renderPlayer();
 }
 

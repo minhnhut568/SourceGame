@@ -163,9 +163,9 @@ TEXTURE_DIRECTION BaseObject::getDirection()
 	return direction;
 }
 
-void BaseObject::setDirection(TEXTURE_DIRECTION direction)
+void BaseObject::setDirection(int direction)
 {
-	this->direction = direction;
+	this->direction = (TEXTURE_DIRECTION)direction;
 }
 
 int BaseObject::getLastFrameCurrentAnimation()

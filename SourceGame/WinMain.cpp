@@ -42,7 +42,9 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine
 		if (deltaTime >= timePerFrame)
 		{
 			/* time : thời gian giữa 2 frame dùng để tính vận tốc đối tượng */
-			float time = deltaTime / 1000.0f;
+			//float time = deltaTime / 1000.0f;
+
+			float time = timePerFrame / 1000.0f;
 
 			Game::getInstance()->GameUpdate(time);
 

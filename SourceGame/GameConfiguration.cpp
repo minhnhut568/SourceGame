@@ -22,24 +22,27 @@ double GameConfiguration::GetConfiguration(const char * key)
 		globalsConfigurationDouble->insert(pair<const char*, double>("backbuffer_height", 240));
 
 		/* fps là frame_per_second càng lớn càng mượt nhưng nó sử dụng nhiều cpu hơn */
-		globalsConfigurationDouble->insert(pair<const char*, double>("fps", 70));
+		globalsConfigurationDouble->insert(pair<const char*, double>("fps", 120));
 
 		/* thời gian đổi frame mặc định của animation là 100 milis, cứ sau 100 milis thì animation sẽ đổi 1 frame */
 		globalsConfigurationDouble->insert(pair<const char*, double>("object_animation_time_default", 100));
 
 		/* trọng lực mặc định của đối tượng 80 (px/s^2) */
-		globalsConfigurationDouble->insert(pair<const char*, double>("object_default_ay", -850));
+		globalsConfigurationDouble->insert(pair<const char*, double>("object_default_ay", -2050));
 
 
 		/*  PLAYER  */
-		globalsConfigurationDouble->insert(pair<const char*, double>("player_vx", 150)); /* 60 pixel/s */
-		globalsConfigurationDouble->insert(pair<const char*, double>("player_vy_jump", 360)); /* 60 pixel/s */
+		globalsConfigurationDouble->insert(pair<const char*, double>("player_vx", 190)); /* 60 pixel/s */
+		globalsConfigurationDouble->insert(pair<const char*, double>("player_vy_jump", 550)); /* 60 pixel/s */
 		globalsConfigurationDouble->insert(pair<const char*, double>("player_bulle_delay", 300)); 
+		globalsConfigurationDouble->insert(pair<const char*, double>("player_animation_time_default", 25));
 
 		globalsConfigurationDouble->insert(pair<const char*, double>("playerbullet_dx", 3)); 
 
-		globalsConfigurationDouble->insert(pair<const char*, double>("worm_dx", 2));
-		globalsConfigurationDouble->insert(pair<const char*, double>("worm_dy", 2)); 
+		globalsConfigurationDouble->insert(pair<const char*, double>("worm_vx", 75));
+		globalsConfigurationDouble->insert(pair<const char*, double>("worm_dy", 2));
+		globalsConfigurationDouble->insert(pair<const char*, double>("worm_y_climp", 16));
+		globalsConfigurationDouble->insert(pair<const char*, double>("worm_ay", -250));
 
 
 		/* TODO tạo thêm các giá trị cấu hình double game tại đây 

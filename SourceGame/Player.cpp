@@ -4,8 +4,6 @@
 #include<string>
 
 PhysicsObject* Player::instance = 0;
-
-
 PhysicsObject* Player::playerMain = 0;
 PhysicsObject* Player::playerMini = 0;
 PhysicsObject* Player::currentPlayer = 0;
@@ -72,6 +70,7 @@ void Player::onUpdate(float dt)
 	{
 		Player::changeToPlayerMini();
 	}
+	setPauseAnimation(false);
 
 	float vx = GLOBALS_D("player_vx");
 
@@ -122,6 +121,7 @@ void Player::onUpdate(float dt)
 			if ((animation == PLAYER_ACTION_SHOOT_UP) || (animation == PLAYER_ACTION_SHOOTING_UP))
 			{
 				setAnimation(PLAYER_ACTION_SHOOTING_DOWN);
+				// dua sung xuong cung frame voi dua sung len
 				if (animation == PLAYER_ACTION_SHOOTING_DOWN || animation == PLAYER_ACTION_SHOOTING_UP)
 				{
 					setFrameAnimation(frame);
@@ -129,15 +129,13 @@ void Player::onUpdate(float dt)
 			}
 			else if (animation != PLAYER_ACTION_SHOOTING_DOWN || (animation == PLAYER_ACTION_SHOOTING_DOWN && getIsLastFrameAnimationDone()))
 			{
+				setAnimation(PLAYER_ACTION_RUN);
 				if (getVx() == 0)
 				{
-					setPauseAnimation(false);
-					setAnimation(PLAYER_ACTION_STAND);
-				}
-				else
-				{
+					int frame = getFrameAnimation();
+					frame = 3 * (frame / 3);
+					setFrameAnimation(frame);
 					setPauseAnimation(true);
-					setAnimation(PLAYER_ACTION_RUN);
 				}
 			}
 			/* set animation đứng yên */
@@ -164,29 +162,54 @@ void Player::onUpdate(float dt)
 		{
 			setPauseAnimation(false);
 			setAnimation(PLAYER_ACTION_JUMP_DOWN);
+			if (getFrameAnimation() == getLastFrameCurrentAnimation())
+			{
+				setPauseAnimation(true);
+			}
 		}
 	}
 
 	if (KEY::getInstance()->isAttackDown && !bulletDelay.isOnTime())
 	{
 		PlayerBullet* bullet = new PlayerBullet();
-		bullet->setX(getMidX());
-		bullet->setY(getY());
 		bullet->setDirection(getDirection());
 		if (keyUpDown)
 		{
+			bullet->setY(getTop() + 25);
 			bullet->setDx(0);
 			bullet->setDy(S("playerbullet_dx"));
 			bullet->setAnimation(BULLET_ANIMATION_VER);
+			if (getDirection() == -1)
+			{
+				bullet->setX(this->getMidX()+6);
+			}
+			else
+			{
+				bullet->setX(this->getMidX() - 2);
+			}
 		}
 		else
 		{
+			bullet->setY(getY()+1);
+			if (getDirection() == 1)
+			{
+				bullet->setX(getRight() + 2);
+			}
+			else
+			{
+				bullet->setX(getleft() - 10);
+			}
 			bullet->setDx(getDirection() * S("playerbullet_dx"));
 			bullet->setDy(0);
 			bullet->setAnimation(BULLET_ANIMATION_HOR);
 		}
 		bulletDelay.start();
 	}
+
+	//if (getDx() != 0)
+	//{
+	//	TRACE_VAL_LN("Player Dx", getX());
+	//}
 
 	/* gọi lại phương thức xử lý onUpdate đã được định nghĩa ở lớp cha control click vào PhysicsObject::onUpdate để biết */
 
@@ -195,6 +218,10 @@ void Player::onUpdate(float dt)
 
 void Player::onCollision(MovableRect * other, float collisionTime, int nx, int ny)
 {
+	if (nx != 0)
+	{
+		int a = 5;
+	}
 	if (other->getCollisionType() == COLLISION_TYPE_GROUND)
 	{
 		/* ngăn chặn di chuyển */
@@ -234,6 +261,7 @@ Player::Player()
 	setSprite(SPR(SPRITE_INFO_PLAYER));
 	bulletDelay.init(S("player_bulle_delay"));
 	setDirection(TEXTURE_DIRECTION::TEXTURE_DIRECTION_RIGHT);
+	animationGameTime.init(S("player_animation_time_default"));
 }
 
 

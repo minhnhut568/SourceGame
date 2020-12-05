@@ -1,5 +1,6 @@
 #pragma once
 #include "PhysicsObject.h"
+#include"DelayTime.h"
 enum PLAYER_MINI_ACTION 
 {
 	PLAYER_MINI_ACTION_STAND,
@@ -14,6 +15,7 @@ class PlayerMini :
 	public PhysicsObject
 {
 public:
+	DelayTime bulletDelay;
 	PlayerMini();
 
 	void onUpdate(float dt) override;

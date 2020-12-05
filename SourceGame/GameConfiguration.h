@@ -11,7 +11,7 @@ using namespace std;
 #define TRACE_LN(str) OutputDebugStringA((string(str) + "\n").c_str())
 
 #define TRACE_VAL(val) OutputDebugStringA((std::to_string(val)).c_str())
-#define TRACE_VAL_LN(val) OutputDebugStringA((std::to_string(val) + "\n").c_str())
+#define TRACE_VAL_LN(label,val) OutputDebugStringA((string(label) + ":" + std::to_string(val) + "\n").c_str())
 class GameConfiguration
 {
 	/* Kiểu ánh xạ từ key ra value kiểu double để sử dụng thông số cấu hình qua 1 cái key*/

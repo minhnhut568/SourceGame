@@ -1,17 +1,20 @@
 #include "PlayerMini.h"
 #include "SpriteManager.h"
 #include "KEY.h"
-#include"Player.h"
-#include"Collision.h"
+#include "Player.h"
+#include "Collision.h"
+#include "PlayerMiniBullet.h"
 
 PlayerMini::PlayerMini()
 {
 	setSprite(SPR(SPRITE_INFO_PLAYER_MINI));
 	setDirection(TEXTURE_DIRECTION::TEXTURE_DIRECTION_RIGHT);
+	bulletDelay.init(S("player_bulle_delay"));
 }
 
 void PlayerMini::onUpdate(float dt)
 {
+	bulletDelay.update();
 	bool keyLeftDown, keyRightDown, keyUpDown, keyDownDown, keyJumpPress;
 	keyLeftDown = KEY::getInstance()->isLeftDown;
 	keyRightDown = KEY::getInstance()->isRightDown;
@@ -61,6 +64,27 @@ void PlayerMini::onUpdate(float dt)
 	else
 	{
 		setAnimation(PLAYER_MINI_ACTION_JUMP);
+	}
+
+	if (KEY::getInstance()->isAttackDown && !bulletDelay.isOnTime())
+	{
+		PlayerMiniBullet* bullet = new PlayerMiniBullet();
+		bullet->setDirection(getDirection());
+
+		bullet->setY(getMidY());
+		if (getDirection() == 1)
+		{
+			bullet->setX(getRight());
+		}
+		else
+		{
+			bullet->setX(getleft());
+		}
+		bullet->setDx(getDirection() * S("playerbullet_dx"));
+		bullet->setDy(0);
+		bullet->setAnimation(BULLET_ANIMATION_HOR);
+
+		bulletDelay.start();
 	}
 
 	if (changePlayerDown && Collision::AABBCheck(Player::getPlayerMain(), Player::getPlayerMini()))

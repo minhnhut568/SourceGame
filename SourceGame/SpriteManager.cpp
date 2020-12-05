@@ -38,6 +38,10 @@ SpriteManager::SpriteManager()
 	sprites[SPRITE_INFO_PLAYER_MINI]->InitFromFile("assets/sprites/player-mini");
 	sprites[SPRITE_INFO_PLAYER_MINI]->image->direction = TEXTURE_DIRECTION_RIGHT;
 
+	//player mini
+	sprites[SPRITE_INFO_PLAYER_MINI_BULLET]->InitFromFile("assets/sprites/player-mini-bullet");
+	sprites[SPRITE_INFO_PLAYER_MINI_BULLET]->image->direction = TEXTURE_DIRECTION_RIGHT;
+
 }
 SpriteManager::~SpriteManager()
 {

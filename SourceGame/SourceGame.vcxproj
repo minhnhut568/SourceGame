@@ -162,6 +162,7 @@
     <ClInclude Include="Player.h" />
     <ClInclude Include="PlayerBullet.h" />
     <ClInclude Include="PlayerMini.h" />
+    <ClInclude Include="PlayerMiniBullet.h" />
     <ClInclude Include="Rect.h" />
     <ClInclude Include="Space.h" />
     <ClInclude Include="Sprite.h" />
@@ -192,6 +193,7 @@
     <ClCompile Include="Player.cpp" />
     <ClCompile Include="PlayerBullet.cpp" />
     <ClCompile Include="PlayerMini.cpp" />
+    <ClCompile Include="PlayerMiniBullet.cpp" />
     <ClCompile Include="Rect.cpp" />
     <ClCompile Include="Sprite.cpp" />
     <ClCompile Include="SpriteManager.cpp" />
