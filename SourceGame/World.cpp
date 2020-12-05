@@ -260,13 +260,21 @@ void World::update(float dt)
 			resetLocationInSpace();
 		}
 
+		auto ariseObjects = AriseBase::getAriseObjects();
 
 		/* cập nhật đối tượng */
 		for (size_t i = 0; i < allObjects.Count; i++)
 		{
-			allObjects[i]->update(dt);
-			Collision::CheckCollision(Player::getPlayerMain(), allObjects[i]);
-			Collision::CheckCollision(Player::getPlayerMini(), allObjects[i]);
+			auto obj = allObjects[i];
+			obj->update(dt);
+			Collision::CheckCollision(Player::getPlayerMain(), obj);
+			Collision::CheckCollision(Player::getPlayerMini(), obj);
+
+			for (size_t i2 = 0; i2 < ariseObjects->size(); i2++)
+			{
+				/* cho xét va chạm của đối tượng dựa vào 1 cặp collisionType trong CollisionTypeCollide */
+				Collision::CheckCollision(ariseObjects->at(i2), obj);
+			}
 		}
 
 		/* xét va chạm cho các loại đối tượng với nhau */

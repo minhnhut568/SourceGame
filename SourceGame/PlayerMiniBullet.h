@@ -5,5 +5,6 @@ class PlayerMiniBullet :
 {
 public:
     PlayerMiniBullet();
+	void onUpdate(float dt) override;
 };
 

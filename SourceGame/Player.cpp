@@ -53,7 +53,26 @@ void Player::onUpdate(float dt)
 		PhysicsObject::onUpdate(dt);
 		return;
 	}
+	blinkDelay.update();
 	bulletDelay.update();
+	blinkCantControlDelay.update();
+
+	if (blinkDelay.isOnTime())
+	{
+		if (blinkTime.atTime())
+		{
+			setRenderActive(false);
+		}
+		else
+		{
+			setRenderActive(true);
+		}
+	}
+	else
+	{
+		setRenderActive(true);
+	}
+
 	bool keyLeftDown, keyRightDown, keyUpDown, keyDownDown, keyJumpPress, changePlayerDown;
 	/* kiểm tra key bên trái có được giữ */
 	keyLeftDown = KEY::getInstance()->isLeftDown;
@@ -77,23 +96,27 @@ void Player::onUpdate(float dt)
 	int animation = getAnimation();
 	int frame = getFrameAnimation();
 	/* nếu giữ key trái */
-	if (keyLeftDown)
+
+	if (!blinkCantControlDelay.isOnTime())
 	{
-		/* set animation chạy */
-		setVx(-vx);
-		setDirection(TEXTURE_DIRECTION_LEFT);
-	}
-	/* nếu giữ key phải */
-	else if (keyRightDown)
-	{
-		/* set animation chạy */
-		setVx(vx);
-		setDirection(TEXTURE_DIRECTION_RIGHT);
-	}
-	else
-	{
-		/* set animation đứng yên */
-		setVx(0);
+		if (keyLeftDown)
+		{
+			/* set animation chạy */
+			setVx(-vx);
+			setDirection(TEXTURE_DIRECTION_LEFT);
+		}
+		/* nếu giữ key phải */
+		else if (keyRightDown)
+		{
+			/* set animation chạy */
+			setVx(vx);
+			setDirection(TEXTURE_DIRECTION_RIGHT);
+		}
+		else
+		{
+			/* set animation đứng yên */
+			setVx(0);
+		}
 	}
 
 	/* nếu vật đứng trên sàn */
@@ -230,6 +253,16 @@ void Player::onCollision(MovableRect * other, float collisionTime, int nx, int n
 	}
 }
 
+void Player::onAABBCheck(MovableRect* other)
+{
+	if (other->getCollisionType() == COLLISION_TYPE::COLLISION_TYPE_ENEMY && !blinkDelay.isOnTime())
+	{
+		blinkDelay.start();
+		blinkCantControlDelay.start();
+		setVx(S("player_blink_vx"));
+	}
+}
+
 void Player::updatePlayer(float dt)
 {
 	if (currentPlayer == playerMini)
@@ -262,6 +295,10 @@ Player::Player()
 	bulletDelay.init(S("player_bulle_delay"));
 	setDirection(TEXTURE_DIRECTION::TEXTURE_DIRECTION_RIGHT);
 	animationGameTime.init(S("player_animation_time_default"));
+
+	blinkTime.init(S("player_blink_time"));
+	blinkDelay.init(S("player_blink_delay"));
+	blinkCantControlDelay.init(S("player_blink_can't_control_delay"));
 }
 
 

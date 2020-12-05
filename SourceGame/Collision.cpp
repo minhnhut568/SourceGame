@@ -122,6 +122,10 @@ float Collision::SweptAABB(MovableRect* M, MovableRect* S, float & normalx, floa
 }
 void Collision::CheckCollision(MovableRect * M, MovableRect * S)
 {
+	if (!M->alive || !S->alive)
+	{
+		return;
+	}
 	if (AABBCheck(M, S))
 	{
 		M->onAABBCheck(S);

@@ -26,3 +26,8 @@ void Enemy::onUpdate(float dt)
 {
 	PhysicsObject::onUpdate(dt);
 }
+
+void Enemy::setConflicBullet()
+{
+	alive = false;
+}

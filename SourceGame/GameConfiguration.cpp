@@ -33,11 +33,15 @@ double GameConfiguration::GetConfiguration(const char * key)
 
 		/*  PLAYER  */
 		globalsConfigurationDouble->insert(pair<const char*, double>("player_vx", 190)); /* 60 pixel/s */
+		globalsConfigurationDouble->insert(pair<const char*, double>("player_blink_vx", -100)); /* 60 pixel/s */
 		globalsConfigurationDouble->insert(pair<const char*, double>("player_vy_jump", 550)); /* 60 pixel/s */
 		globalsConfigurationDouble->insert(pair<const char*, double>("player_bulle_delay", 300)); 
 		globalsConfigurationDouble->insert(pair<const char*, double>("player_animation_time_default", 25));
+		globalsConfigurationDouble->insert(pair<const char*, double>("player_blink_time", 20));
+		globalsConfigurationDouble->insert(pair<const char*, double>("player_blink_delay", 2000));
+		globalsConfigurationDouble->insert(pair<const char*, double>("player_blink_can't_control_delay", 200));
 
-		globalsConfigurationDouble->insert(pair<const char*, double>("playerbullet_dx", 3)); 
+		globalsConfigurationDouble->insert(pair<const char*, double>("playerbullet_dx", 5)); 
 
 		globalsConfigurationDouble->insert(pair<const char*, double>("worm_vx", 75));
 		globalsConfigurationDouble->insert(pair<const char*, double>("worm_dy", 2));

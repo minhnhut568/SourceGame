@@ -60,6 +60,10 @@ void BaseObject::onInitFromFile(ifstream& fs, int mapHeight)
 
 void BaseObject::update(float dt)
 {
+	if (!alive)
+	{
+		return;
+	}
 	/* chúng ta di chuyển đối tượng trước khi cập nhật */
 	goX();
 	goY();
@@ -93,6 +97,10 @@ void BaseObject::onUpdate(float dt)
 
 void BaseObject::render(Camera* camera)
 {
+	if (!alive)
+	{
+		return;
+	}
 	if (!this->getRenderActive())
 	{
 		return;
@@ -179,6 +187,7 @@ BaseObject::BaseObject()
 	setSprite(NULL);
 	animationGameTime.init(GLOBALS_D("object_animation_time_default"));
 	setRenderActive(true);
+	alive = true;
 }
 
 

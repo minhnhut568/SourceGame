@@ -9,6 +9,7 @@ class MovableRect :
 	float dx, dy;
 	COLLISION_TYPE collisionType;
 public:
+	bool alive;
 	COLLISION_TYPE getCollisionType();
 	void setCollisionType(COLLISION_TYPE collisionType);
 	virtual void setDx(float dx);
