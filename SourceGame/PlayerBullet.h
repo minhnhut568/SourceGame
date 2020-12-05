@@ -12,6 +12,7 @@ class PlayerBullet :
 {
 public:
 	void onUpdate(float dt);
+	void onAABBCheck(MovableRect* other) override;
 	PlayerBullet();
 };
 

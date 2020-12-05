@@ -35,10 +35,15 @@ public:
 	static PhysicsObject* getInstance();
 	void onUpdate(float dt) override;
 	void onCollision(MovableRect* other, float collisionTime, int nx, int ny) override;
+	void onAABBCheck(MovableRect* other) override;
 
 	static void updatePlayer(float dt);
 	static void renderPlayer();
 
 	Player();
 	~Player();
+
+	GameTime blinkTime;
+	DelayTime blinkDelay;
+	DelayTime blinkCantControlDelay;
 };

@@ -10,10 +10,30 @@ PlayerMini::PlayerMini()
 	setSprite(SPR(SPRITE_INFO_PLAYER_MINI));
 	setDirection(TEXTURE_DIRECTION::TEXTURE_DIRECTION_RIGHT);
 	bulletDelay.init(S("player_bulle_delay"));
+
+	blinkTime.init(S("player_blink_time"));
+	blinkDelay.init(S("player_blink_delay"));
+	blinkCantControlDelay.init(S("player_blink_can't_control_delay"));
 }
 
 void PlayerMini::onUpdate(float dt)
 {
+	if (blinkDelay.isOnTime())
+	{
+		if (blinkTime.atTime())
+		{
+			setRenderActive(false);
+		}
+		else
+		{
+			setRenderActive(true);
+		}
+	}
+	else
+	{
+		setRenderActive(true);
+	}
+
 	bulletDelay.update();
 	bool keyLeftDown, keyRightDown, keyUpDown, keyDownDown, keyJumpPress;
 	keyLeftDown = KEY::getInstance()->isLeftDown;
@@ -103,5 +123,15 @@ void PlayerMini::onCollision(MovableRect* other, float collisionTime, int nx, in
 		/* ngăn chặn di chuyển */
 		preventMovementWhenCollision(collisionTime, nx, ny);
 		PhysicsObject::onCollision(other, collisionTime, nx, ny);
+	}
+}
+
+void PlayerMini::onAABBCheck(MovableRect* other)
+{
+	if (other->getCollisionType() == COLLISION_TYPE::COLLISION_TYPE_ENEMY && !blinkDelay.isOnTime())
+	{
+		blinkDelay.start();
+		blinkCantControlDelay.start();
+		setVx(S("player_blink_vx"));
 	}
 }
