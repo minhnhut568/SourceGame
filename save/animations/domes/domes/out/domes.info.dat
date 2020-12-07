@@ -1,0 +1,47 @@
+Sprite domes
+R	G	B
+255	255	93	0
+Animation Count
+4
+
+
+Name
+Up
+Frame Count
+2
+
+FrameX		FrameY		FrameWidth		FrameHeight		AnchorX		AnchorY
+0			2			18				16				0			0
+18			1			18				17				0			0
+
+
+Name
+Left
+Frame Count
+2
+
+FrameX		FrameY		FrameWidth		FrameHeight		AnchorX		AnchorY
+36			0			17				18				0			0
+53			0			16				18				0			0
+
+
+Name
+Right
+Frame Count
+2
+
+FrameX		FrameY		FrameWidth		FrameHeight		AnchorX		AnchorY
+69			0			16				18				0			0
+85			0			17				18				0			0
+
+
+Name
+Down
+Frame Count
+2
+
+FrameX		FrameY		FrameWidth		FrameHeight		AnchorX		AnchorY
+102			2			18				16				0			0
+120			2			18				16				0			0
+
+

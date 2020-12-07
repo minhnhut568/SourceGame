@@ -26,6 +26,10 @@ enum SPRITE_INFO
 
 	SPRITE_INFO_PLAYER_MINI_BULLET = 5,
 
+	SPRITE_INFO_DOMES = 6,
+
+	
+
 	// thêm các sprite_info khác ở đây
 
 	SPRITE_COUNT
