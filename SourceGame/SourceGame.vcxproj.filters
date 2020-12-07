@@ -144,6 +144,9 @@
     <ClInclude Include="PlayerMiniBullet.h">
       <Filter>Objects\Arise</Filter>
     </ClInclude>
+    <ClInclude Include="Domes.h">
+      <Filter>Objects\Enemies</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Sprite.cpp">
@@ -232,6 +235,9 @@
     </ClCompile>
     <ClCompile Include="PlayerMiniBullet.cpp">
       <Filter>Objects\Arise</Filter>
+    </ClCompile>
+    <ClCompile Include="Domes.cpp">
+      <Filter>Objects\Enemies</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

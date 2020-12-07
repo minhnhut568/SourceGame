@@ -48,6 +48,8 @@ double GameConfiguration::GetConfiguration(const char * key)
 		globalsConfigurationDouble->insert(pair<const char*, double>("worm_y_climp", 16));
 		globalsConfigurationDouble->insert(pair<const char*, double>("worm_ay", -250));
 
+		globalsConfigurationDouble->insert(pair<const char*, double>("domes_dx", 1));
+
 
 		/* TODO tạo thêm các giá trị cấu hình double game tại đây 
 		Ví dụ: globalsConfiguration->insert(pair<const char*, double>("gia_tri_key", 10)); 10 la gia tri cua gia_tri_key

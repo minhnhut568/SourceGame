@@ -14,6 +14,7 @@ PlayerMini::PlayerMini()
 	blinkTime.init(S("player_blink_time"));
 	blinkDelay.init(S("player_blink_delay"));
 	blinkCantControlDelay.init(S("player_blink_can't_control_delay"));
+	setCollisionType(COLLISION_TYPE::COLLISION_TYPE_PLAYER);
 }
 
 void PlayerMini::onUpdate(float dt)

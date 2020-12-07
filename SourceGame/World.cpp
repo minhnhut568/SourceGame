@@ -5,6 +5,8 @@
 #include <string>
 #include "Gate.h"
 #include "Worm.h"
+#include "Domes.h"
+
 using namespace std;
 
 #include"Collision.h"
@@ -55,7 +57,9 @@ void World::Init(const char* tilesheetPath,
 		case SPRITE_INFO_WORM:
 			obj = new Worm();
 			break;
-
+		case SPRITE_INFO_DOMES:
+			obj = new Domes();
+			break;
 
 		default:
 			obj = new BaseObject();
