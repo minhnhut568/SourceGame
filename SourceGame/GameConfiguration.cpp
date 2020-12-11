@@ -60,6 +60,9 @@ double GameConfiguration::GetConfiguration(const char * key)
 		globalsConfigurationDouble->insert(pair<const char*, double>("gunner_vy", 350));
 		globalsConfigurationDouble->insert(pair<const char*, double>("gunner_walk_delay", 3000));
 		globalsConfigurationDouble->insert(pair<const char*, double>("gunner_jump_delay", 2000));
+
+		globalsConfigurationDouble->insert(pair<const char*, double>("insect_flyDownDelay", 700));
+		globalsConfigurationDouble->insert(pair<const char*, double>("insect_flyUpDelay", 300));
 	
 
 

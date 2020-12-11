@@ -159,6 +159,7 @@
     <ClInclude Include="GameUtils.h" />
     <ClInclude Include="Gate.h" />
     <ClInclude Include="Gunner.h" />
+    <ClInclude Include="Insect.h" />
     <ClInclude Include="KEY.h" />
     <ClInclude Include="List.h" />
     <ClInclude Include="MovableRect.h" />
@@ -195,6 +196,7 @@
     <ClCompile Include="GameUtils.cpp" />
     <ClCompile Include="Gate.cpp" />
     <ClCompile Include="Gunner.cpp" />
+    <ClCompile Include="Insect.cpp" />
     <ClCompile Include="KEY.cpp" />
     <ClCompile Include="MovableRect.cpp" />
     <ClCompile Include="PhysicsObject.cpp" />
