@@ -55,6 +55,11 @@ double GameConfiguration::GetConfiguration(const char * key)
 		globalsConfigurationDouble->insert(pair<const char*, double>("floater_shoot_time", 1500));
 		globalsConfigurationDouble->insert(pair<const char*, double>("floater_shoot_delay", 300));
 		globalsConfigurationDouble->insert(pair<const char*, double>("floater_r", 3));
+
+		globalsConfigurationDouble->insert(pair<const char*, double>("gunner_vx", 70));
+		globalsConfigurationDouble->insert(pair<const char*, double>("gunner_vy", 350));
+		globalsConfigurationDouble->insert(pair<const char*, double>("gunner_walk_delay", 3000));
+		globalsConfigurationDouble->insert(pair<const char*, double>("gunner_jump_delay", 2000));
 	
 
 

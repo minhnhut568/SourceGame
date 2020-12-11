@@ -54,6 +54,10 @@ SpriteManager::SpriteManager()
 	sprites[SPRITE_INFO_FLOATER_BULLET]->InitFromFile("assets/sprites/floater-bullet");
 	sprites[SPRITE_INFO_FLOATER_BULLET]->image->direction = TEXTURE_DIRECTION_RIGHT;
 
+	//gunner
+	sprites[SPRITE_INFO_GUNNER]->InitFromFile("assets/sprites/gunner");
+	sprites[SPRITE_INFO_GUNNER]->image->direction = TEXTURE_DIRECTION_RIGHT;
+
 }
 SpriteManager::~SpriteManager()
 {

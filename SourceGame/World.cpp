@@ -8,6 +8,8 @@
 #include "Domes.h"
 #include "Floater.h"
 #include "FloaterBullet.h"
+#include "Gunner.h"
+
 
 using namespace std;
 
@@ -64,6 +66,9 @@ void World::Init(const char* tilesheetPath,
 			break;
 		case SPRITE_INFO_FLOATER:
 			obj = new Floater();
+			break;
+		case SPRITE_INFO_GUNNER:
+			obj = new Gunner();
 			break;
 		/*case SPRITE_INFO_FLOATER_BULLET:
 			obj = new FloaterBullet();
