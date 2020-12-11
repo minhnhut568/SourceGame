@@ -1,6 +1,6 @@
-Sprite player-mini-bullet
+Sprite insect
 R	G	B
-255	0	57	115
+255	255	93	0
 Animation Count
 1
 
@@ -8,11 +8,10 @@ Animation Count
 Name
 Animation
 Frame Count
-3
+2
 
 FrameX		FrameY		FrameWidth		FrameHeight		AnchorX		AnchorY
-0			4			4				4				3			6
-4			2			6				6				4			5
-10			0			8				8				5			4
+0			0			18				18				0			0
+18			3			18				15				0			0
 
 

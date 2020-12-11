@@ -9,7 +9,7 @@
 #include "Floater.h"
 #include "FloaterBullet.h"
 #include "Gunner.h"
-
+#include "Insect.h"
 
 using namespace std;
 
@@ -69,6 +69,9 @@ void World::Init(const char* tilesheetPath,
 			break;
 		case SPRITE_INFO_GUNNER:
 			obj = new Gunner();
+			break;
+		case SPRITE_INFO_INSECT:
+			obj = new Insect();
 			break;
 		/*case SPRITE_INFO_FLOATER_BULLET:
 			obj = new FloaterBullet();
