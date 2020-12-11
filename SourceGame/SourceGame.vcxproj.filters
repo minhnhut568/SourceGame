@@ -147,6 +147,9 @@
     <ClInclude Include="Domes.h">
       <Filter>Objects\Enemies</Filter>
     </ClInclude>
+    <ClInclude Include="Floater.h">
+      <Filter>Objects\Enemies</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Sprite.cpp">
@@ -237,6 +240,9 @@
       <Filter>Objects\Arise</Filter>
     </ClCompile>
     <ClCompile Include="Domes.cpp">
+      <Filter>Objects\Enemies</Filter>
+    </ClCompile>
+    <ClCompile Include="Floater.cpp">
       <Filter>Objects\Enemies</Filter>
     </ClCompile>
   </ItemGroup>

@@ -28,7 +28,7 @@ enum SPRITE_INFO
 
 	SPRITE_INFO_DOMES = 6,
 
-	
+	SPRITE_INFO_FLOATER = 7,
 
 	// thêm các sprite_info khác ở đây
 
