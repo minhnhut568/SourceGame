@@ -38,6 +38,10 @@ SpriteManager::SpriteManager()
 	sprites[SPRITE_INFO_DOMES]->InitFromFile("assets/sprites/domes");
 	sprites[SPRITE_INFO_DOMES]->image->direction = TEXTURE_DIRECTION_LEFT;
 
+	//floater
+	sprites[SPRITE_INFO_FLOATER]->InitFromFile("assets/sprites/floater");
+	sprites[SPRITE_INFO_FLOATER]->image->direction = TEXTURE_DIRECTION_LEFT;
+
 	//player mini
 	sprites[SPRITE_INFO_PLAYER_MINI]->InitFromFile("assets/sprites/player-mini");
 	sprites[SPRITE_INFO_PLAYER_MINI]->image->direction = TEXTURE_DIRECTION_RIGHT;
@@ -45,6 +49,10 @@ SpriteManager::SpriteManager()
 	//player mini
 	sprites[SPRITE_INFO_PLAYER_MINI_BULLET]->InitFromFile("assets/sprites/player-mini-bullet");
 	sprites[SPRITE_INFO_PLAYER_MINI_BULLET]->image->direction = TEXTURE_DIRECTION_RIGHT;
+
+	//player mini
+	sprites[SPRITE_INFO_FLOATER_BULLET]->InitFromFile("assets/sprites/floater-bullet");
+	sprites[SPRITE_INFO_FLOATER_BULLET]->image->direction = TEXTURE_DIRECTION_RIGHT;
 
 }
 SpriteManager::~SpriteManager()

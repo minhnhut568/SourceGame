@@ -28,8 +28,9 @@ enum SPRITE_INFO
 
 	SPRITE_INFO_DOMES = 6,
 
-	
+	SPRITE_INFO_FLOATER = 7,
 
+	SPRITE_INFO_FLOATER_BULLET = 8,
 	// thêm các sprite_info khác ở đây
 
 	SPRITE_COUNT
