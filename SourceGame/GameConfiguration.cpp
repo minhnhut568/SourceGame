@@ -50,9 +50,12 @@ double GameConfiguration::GetConfiguration(const char * key)
 
 		globalsConfigurationDouble->insert(pair<const char*, double>("domes_dx", 1));
 
-		globalsConfigurationDouble->insert(pair<const char*, double>("floater_vx", 75));
+		globalsConfigurationDouble->insert(pair<const char*, double>("floater_vx", 80));
 		globalsConfigurationDouble->insert(pair<const char*, double>("floater_dy", 2));
-		globalsConfigurationDouble->insert(pair<const char*, double>("floater_ay", -250));
+		globalsConfigurationDouble->insert(pair<const char*, double>("floater_shoot_time", 1500));
+		globalsConfigurationDouble->insert(pair<const char*, double>("floater_shoot_delay", 300));
+		globalsConfigurationDouble->insert(pair<const char*, double>("floater_r", 3));
+	
 
 
 		/* TODO tạo thêm các giá trị cấu hình double game tại đây 

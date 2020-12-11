@@ -150,6 +150,9 @@
     <ClInclude Include="Floater.h">
       <Filter>Objects\Enemies</Filter>
     </ClInclude>
+    <ClInclude Include="FloaterBullet.h">
+      <Filter>Objects\Arise</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Sprite.cpp">
@@ -244,6 +247,9 @@
     </ClCompile>
     <ClCompile Include="Floater.cpp">
       <Filter>Objects\Enemies</Filter>
+    </ClCompile>
+    <ClCompile Include="FloaterBullet.cpp">
+      <Filter>Objects\Arise</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

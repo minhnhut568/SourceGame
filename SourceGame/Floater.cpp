@@ -1,51 +1,105 @@
 #include "Floater.h"
 #include "Player.h"
-
+#include "FloaterBullet.h"
+#include<string>
 Floater::Floater()
 {
-	setAnimation(FLOATER_STATE::FLOATER_STATE_FLY);
-	setAy(S("floater_ay"));
+	//setAy(S("floater_ay"));
 	startY = 0;
-	floaterState = FLOATER_STATE::FLOATER_STATE_FLY;
-	setDirection(-1);
+	setDirection(-1);	
+	setDx(-1);
+	setDy(1);
+
+	shootTime.init(S("floater_shoot_time"));
+	shootDelay.init(S("floater_shoot_delay"));
 }
 
 void Floater::onUpdate(float dt)
 {
-	auto player = Player::getInstance();
-	switch (floaterState)
+	shootDelay.update();
+
+	if (shootTime.atTime())
 	{
-	case FLOATER_STATE_FLY:
-		if (getleft() > player->getRight() && getDirection() == 1)
-		{
-			setDirection(-1);
-		}
+		TRACE("shoot");
+		shootDelay.start();
+		FloaterBullet* bullet = new FloaterBullet();
+		bullet->setX(this->getMidX());
+		bullet->setY(this->getMidY());
 
-		if (getRight() < player->getleft() && getDirection() == -1)
-		{
-			setDirection(1);
-		}
+		auto player = Player::getInstance();
 
-		setVx(S("floater_vx") * getDirection());
-		break;
-	case FLOATER_STATE_SHOOT:
-		
-		break;
-	default:
-		break;
+		auto xb = bullet->getX();
+		auto yb = bullet->getY();
+		auto xp = player->getX();
+		auto yp = player->getY();
+		auto r = S("floater_r");
+
+		if (abs(yp - yb) <= 20)
+		{
+			if (getMidX() < player->getMidX())
+			{
+				bullet->setDx(r);
+			}
+			else
+			{
+				bullet->setDx(-r);
+			}
+		}
+		else
+		{
+			auto m = ((xp - xb) * (xp - xb)) / ((yp - yb) * (yp - yb));
+
+			auto dx = sqrt(r * r * m / (1 + m));
+
+			if (getMidX() < player->getMidX())
+			{
+				bullet->setDx(dx);
+			}
+			else
+			{
+				bullet->setDx(-dx);
+			}
+
+			auto dy = sqrt(abs(r * r - dx * dx));
+
+			if (getMidY() < player->getMidY())
+			{
+				bullet->setDy(dy);
+			}
+			else
+			{
+				bullet->setDy(-dy);
+			}
+		}
+		auto xx = bullet->getDx();
+		auto yy = bullet->getDy();
+		TRACE_VAL_LN("dx", xx);
+		TRACE_VAL_LN("dy", yy);
 	}
 
-	Enemy::onUpdate(dt);
+	if (shootDelay.isOnTime())
+	{
+		setAnimation(FLOATER_ACTION_SHOOT);
+	}
+	else
+	{
+		setAnimation(FLOATER_ACTION_FLY);
+	}
+
 }
 
 void Floater::onCollision(MovableRect* other, float collisionTime, int nx, int ny)
 {
-	if (getIsOnGround() && nx != 0)
+	if (other->getCollisionType() == COLLISION_TYPE_GROUND)
 	{
-		setDy(S("worm_dy"));
-		setPhysicsEnable(false);
-		startY = getY();
-		floaterState = FLOATER_STATE_FLY;
+		if (nx != 0)
+		{
+			setDx(nx);
+		}
+		if (ny != 0)
+		{
+			setDy(ny);
+		}
 	}
-	Enemy::onCollision(other, collisionTime, nx, ny);
+	
 }

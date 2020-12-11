@@ -149,6 +149,7 @@
     <ClInclude Include="Domes.h" />
     <ClInclude Include="Enemy.h" />
     <ClInclude Include="Floater.h" />
+    <ClInclude Include="FloaterBullet.h" />
     <ClInclude Include="FrameAnimation.h" />
     <ClInclude Include="Game.h" />
     <ClInclude Include="GameConfiguration.h" />
@@ -184,6 +185,7 @@
     <ClCompile Include="Domes.cpp" />
     <ClCompile Include="Enemy.cpp" />
     <ClCompile Include="Floater.cpp" />
+    <ClCompile Include="FloaterBullet.cpp" />
     <ClCompile Include="Game.cpp" />
     <ClCompile Include="GameConfiguration.cpp" />
     <ClCompile Include="GameDirectX.cpp" />

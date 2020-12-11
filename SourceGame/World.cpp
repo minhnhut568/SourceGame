@@ -6,6 +6,8 @@
 #include "Gate.h"
 #include "Worm.h"
 #include "Domes.h"
+#include "Floater.h"
+#include "FloaterBullet.h"
 
 using namespace std;
 
@@ -60,7 +62,13 @@ void World::Init(const char* tilesheetPath,
 		case SPRITE_INFO_DOMES:
 			obj = new Domes();
 			break;
-
+		case SPRITE_INFO_FLOATER:
+			obj = new Floater();
+			break;
+		/*case SPRITE_INFO_FLOATER_BULLET:
+			obj = new FloaterBullet();
+			break;*/
+		
 		default:
 			obj = new BaseObject();
 			break;

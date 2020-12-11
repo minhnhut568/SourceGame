@@ -1,9 +1,12 @@
 #pragma once
 #include "Enemy.h"
+#include "GameTime.h"
+#include "DelayTime.h"
 
-enum FLOATER_STATE {
-	FLOATER_STATE_FLY,
-	FLOATER_STATE_SHOOT
+
+enum FLOATER_ACTION {
+	FLOATER_ACTION_FLY,
+	FLOATER_ACTION_SHOOT
 };
 
 class Floater :
@@ -11,11 +14,12 @@ class Floater :
 {
 public:
 
+	GameTime shootTime;
+	DelayTime shootDelay;
+
 	MovableRect* ground;
-	FLOATER_STATE floaterState;
 	Floater();
 	int startY;
-	//int initNx, initNy;
 
 	void onUpdate(float dt) override;
 
