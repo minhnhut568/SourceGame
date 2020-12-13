@@ -162,6 +162,12 @@
     <ClInclude Include="Orbs.h">
       <Filter>Objects\Enemies</Filter>
     </ClInclude>
+    <ClInclude Include="Skulls.h">
+      <Filter>Objects\Enemies</Filter>
+    </ClInclude>
+    <ClInclude Include="SkullsBullet.h">
+      <Filter>Objects\Arise</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Sprite.cpp">
@@ -268,6 +274,12 @@
     </ClCompile>
     <ClCompile Include="Orbs.cpp">
       <Filter>Objects\Enemies</Filter>
+    </ClCompile>
+    <ClCompile Include="Skulls.cpp">
+      <Filter>Objects\Enemies</Filter>
+    </ClCompile>
+    <ClCompile Include="SkullsBullet.cpp">
+      <Filter>Objects\Arise</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

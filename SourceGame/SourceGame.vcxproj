@@ -170,6 +170,8 @@
     <ClInclude Include="PlayerMini.h" />
     <ClInclude Include="PlayerMiniBullet.h" />
     <ClInclude Include="Rect.h" />
+    <ClInclude Include="Skulls.h" />
+    <ClInclude Include="SkullsBullet.h" />
     <ClInclude Include="Space.h" />
     <ClInclude Include="Sprite.h" />
     <ClInclude Include="SpriteManager.h" />
@@ -207,6 +209,8 @@
     <ClCompile Include="PlayerMini.cpp" />
     <ClCompile Include="PlayerMiniBullet.cpp" />
     <ClCompile Include="Rect.cpp" />
+    <ClCompile Include="Skulls.cpp" />
+    <ClCompile Include="SkullsBullet.cpp" />
     <ClCompile Include="Sprite.cpp" />
     <ClCompile Include="SpriteManager.cpp" />
     <ClCompile Include="Tilemap.cpp" />
