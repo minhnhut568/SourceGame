@@ -159,6 +159,9 @@
     <ClInclude Include="Insect.h">
       <Filter>Objects\Enemies</Filter>
     </ClInclude>
+    <ClInclude Include="Orbs.h">
+      <Filter>Objects\Enemies</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Sprite.cpp">
@@ -261,6 +264,9 @@
       <Filter>Objects\Enemies</Filter>
     </ClCompile>
     <ClCompile Include="Insect.cpp">
+      <Filter>Objects\Enemies</Filter>
+    </ClCompile>
+    <ClCompile Include="Orbs.cpp">
       <Filter>Objects\Enemies</Filter>
     </ClCompile>
   </ItemGroup>

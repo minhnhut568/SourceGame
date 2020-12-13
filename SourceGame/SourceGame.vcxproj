@@ -163,6 +163,7 @@
     <ClInclude Include="KEY.h" />
     <ClInclude Include="List.h" />
     <ClInclude Include="MovableRect.h" />
+    <ClInclude Include="Orbs.h" />
     <ClInclude Include="PhysicsObject.h" />
     <ClInclude Include="Player.h" />
     <ClInclude Include="PlayerBullet.h" />
@@ -199,6 +200,7 @@
     <ClCompile Include="Insect.cpp" />
     <ClCompile Include="KEY.cpp" />
     <ClCompile Include="MovableRect.cpp" />
+    <ClCompile Include="Orbs.cpp" />
     <ClCompile Include="PhysicsObject.cpp" />
     <ClCompile Include="Player.cpp" />
     <ClCompile Include="PlayerBullet.cpp" />
