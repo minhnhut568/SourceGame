@@ -1,4 +1,4 @@
-Sprite orbs
+Sprite 13
 R	G	B
 255	255	93	0
 Animation Count
@@ -8,11 +8,9 @@ Animation Count
 Name
 Animation
 Frame Count
-3
+1
 
 FrameX		FrameY		FrameWidth		FrameHeight		AnchorX		AnchorY
-0			0			18				18				0			0
-18			0			18				18				0			0
-36			0			18				18				0			0
+0			0			10				10				0			0
 
 

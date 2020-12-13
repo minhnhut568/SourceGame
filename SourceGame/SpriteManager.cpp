@@ -65,6 +65,10 @@ SpriteManager::SpriteManager()
 	//orbs
 	sprites[SPRITE_INFO_ORBS]->InitFromFile("assets/sprites/orbs");
 	sprites[SPRITE_INFO_ORBS]->image->direction = TEXTURE_DIRECTION_RIGHT;
+	
+	//skulls
+	sprites[SPRITE_INFO_SKULLS]->InitFromFile("assets/sprites/skulls");
+	sprites[SPRITE_INFO_SKULLS]->image->direction = TEXTURE_DIRECTION_RIGHT;
 
 }
 SpriteManager::~SpriteManager()
