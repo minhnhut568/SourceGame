@@ -58,9 +58,13 @@ SpriteManager::SpriteManager()
 	sprites[SPRITE_INFO_GUNNER]->InitFromFile("assets/sprites/gunner");
 	sprites[SPRITE_INFO_GUNNER]->image->direction = TEXTURE_DIRECTION_RIGHT;
 
-	//gunner
+	//insect
 	sprites[SPRITE_INFO_INSECT]->InitFromFile("assets/sprites/insect");
 	sprites[SPRITE_INFO_INSECT]->image->direction = TEXTURE_DIRECTION_RIGHT;
+
+	//orbs
+	sprites[SPRITE_INFO_ORBS]->InitFromFile("assets/sprites/orbs");
+	sprites[SPRITE_INFO_ORBS]->image->direction = TEXTURE_DIRECTION_RIGHT;
 
 }
 SpriteManager::~SpriteManager()

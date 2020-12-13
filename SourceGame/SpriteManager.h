@@ -33,9 +33,11 @@ enum SPRITE_INFO
 	SPRITE_INFO_FLOATER_BULLET = 8,
 
 	SPRITE_INFO_GUNNER = 9,
-	SPRITE_INFO_INSECT = 10,
-	// thêm các sprite_info khác ở đây
 
+	SPRITE_INFO_INSECT = 10,
+
+	SPRITE_INFO_ORBS = 11,
+	
 	SPRITE_COUNT
 };
 
