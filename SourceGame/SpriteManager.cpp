@@ -77,6 +77,10 @@ SpriteManager::SpriteManager()
 	//boom
 	sprites[SPRITE_INFO_BOOM]->InitFromFile("assets/sprites/boom");
 	sprites[SPRITE_INFO_BOOM]->image->direction = TEXTURE_DIRECTION_RIGHT;
+	
+	//snails
+	sprites[SPRITE_INFO_SNAILS]->InitFromFile("assets/sprites/snails");
+	sprites[SPRITE_INFO_SNAILS]->image->direction = TEXTURE_DIRECTION_RIGHT;
 
 }
 SpriteManager::~SpriteManager()

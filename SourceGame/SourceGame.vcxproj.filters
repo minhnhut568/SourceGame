@@ -168,8 +168,11 @@
     <ClInclude Include="SkullsBullet.h">
       <Filter>Objects\Arise</Filter>
     </ClInclude>
+    <ClInclude Include="Snails.h">
+      <Filter>Objects\Enemies</Filter>
+    </ClInclude>
     <ClInclude Include="Explosion.h">
-      <Filter>Header Files</Filter>
+      <Filter>Objects\Enemies</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -284,8 +287,11 @@
     <ClCompile Include="SkullsBullet.cpp">
       <Filter>Objects\Arise</Filter>
     </ClCompile>
+    <ClCompile Include="Snails.cpp">
+      <Filter>Objects\Enemies</Filter>
+    </ClCompile>
     <ClCompile Include="Explosion.cpp">
-      <Filter>Source Files</Filter>
+      <Filter>Objects\Enemies</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

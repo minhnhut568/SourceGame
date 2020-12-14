@@ -173,6 +173,7 @@
     <ClInclude Include="Rect.h" />
     <ClInclude Include="Skulls.h" />
     <ClInclude Include="SkullsBullet.h" />
+    <ClInclude Include="Snails.h" />
     <ClInclude Include="Space.h" />
     <ClInclude Include="Sprite.h" />
     <ClInclude Include="SpriteManager.h" />
@@ -213,6 +214,7 @@
     <ClCompile Include="Rect.cpp" />
     <ClCompile Include="Skulls.cpp" />
     <ClCompile Include="SkullsBullet.cpp" />
+    <ClCompile Include="Snails.cpp" />
     <ClCompile Include="Sprite.cpp" />
     <ClCompile Include="SpriteManager.cpp" />
     <ClCompile Include="Tilemap.cpp" />
