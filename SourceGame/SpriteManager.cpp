@@ -70,6 +70,10 @@ SpriteManager::SpriteManager()
 	sprites[SPRITE_INFO_SKULLS]->InitFromFile("assets/sprites/skulls");
 	sprites[SPRITE_INFO_SKULLS]->image->direction = TEXTURE_DIRECTION_RIGHT;
 
+	//skulls bullet
+	sprites[SPRITE_INFO_SKULLS_BULLET]->InitFromFile("assets/sprites/skulls-bullet");
+	sprites[SPRITE_INFO_SKULLS_BULLET]->image->direction = TEXTURE_DIRECTION_RIGHT;
+
 }
 SpriteManager::~SpriteManager()
 {

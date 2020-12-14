@@ -5,6 +5,7 @@ FloaterBullet::FloaterBullet()
 {
 	setSprite(SpriteManager::getInstance()->getSprite(SPRITE_INFO_FLOATER_BULLET));
 	animationGameTime.init(500);
+	setPhysicsEnable(false);
 }
 
 void FloaterBullet::onUpdate(float dt)
@@ -13,4 +14,5 @@ void FloaterBullet::onUpdate(float dt)
 	{
 		setPauseAnimation(true);
 	}
+	AriseBase::onUpdate(dt);
 }

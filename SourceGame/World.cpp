@@ -11,6 +11,7 @@
 #include "Gunner.h"
 #include "Insect.h"
 #include "Orbs.h"
+#include "Skulls.h"
 
 using namespace std;
 
@@ -78,7 +79,12 @@ void World::Init(const char* tilesheetPath,
 		case SPRITE_INFO_ORBS:
 			obj = new Orbs();
 			break;
+		
+		case SPRITE_INFO_SKULLS:
+			obj = new Skulls();
+			break;
 
+		
 		/*case SPRITE_INFO_FLOATER_BULLET:
 			obj = new FloaterBullet();
 			break;*/

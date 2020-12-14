@@ -64,11 +64,12 @@ double GameConfiguration::GetConfiguration(const char * key)
 		globalsConfigurationDouble->insert(pair<const char*, double>("insect_flyDownDelay", 700));
 		globalsConfigurationDouble->insert(pair<const char*, double>("insect_flyUpDelay", 300));
 	
-		globalsConfigurationDouble->insert(pair<const char*, double>("skulls_vx", 80));
-		globalsConfigurationDouble->insert(pair<const char*, double>("skulls_dy", 2));
-		globalsConfigurationDouble->insert(pair<const char*, double>("skulls_shoot_time", 1500));
-		globalsConfigurationDouble->insert(pair<const char*, double>("skulls_shoot_delay", 300));
-		globalsConfigurationDouble->insert(pair<const char*, double>("skulls_r", 3));
+		globalsConfigurationDouble->insert(pair<const char*, double>("skulls_dx", 2));
+		globalsConfigurationDouble->insert(pair<const char*, double>("skulls_stand_delay", 1000));
+		globalsConfigurationDouble->insert(pair<const char*, double>("skulls_run_delay", 300));
+
+		globalsConfigurationDouble->insert(pair<const char*, double>("skulls_bullet_live_delay", 1000));
+		
 
 
 		/* TODO tạo thêm các giá trị cấu hình double game tại đây 
