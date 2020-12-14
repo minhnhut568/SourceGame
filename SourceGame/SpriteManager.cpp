@@ -73,6 +73,10 @@ SpriteManager::SpriteManager()
 	//skulls bullet
 	sprites[SPRITE_INFO_SKULLS_BULLET]->InitFromFile("assets/sprites/skulls-bullet");
 	sprites[SPRITE_INFO_SKULLS_BULLET]->image->direction = TEXTURE_DIRECTION_RIGHT;
+	
+	//boom
+	sprites[SPRITE_INFO_BOOM]->InitFromFile("assets/sprites/boom");
+	sprites[SPRITE_INFO_BOOM]->image->direction = TEXTURE_DIRECTION_RIGHT;
 
 }
 SpriteManager::~SpriteManager()

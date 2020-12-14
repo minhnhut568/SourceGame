@@ -2,6 +2,7 @@
 #include "PlayerBullet.h"
 #include "SpriteManager.h"
 #include "Enemy.h"
+#include"Explosion.h"
 
 SkullsBullet::SkullsBullet()
 {
@@ -17,6 +18,7 @@ void SkullsBullet::onUpdate(float dt)
 	if (liveDelay.isTerminated())
 	{
 		markForDelete = true;
+		Explosion::setExplosion(this);
 	}
 	AriseBase::onUpdate(dt);
 }

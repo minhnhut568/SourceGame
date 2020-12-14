@@ -1,0 +1,23 @@
+Sprite bom
+R	G	B
+255	25	151	255
+Animation Count
+1
+
+
+Name
+Animation
+Frame Count
+8
+
+FrameX		FrameY		FrameWidth		FrameHeight		AnchorX		AnchorY
+0			16			7				8				4			4
+7			11			16				13				8			7
+23			8			16				16				8			8
+39			0			24				24				12			12
+63			8			16				16				8			8
+79			11			11				13				6			7
+90			10			14				14				7			7
+104			16			6				8				3			4
+
+

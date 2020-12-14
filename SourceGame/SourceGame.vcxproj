@@ -148,6 +148,7 @@
     <ClInclude Include="DelayTime.h" />
     <ClInclude Include="Domes.h" />
     <ClInclude Include="Enemy.h" />
+    <ClInclude Include="Explosion.h" />
     <ClInclude Include="Floater.h" />
     <ClInclude Include="FloaterBullet.h" />
     <ClInclude Include="FrameAnimation.h" />
@@ -189,6 +190,7 @@
     <ClCompile Include="DelayTime.cpp" />
     <ClCompile Include="Domes.cpp" />
     <ClCompile Include="Enemy.cpp" />
+    <ClCompile Include="Explosion.cpp" />
     <ClCompile Include="Floater.cpp" />
     <ClCompile Include="FloaterBullet.cpp" />
     <ClCompile Include="Game.cpp" />

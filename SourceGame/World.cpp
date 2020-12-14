@@ -309,6 +309,13 @@ void World::update(float dt)
 			}
 		}
 
+		for (size_t i2 = 0; i2 < ariseObjects->size(); i2++)
+		{
+			/* cho xét va chạm của đối tượng dựa vào 1 cặp collisionType trong CollisionTypeCollide */
+			Collision::CheckCollision(Player::getPlayerMain(), ariseObjects->at(i2));
+			Collision::CheckCollision(Player::getPlayerMini(), ariseObjects->at(i2));
+		}
+
 		/* xét va chạm cho các loại đối tượng với nhau */
 		for (size_t i = 0; i < collisionTypeCollides.size(); i++)
 		{

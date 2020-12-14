@@ -1,11 +1,11 @@
 #pragma once
 #include "AriseBase.h"
-class FloaterBullet :
+class Explosion :
 	public AriseBase
 {
 public:
-	FloaterBullet();
-	void onAABBCheck(MovableRect* other) override;
+	Explosion();
+	static void setExplosion(BaseObject* obj);
 	void onUpdate(float dt) override;
 };
 
