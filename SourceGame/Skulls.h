@@ -1,23 +1,23 @@
 #pragma once
-#include "Enemy.h"
 #include "DelayTime.h"
-#include "GameTime.h"
+#include "Enemy.h"
 
-enum SKULLS_ACTION {
-	SKULLS_ACTION_FLY,
-	SKULLS_ACTION_RELEASE
+enum SKULLS_STATE {
+	SKULLS_STATE_RUN,
+	SKULLS_STATE_STAND
 };
+
+
 class Skulls :
 	public Enemy
 {
 public:
-
-	GameTime shootTime;
-	DelayTime shootDelay;
-
-	MovableRect* ground;
+	SKULLS_STATE skullsState;
 	Skulls();
-	int startY;
+
+	DelayTime standDelay;
+	DelayTime runDelay;
+	bool checkContactPlayer();
 
 	void onUpdate(float dt) override;
 	void onCollision(MovableRect* other, float collisionTime, int nx, int ny) override;

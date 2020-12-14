@@ -1,88 +1,61 @@
 #include "Skulls.h"
+#include "DelayTime.h"
 #include "SkullsBullet.h"
 #include "Player.h"
-#include<string>
+
+
+
 
 Skulls::Skulls()
 {
-	startY = 0;
 	setDirection(-1);
-	setDx(-1);
-	setDy(1);
-
-	shootTime.init(S("skulls_shoot_time"));
-	shootDelay.init(S("skulls_shoot_delay"));
+	standDelay.init(S("skulls_stand_delay"));
+	runDelay.init(S("skulls_run_delay"));
+	skullsState = SKULLS_STATE_RUN;
+	runDelay.start();
+}
+bool Skulls::checkContactPlayer()
+{
+	auto player = Player::getInstance();
+	if (getleft() < player->getRight() && getRight() > player->getleft()) {
+		return true;
+	}
+	return false;
 }
 void Skulls::onUpdate(float dt)
 {
-	shootDelay.update();
-
-	if (shootTime.atTime())
+	standDelay.update();
+	runDelay.update();
+	switch (skullsState)
 	{
-		TRACE("shoot");
-		shootDelay.start();
-		SkullsBullet* bullet = new SkullsBullet();
-		bullet->setX(this->getMidX());
-		bullet->setY(this->getMidY());
-
-		auto player = Player::getInstance();
-
-		auto xb = bullet->getX();
-		auto yb = bullet->getY();
-		auto xp = player->getX();
-		auto yp = player->getY();
-		auto r = S("Skulls_r");
-
-		if (abs(yp - yb) <= 20)
+	case SKULLS_STATE_RUN:
+		setDx(getDirection() * S("skulls_dx"));
+		if (!runDelay.isOnTime())
 		{
-			if (getMidX() < player->getMidX())
+			if (checkContactPlayer())
 			{
-				bullet->setDx(r);
-			}
-			else
-			{
-				bullet->setDx(-r);
+				skullsState = SKULLS_STATE_STAND;
+				standDelay.start();
+				auto bullet = new SkullsBullet();
+				bullet->setX(getX());
+				bullet->setY(getY());
+
 			}
 		}
-		else
+		break;
+	case SKULLS_STATE_STAND:
+		setDx(0);
+		if (!standDelay.isOnTime())
 		{
-			auto m = ((xp - xb) * (xp - xb)) / ((yp - yb) * (yp - yb));
-
-			auto dx = sqrt(r * r * m / (1 + m));
-
-			if (getMidX() < player->getMidX())
+			if (checkContactPlayer())
 			{
-				bullet->setDx(dx);
-			}
-			else
-			{
-				bullet->setDx(-dx);
-			}
-
-			auto dy = sqrt(abs(r * r - dx * dx));
-
-			if (getMidY() < player->getMidY())
-			{
-				bullet->setDy(dy);
-			}
-			else
-			{
-				bullet->setDy(-dy);
+				skullsState = SKULLS_STATE_RUN;
+				runDelay.start();
 			}
 		}
-		auto xx = bullet->getDx();
-		auto yy = bullet->getDy();
-		TRACE_VAL_LN("dx", xx);
-		TRACE_VAL_LN("dy", yy);
-	}
-
-	if (shootDelay.isOnTime())
-	{
-		setAnimation(SKULLS_ACTION_RELEASE);
-	}
-	else
-	{
-		setAnimation(SKULLS_ACTION_FLY);
+		break;
+	default:
+		break;
 	}
 
 }
@@ -93,11 +66,7 @@ void Skulls::onCollision(MovableRect* other, float collisionTime, int nx, int ny
 	{
 		if (nx != 0)
 		{
-			setDx(nx);
-		}
-		if (ny != 0)
-		{
-			setDy(ny);
+			setDirection(nx);
 		}
 	}
 }
