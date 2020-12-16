@@ -1,42 +1,122 @@
 SpaceCount
-5
+15
 
 Space1
 X       Y       Width       Height
-0           2799      1024         240
+0       2799    1024        240
 CameraX     CameraY
-0           2800
+0           2799
 PlayerX     PlayerY
 39          2894
 
 Space2
 X       Y       Width       Height
-1024     1807      512        1232
+1024    1759    512         1279
 CameraX     CameraY
-1024         2800
+1024       2799
 PlayerX     PlayerY
-1090         2924
+1064         2866
 
 Space3
 X       Y       Width       Height
-1536    0      511         1757
+1536    1791      515         242
 CameraX     CameraY
-1536    800
+1536    1791
 PlayerX     PlayerY
 1604        1852
 
 Space4
 X       Y       Width       Height
-1536    1791      513         240
+2048    1023      511         1009
 CameraX     CameraY
-1536    240
+2048    1023
 PlayerX     PlayerY
 1599        1920
 
 Space5
 X       Y       Width       Height
-1536    0      511         1757
+2560    1791      512       239
 CameraX     CameraY
-1536    800
+2560    1791
+PlayerX     PlayerY
+1604        888
+
+Space6
+X       Y       Width       Height
+1536    0       514         1791
+CameraX     CameraY
+1536    0
+PlayerX     PlayerY
+1604        888
+
+Space7
+X       Y       Width       Height
+2079    479      481      256
+CameraX     CameraY
+2079    479
+PlayerX     PlayerY
+1604        888
+
+Space8
+X       Y       Width       Height
+2049    0      479       239
+CameraX     CameraY
+2049    0
+PlayerX     PlayerY
+1604        888
+
+Space9
+X       Y       Width       Height
+2528    0       544       527
+CameraX     CameraY
+2528    0
+PlayerX     PlayerY
+1604        888
+
+Space10
+X       Y       Width       Height
+2049    239      481       225
+CameraX     CameraY
+2049    239
+PlayerX     PlayerY
+1604        888
+
+Space11
+X       Y       Width       Height
+1280    1024      256       191
+CameraX     CameraY
+1280    1024
+PlayerX     PlayerY
+1604        888
+
+Space12
+X       Y       Width       Height
+768    1568      769       190
+CameraX     CameraY
+768    1568
+PlayerX     PlayerY
+1604        888
+
+Space13
+X       Y       Width       Height
+512    1024      225       735
+CameraX     CameraY
+512    1024
+PlayerX     PlayerY
+1604        888
+
+Space14
+X       Y       Width       Height
+767    1024      513       513
+CameraX     CameraY
+767    1024
+PlayerX     PlayerY
+1604        888
+
+Space15
+X       Y       Width       Height
+1280    1296      256       175
+CameraX     CameraY
+1280    1296
 PlayerX     PlayerY
 1604        888
