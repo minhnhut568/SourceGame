@@ -1,6 +1,8 @@
 #include "Camera.h"
 #include<d3dx9.h>
 #include"Player.h"
+#include"PlayerOneWorld.h"
+#include"Game.h"
 
 Camera * Camera::instance = 0;
 Camera * Camera::getInstance()
@@ -42,7 +44,19 @@ void Camera::update()
 	/* mặc định cho camera đứng yên, chỉ khi player chạy nó mới chạy theo */
 	setDx(0);
 
-	auto player = Player::getInstance();
+	BaseObject* player = 0;
+	switch (Game::getInstance()->worldType)
+	{
+	case WT_ONE_WORLD:
+		player = PlayerOneWorld::getInstance();
+		break;
+	case WT_WORLD:
+		player = Player::getInstance();
+		break;
+	default:
+		break;
+	}
+	
 	/* nếu player đang chạy sang trái (player->getDx()<0) và phần giữa camera nằm bên phải phần giữa player */
 	if (player->getDx() < 0 && getMidX() > player->getMidX())
 	{

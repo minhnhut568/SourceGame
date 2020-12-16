@@ -6,6 +6,13 @@
 #include"Animation.h"
 #include"Sprite.h"
 #include"World.h"
+#include"OneWorld.h"
+
+enum WorldType
+{
+	WT_WORLD,
+	WT_ONE_WORLD
+};
 
 class Game
 {
@@ -14,7 +21,10 @@ class Game
 
 	World* world;
 
+	OneWorld* oneWorld;
+
 public:
+	WorldType worldType;
 	static Game* getInstance();
 	/* Các câu lệnh khởi tạo game */
 	void GameInit();

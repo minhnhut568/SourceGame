@@ -241,10 +241,6 @@ void Player::onUpdate(float dt)
 
 void Player::onCollision(MovableRect * other, float collisionTime, int nx, int ny)
 {
-	if (nx != 0)
-	{
-		int a = 5;
-	}
 	if (other->getCollisionType() == COLLISION_TYPE_GROUND)
 	{
 		/* ngăn chặn di chuyển */
