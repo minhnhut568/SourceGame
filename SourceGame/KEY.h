@@ -3,7 +3,7 @@
 class KEY
 {
 public:
-	bool	
+	bool
 		isLeftDown,
 		isRightDown,
 		isUpDown,
@@ -19,6 +19,7 @@ public:
 		isSpace3Down,
 		isSpace4Down,
 		isSpace5Down,
+		isEnterDown,
 		changePlayerDown,
 		previousChangePlayerDown,
 		changePlayer;

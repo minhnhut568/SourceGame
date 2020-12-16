@@ -183,6 +183,9 @@
     <ClInclude Include="OneWorld.h">
       <Filter>WorldAndCamera</Filter>
     </ClInclude>
+    <ClInclude Include="WorldIntro.h">
+      <Filter>WorldAndCamera</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Sprite.cpp">
@@ -306,6 +309,9 @@
       <Filter>Objects\Player</Filter>
     </ClCompile>
     <ClCompile Include="OneWorld.cpp">
+      <Filter>WorldAndCamera</Filter>
+    </ClCompile>
+    <ClCompile Include="WorldIntro.cpp">
       <Filter>WorldAndCamera</Filter>
     </ClCompile>
   </ItemGroup>
