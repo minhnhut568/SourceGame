@@ -146,6 +146,7 @@ void World::Init(const char* tilesheetPath,
 	/* đọc space */
 	int numberOfSpaces = 0;
 	ifstream fsSpace(spacePath);
+
 	/* enter 1 dòng */
 	ignoreLineIfstream(fsSpace, 1);
 	fsSpace >> numberOfSpaces;
@@ -174,7 +175,7 @@ void World::Init(const char* tilesheetPath,
 	}
 
 	/* bắt đầu từ space 0 */
-	setCurrentSpace(0);
+	setCurrentSpace(5);
 	resetLocationInSpace();
 	changeSpace = CHANGE_SPACE_UPDATE;
 }

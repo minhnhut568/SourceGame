@@ -43,6 +43,9 @@
     <Filter Include="Objects\Arise">
       <UniqueIdentifier>{9c5af361-8988-4e5c-838e-c928e3ccfd89}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Objects\Player">
+      <UniqueIdentifier>{6eece7fb-54d5-4b7a-9b31-1699fc467d15}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Sprite.h">
@@ -105,9 +108,6 @@
     <ClInclude Include="PhysicsObject.h">
       <Filter>Objects</Filter>
     </ClInclude>
-    <ClInclude Include="Player.h">
-      <Filter>Objects</Filter>
-    </ClInclude>
     <ClInclude Include="MovableRect.h">
       <Filter>Objects</Filter>
     </ClInclude>
@@ -137,9 +137,6 @@
     </ClInclude>
     <ClInclude Include="Enemy.h">
       <Filter>Objects\Enemies</Filter>
-    </ClInclude>
-    <ClInclude Include="PlayerMini.h">
-      <Filter>Objects</Filter>
     </ClInclude>
     <ClInclude Include="PlayerMiniBullet.h">
       <Filter>Objects\Arise</Filter>
@@ -174,6 +171,18 @@
     <ClInclude Include="Explosion.h">
       <Filter>Objects\Enemies</Filter>
     </ClInclude>
+    <ClInclude Include="Player.h">
+      <Filter>Objects\Player</Filter>
+    </ClInclude>
+    <ClInclude Include="PlayerMini.h">
+      <Filter>Objects\Player</Filter>
+    </ClInclude>
+    <ClInclude Include="PlayerOneWorld.h">
+      <Filter>Objects\Player</Filter>
+    </ClInclude>
+    <ClInclude Include="OneWorld.h">
+      <Filter>WorldAndCamera</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Sprite.cpp">
@@ -195,9 +204,6 @@
       <Filter>Objects</Filter>
     </ClCompile>
     <ClCompile Include="MovableRect.cpp">
-      <Filter>Objects</Filter>
-    </ClCompile>
-    <ClCompile Include="Player.cpp">
       <Filter>Objects</Filter>
     </ClCompile>
     <ClCompile Include="Rect.cpp">
@@ -257,9 +263,6 @@
     <ClCompile Include="Enemy.cpp">
       <Filter>Objects\Enemies</Filter>
     </ClCompile>
-    <ClCompile Include="PlayerMini.cpp">
-      <Filter>Objects</Filter>
-    </ClCompile>
     <ClCompile Include="PlayerMiniBullet.cpp">
       <Filter>Objects\Arise</Filter>
     </ClCompile>
@@ -292,6 +295,18 @@
     </ClCompile>
     <ClCompile Include="Explosion.cpp">
       <Filter>Objects\Enemies</Filter>
+    </ClCompile>
+    <ClCompile Include="Player.cpp">
+      <Filter>Objects\Player</Filter>
+    </ClCompile>
+    <ClCompile Include="PlayerMini.cpp">
+      <Filter>Objects\Player</Filter>
+    </ClCompile>
+    <ClCompile Include="PlayerOneWorld.cpp">
+      <Filter>Objects\Player</Filter>
+    </ClCompile>
+    <ClCompile Include="OneWorld.cpp">
+      <Filter>WorldAndCamera</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

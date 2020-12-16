@@ -81,6 +81,10 @@ SpriteManager::SpriteManager()
 	//snails
 	sprites[SPRITE_INFO_SNAILS]->InitFromFile("assets/sprites/snails");
 	sprites[SPRITE_INFO_SNAILS]->image->direction = TEXTURE_DIRECTION_RIGHT;
+	
+	//SPRITE_INFO_PLAYER_ONE_WORLD
+	sprites[SPRITE_INFO_PLAYER_ONE_WORLD]->InitFromFile("assets/sprites/player-oneworld");
+	sprites[SPRITE_INFO_PLAYER_ONE_WORLD]->image->direction = TEXTURE_DIRECTION_LEFT;
 
 }
 SpriteManager::~SpriteManager()

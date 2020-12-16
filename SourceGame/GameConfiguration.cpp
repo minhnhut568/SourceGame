@@ -41,6 +41,8 @@ double GameConfiguration::GetConfiguration(const char * key)
 		globalsConfigurationDouble->insert(pair<const char*, double>("player_blink_delay", 2000));
 		globalsConfigurationDouble->insert(pair<const char*, double>("player_blink_can't_control_delay", 200));
 
+		globalsConfigurationDouble->insert(pair<const char*, double>("player-one-world-dx", 2));
+
 		globalsConfigurationDouble->insert(pair<const char*, double>("playerbullet_dx", 5)); 
 
 		globalsConfigurationDouble->insert(pair<const char*, double>("worm_vx", 75));
