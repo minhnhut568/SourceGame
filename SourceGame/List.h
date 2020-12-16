@@ -38,6 +38,19 @@ struct List
 				return true;
 		return false;
 	}
+
+	int _IndexOf(className item)
+	{
+		int i = 0;
+		for (Node* p = pHead; p; p = p->pNext)
+		{
+			if (p->m_value == item)
+				return i;
+			i++;
+		}
+		return 0;
+	}
+
 	void _Add(className item)
 	{	/*for(Node* p = pHead;p;p=p->pNext) if(p->m_value==item) return;*/
 

@@ -1,5 +1,5 @@
 #include "GameDirectX.h"
-
+#include"List.h"
 
 GameDirectX::GameDirectX(void)
 {
@@ -22,14 +22,65 @@ GameDirectX* GameDirectX::getInstance()
 	return instance;
 }
 
+bool GameDirectX::initDirectXWithSize(int backbufferWidth, int backbufferHeight)
+{
+
+	ZeroMemory(&d3dpp, sizeof(d3dpp));
+	d3dpp.Windowed = TRUE;
+	d3dpp.SwapEffect = D3DSWAPEFFECT_DISCARD;
+	d3dpp.BackBufferFormat = D3DFMT_X8R8G8B8;
+	d3dpp.BackBufferCount = 1;
+	d3dpp.BackBufferWidth = backbufferWidth;
+	d3dpp.BackBufferHeight = backbufferHeight;
+	d3dpp.hDeviceWindow = this->hWnd;
+	
+
+	auto x = d3ddv->Reset(&d3dpp);
+
+	List<HRESULT> results;
+	results._Add(D3DERR_CONFLICTINGRENDERSTATE);
+	results._Add(D3DERR_CONFLICTINGTEXTUREFILTER);
+	results._Add(D3DERR_CONFLICTINGTEXTUREPALETTE);
+	results._Add(D3DERR_DEVICEHUNG);
+	results._Add(D3DERR_DEVICELOST);
+	results._Add(D3DERR_DEVICENOTRESET);
+	results._Add(D3DERR_DEVICEREMOVED);
+	results._Add(D3DERR_DRIVERINTERNALERROR);
+	results._Add(D3DERR_DRIVERINVALIDCALL);
+	results._Add(D3DERR_INVALIDCALL);
+	results._Add(D3DERR_INVALIDDEVICE);
+	results._Add(D3DERR_MOREDATA);
+	results._Add(D3DERR_NOTAVAILABLE);
+	results._Add(D3DERR_NOTFOUND);
+	results._Add(D3D_OK);
+	results._Add(D3DERR_OUTOFVIDEOMEMORY);
+	results._Add(D3DERR_TOOMANYOPERATIONS);
+	results._Add(D3DERR_UNSUPPORTEDALPHAARG);
+	results._Add(D3DERR_UNSUPPORTEDALPHAOPERATION);
+	results._Add(D3DERR_UNSUPPORTEDCOLORARG);
+	results._Add(D3DERR_UNSUPPORTEDCOLOROPERATION);
+	results._Add(D3DERR_UNSUPPORTEDFACTORVALUE);
+	results._Add(D3DERR_UNSUPPORTEDTEXTUREFILTER);
+	results._Add(D3DERR_WASSTILLDRAWING);
+	results._Add(D3DERR_WRONGTEXTUREFORMAT);
+
+	auto y = results._IndexOf(x);
+
+	if (!isSetBackBuffer())
+	{
+		int a = 5;
+	}
+	
+
+	return true;
+}
+
 
 bool GameDirectX::initDirectX()
 {
 	LPDIRECT3D9 d3d;
 	if (NULL == (d3d = Direct3DCreate9(D3D_SDK_VERSION)))
 		return false;
-
-	D3DPRESENT_PARAMETERS d3dpp;
 
 	ZeroMemory(&d3dpp, sizeof(d3dpp));
 	d3dpp.Windowed = TRUE;

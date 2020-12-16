@@ -182,6 +182,7 @@
     <ClInclude Include="Tilemap.h" />
     <ClInclude Include="WindowGame.h" />
     <ClInclude Include="World.h" />
+    <ClInclude Include="WorldIntro.h" />
     <ClInclude Include="Worm.h" />
   </ItemGroup>
   <ItemGroup>
@@ -225,6 +226,7 @@
     <ClCompile Include="WindowGame.cpp" />
     <ClCompile Include="WinMain.cpp" />
     <ClCompile Include="World.cpp" />
+    <ClCompile Include="WorldIntro.cpp" />
     <ClCompile Include="Worm.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

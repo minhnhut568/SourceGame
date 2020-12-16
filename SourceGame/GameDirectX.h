@@ -16,7 +16,8 @@ private:
 	HWND hWnd;
 	static GameDirectX* instance;
 
-	bool initDirectX();
+	D3DPRESENT_PARAMETERS d3dpp;
+
 	bool isInitSprite();
 	bool isSetBackBuffer();
 	void init();
@@ -26,6 +27,8 @@ public:
 	GameDirectX(void);
 	~GameDirectX(void);
 	static GameDirectX* getInstance();
+	bool initDirectX();
+	bool initDirectXWithSize(int backbufferWidth, int backbufferHeight);
 
 	void Release();
 	LPDIRECT3DDEVICE9 GetDevice();
