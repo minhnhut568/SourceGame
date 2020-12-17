@@ -299,6 +299,11 @@ void World::update(float dt)
 			setCurrentSpace(4);
 			resetLocationInSpace();
 		}
+		if (key->isSpaceTestDown)
+		{
+			setCurrentSpace(11);
+			resetLocationInSpace();
+		}
 
 		auto ariseObjects = AriseBase::getAriseObjects();
 

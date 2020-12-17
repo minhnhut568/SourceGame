@@ -39,6 +39,7 @@ void KEY::update()
 	isSpace3Down = GetAsyncKeyState(getKeyChar('e'));
 	isSpace4Down = GetAsyncKeyState(getKeyChar('r'));
 	isSpace5Down = GetAsyncKeyState(getKeyChar('t'));
+	isSpaceTestDown = GetAsyncKeyState(getKeyChar('p'));
 	changePlayer = (previousChangePlayerDown == false && changePlayerDown == true);
 }
 

@@ -405,15 +405,15 @@
 -2	4	2119	416	9	17	0
 -2	4	2501	375	11	24	5	PlayerX	2625	PlyerY	378	CameraX	2550	CameraY	268	NextSpace	8
 -2	4	2608	376	12	25	5	PlayerX	2477	PlyerY	380	CameraX	2379	CameraY	287	NextSpace	9
--2	4	2608	120	12	24	5	PlayerX	2477	PlyerY	128	CameraX	2375	CameraY	23	NextSpace	7
+-2	4	2608	120	12	24	5	PlayerX	2473	PlyerY	121	CameraX	2375	CameraY	23	NextSpace	7
 -2	4	2501	120	12	24	5	PlayerX	2625	PlyerY	124	CameraX	2561	CameraY	1	NextSpace	8
 -2	4	2096	121	12	24	5	PlayerX	1958	PlyerY	122	CameraX	1807	CameraY	1	NextSpace	5
 -2	4	1608	127	9	17	0
 -2	4	1989	121	12	25	5	PlayerX	2113	PlyerY	126	CameraX	2045	CameraY	1	NextSpace	7
--2	4	1584	1655	11	24	5	PlayerX	1449	PlyerY	1659	CameraX	1200	CameraY	1514	NextSpace	11
--2	4	1477	1655	11	25	5	PlayerX	1603	PlyerY	1662	CameraX	1537	CameraY	1556	NextSpace	5
--2	4	816	1656	12	24	5	PlayerX	688	PlyerY	1665	CameraX	564	CameraY	1544	NextSpace	12
--2	4	709	1658	12	24	5	PlayerX	830	PlyerY	1662	CameraX	768	CameraY	1569	NextSpace	11
+-2	4	1584	1654	11	24	5	PlayerX	1447	PlyerY	1657	CameraX	1315	CameraY	1514	NextSpace	11
+-2	4	1477	1655	11	25	5	PlayerX	1603	PlyerY	1659	CameraX	1537	CameraY	1556	NextSpace	5
+-2	4	816	1656	12	24	5	PlayerX	688	PlyerY	1660	CameraX	564	CameraY	1556	NextSpace	12
+-2	4	709	1656	12	24	5	PlayerX	830	PlyerY	1660	CameraX	768	CameraY	1556	NextSpace	11
 -2	4	710	1144	11	23	5	PlayerX	831	PlyerY	1150	CameraX	769	CameraY	1055	NextSpace	13
 -2	4	816	1144	11	25	5	PlayerX	685	PlyerY	1152	CameraX	618	CameraY	1071	NextSpace	12
 -2	4	1478	1144	11	24	5	PlayerX	1602	PlyerY	1149	CameraX	1537	CameraY	1039	NextSpace	5

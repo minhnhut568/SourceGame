@@ -19,6 +19,7 @@ public:
 		isSpace3Down,
 		isSpace4Down,
 		isSpace5Down,
+		isSpaceTestDown,
 		isEnterDown,
 		changePlayerDown,
 		previousChangePlayerDown,
