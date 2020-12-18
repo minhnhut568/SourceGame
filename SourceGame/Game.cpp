@@ -1,6 +1,7 @@
 #include "Game.h"
 #include "AriseBase.h"
 #include"Player.h"
+#include"Scorebar.h"
 
 /* singleton pattern */
 Game* Game::instance = 0;
@@ -18,8 +19,8 @@ void Game::GameInit()
 	world = new World();
 	world->Init("assets/levels/area2");
 
-	oneWorld = new OneWorld();
-	oneWorld->Init("assets/levels/area2_oneworld");
+	overWorld = new OneWorld();
+	overWorld->Init("assets/levels/area2_oneworld");
 
 	worldIntro = new WorldIntro();
 
@@ -30,8 +31,11 @@ void Game::GameInit()
 
 	worldType = WT_WORLD;
 
-	world->setCurrentSpace(0);
+
+
+	world->setCurrentSpace(5);
 	world->resetLocationInSpace();
+
 
 	// GameDirectX::getInstance()->initDirectXWithSize(256, 280);
 }
@@ -47,13 +51,14 @@ void Game::GameUpdate(float dt)
 		world->update(dt);
 		break;
 	case WT_ONE_WORLD:
-		oneWorld->update(dt);
+		overWorld->update(dt);
 		break;
 	default:
 		break;
 	}
 
 	AriseBase::updateAriseObjects(dt);
+	Scorebar::getInstance()->update();
 }
 /* Các câu lệnh vẽ của game */
 void Game::GameRender()
@@ -65,9 +70,11 @@ void Game::GameRender()
 		break;
 	case WT_WORLD:
 		world->render();
+		Scorebar::getInstance()->render();
 		break;
 	case WT_ONE_WORLD:
-		oneWorld->render();
+		overWorld->render();
+		Scorebar::getInstance()->render();
 		break;
 	default:
 		break;

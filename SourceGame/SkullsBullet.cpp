@@ -10,6 +10,7 @@ SkullsBullet::SkullsBullet()
 	setWidth(10);
 	setHeight(10);
 	liveDelay.init(S("skulls_bullet_live_delay"));
+	setCollisionType(COLLISION_TYPE_ENEMY);
 }
 
 void SkullsBullet::onUpdate(float dt)

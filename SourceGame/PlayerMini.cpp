@@ -4,6 +4,8 @@
 #include "Player.h"
 #include "Collision.h"
 #include "PlayerMiniBullet.h"
+#include "Game.h"
+#include "Scorebar.h"
 
 PlayerMini::PlayerMini()
 {
@@ -15,10 +17,13 @@ PlayerMini::PlayerMini()
 	blinkDelay.init(S("player_blink_delay"));
 	blinkCantControlDelay.init(S("player_blink_can't_control_delay"));
 	setCollisionType(COLLISION_TYPE::COLLISION_TYPE_PLAYER);
+	ladder = 0;
+	playerMiniState = PLAYER_MINI_STATE_NORMAL;
 }
 
 void PlayerMini::onUpdate(float dt)
 {
+	blinkDelay.update();
 	if (blinkDelay.isOnTime())
 	{
 		if (blinkTime.atTime())
@@ -45,6 +50,31 @@ void PlayerMini::onUpdate(float dt)
 	auto changePlayerDown = KEY::getInstance()->changePlayer;
 
 	float vx = GLOBALS_D("player_vx");
+
+	if (playerMiniState == PLAYER_MINI_STATE_ON_LADDER)
+	{
+		setDy(0);
+		setPauseAnimation(true);
+		if (keyUpDown)
+		{
+			setDy(1);
+			setPauseAnimation(false);
+		}
+		if (keyDownDown)
+		{
+			setDy(-1);
+			setPauseAnimation(false);
+		}
+		setAnimation(PLAYER_MINI_ACTION::PLAYER_MINI_ACTION_CLIMB);
+
+		if (ladder != 0 && ((getDy() > 0 && getTop() + getDy() > ladder->getTop()) || (getDy() < 0 && getBottom() + getDy() < ladder->getBottom())))
+		{
+			ladder = 0;
+			playerMiniState = PLAYER_MINI_STATE_NORMAL;
+		}
+
+		return;
+	}
 
 	/* nếu giữ key trái */
 	if (keyLeftDown)
@@ -119,7 +149,7 @@ void PlayerMini::onUpdate(float dt)
 
 void PlayerMini::onCollision(MovableRect* other, float collisionTime, int nx, int ny)
 {
-	if (other->getCollisionType() == COLLISION_TYPE_GROUND)
+	if (other->getCollisionType() == COLLISION_TYPE_GROUND && playerMiniState == PLAYER_MINI_STATE_NORMAL)
 	{
 		/* ngăn chặn di chuyển */
 		preventMovementWhenCollision(collisionTime, nx, ny);
@@ -134,5 +164,32 @@ void PlayerMini::onAABBCheck(MovableRect* other)
 		blinkDelay.start();
 		blinkCantControlDelay.start();
 		setVx(S("player_blink_vx"));
+		Scorebar::getInstance()->decreaseHealth(1);
+	}
+
+	if (other->getCollisionType() == COLLISION_TYPE_GATE_OVER_WORLD)
+	{
+		if (KEY::getInstance()->isDownDown)
+		{
+			Game::getInstance()->worldType = WorldType::WT_ONE_WORLD;
+			Game::getInstance()->overWorld->setCurrentSpace(0);
+			Game::getInstance()->overWorld->resetLocationInSpace();
+		}
+	}
+
+	if (other->getCollisionType() == COLLISION_TYPE_LADDER)
+	{
+		if (KEY::getInstance()->isUpDown || KEY::getInstance()->isDownDown)
+		{
+			ladder = other;
+			if ((KEY::getInstance()->isUpDown && getTop() + 1 > ladder->getTop()) || (KEY::getInstance()->isDownDown && getBottom() - 1 < ladder->getBottom()))
+			{
+				ladder = 0;
+				return;
+			}
+			setDirection(1);
+			playerMiniState = PLAYER_MINI_STATE_ON_LADDER;
+			setX(ladder->getMidX() - getWidth() / 2 + 2);
+		}
 	}
 }

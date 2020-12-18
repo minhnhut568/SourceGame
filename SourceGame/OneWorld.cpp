@@ -177,7 +177,7 @@ Tilemap* OneWorld::getTileMap()
 void OneWorld::update(float dt)
 {
 	Camera* camera = Camera::getInstance();
-	auto player = PlayerOneWorld::getInstance();
+	auto player = PlayerOverWorld::getInstance();
 
 	KEY* key = KEY::getInstance();
 	/* cập nhật key */
@@ -217,7 +217,7 @@ void OneWorld::update(float dt)
 	{
 		auto obj = allObjects[i];
 		obj->update(dt);
-		Collision::CheckCollision(PlayerOneWorld::getInstance(), obj);
+		Collision::CheckCollision(PlayerOverWorld::getInstance(), obj);
 
 		for (size_t i2 = 0; i2 < ariseObjects->size(); i2++)
 		{
@@ -229,7 +229,7 @@ void OneWorld::update(float dt)
 	for (size_t i2 = 0; i2 < ariseObjects->size(); i2++)
 	{
 		/* cho xét va chạm của đối tượng dựa vào 1 cặp collisionType trong CollisionTypeCollide */
-		Collision::CheckCollision(PlayerOneWorld::getInstance(), ariseObjects->at(i2));
+		Collision::CheckCollision(PlayerOverWorld::getInstance(), ariseObjects->at(i2));
 	}
 
 	/* xét va chạm cho các loại đối tượng với nhau */
@@ -253,7 +253,7 @@ void OneWorld::update(float dt)
 		}
 	}
 
-	PlayerOneWorld::getInstance()->update(dt);
+	PlayerOverWorld::getInstance()->update(dt);
 	Camera::getInstance()->update();
 
 }
@@ -274,7 +274,7 @@ void OneWorld::resetLocationInSpace()
 	Camera* camera = Camera::getInstance();
 
 	camera->setLocation(getCurrentSpace()->CameraX, getCurrentSpace()->CameraY);
-	PlayerOneWorld::getInstance()->setLocation(getCurrentSpace()->PlayerX, getCurrentSpace()->PlayerY);
+	PlayerOverWorld::getInstance()->setLocation(getCurrentSpace()->PlayerX, getCurrentSpace()->PlayerY);
 }
 
 void OneWorld::render()
@@ -286,7 +286,7 @@ void OneWorld::render()
 		allObjects[i]->render(Camera::getInstance());
 	}
 	AriseBase::renderAriseObjects();
-	PlayerOneWorld::getInstance()->render(Camera::getInstance());
+	PlayerOverWorld::getInstance()->render(Camera::getInstance());
 }
 
 OneWorld::OneWorld()

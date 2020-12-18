@@ -24,6 +24,7 @@ private:
 	void error();
 
 public:
+	int backbufferWidth, backbufferHeight;
 	GameDirectX(void);
 	~GameDirectX(void);
 	static GameDirectX* getInstance();

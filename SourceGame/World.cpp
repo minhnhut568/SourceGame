@@ -281,7 +281,7 @@ void World::update(float dt)
 		}
 		if (key->isSpace2Down)
 		{
-			setCurrentSpace(1);
+			setCurrentSpace(5);
 			resetLocationInSpace();
 		}
 		if (key->isSpace3Down)

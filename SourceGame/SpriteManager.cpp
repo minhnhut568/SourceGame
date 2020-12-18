@@ -86,6 +86,10 @@ SpriteManager::SpriteManager()
 	sprites[SPRITE_INFO_PLAYER_ONE_WORLD]->InitFromFile("assets/sprites/player-oneworld");
 	sprites[SPRITE_INFO_PLAYER_ONE_WORLD]->image->direction = TEXTURE_DIRECTION_LEFT;
 
+	//SPRITE_INFO_PLAYER_ONE_WORLD_BULLET
+	sprites[SPRITE_INFO_PLAYER_ONE_WORLD_BULLET]->InitFromFile("assets/sprites/player-mini-overworld-bullet");
+	sprites[SPRITE_INFO_PLAYER_ONE_WORLD_BULLET]->image->direction = TEXTURE_DIRECTION_LEFT;
+
 }
 SpriteManager::~SpriteManager()
 {

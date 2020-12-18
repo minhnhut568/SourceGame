@@ -33,7 +33,7 @@ bool GameDirectX::initDirectXWithSize(int backbufferWidth, int backbufferHeight)
 	d3dpp.BackBufferWidth = backbufferWidth;
 	d3dpp.BackBufferHeight = backbufferHeight;
 	d3dpp.hDeviceWindow = this->hWnd;
-	
+
 
 	auto x = d3ddv->Reset(&d3dpp);
 
@@ -70,7 +70,7 @@ bool GameDirectX::initDirectXWithSize(int backbufferWidth, int backbufferHeight)
 	{
 		int a = 5;
 	}
-	
+
 
 	return true;
 }
@@ -89,6 +89,9 @@ bool GameDirectX::initDirectX()
 	d3dpp.BackBufferCount = 1;
 	d3dpp.BackBufferWidth = GLOBALS_D("backbuffer_width");
 	d3dpp.BackBufferHeight = GLOBALS_D("backbuffer_height");
+
+	backbufferWidth = GLOBALS_D("backbuffer_width");
+	backbufferHeight = GLOBALS_D("backbuffer_height");
 
 	if (FAILED(d3d->CreateDevice(
 		D3DADAPTER_DEFAULT,

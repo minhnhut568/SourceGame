@@ -2,6 +2,7 @@
 #include "PlayerBullet.h"
 #include"PlayerMini.h"
 #include<string>
+#include"Scorebar.h"
 
 PhysicsObject* Player::instance = 0;
 PhysicsObject* Player::playerMain = 0;
@@ -256,6 +257,7 @@ void Player::onAABBCheck(MovableRect* other)
 		blinkDelay.start();
 		blinkCantControlDelay.start();
 		setVx(S("player_blink_vx"));
+		Scorebar::getInstance()->decreaseHealth(1);
 	}
 }
 
