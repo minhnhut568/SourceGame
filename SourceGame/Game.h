@@ -25,7 +25,7 @@ class Game
 public:
 	World* world;
 
-	OneWorld* oneWorld;
+	OneWorld* overWorld;
 	WorldIntro* worldIntro;
 	WorldType worldType;
 	static Game* getInstance();

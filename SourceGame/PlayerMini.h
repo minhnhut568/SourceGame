@@ -11,10 +11,19 @@ enum PLAYER_MINI_ACTION
 	PLAYER_MINI_ACTION_DYING,
 	PLAYER_MINI_ACTION_DIE
 };
+
+enum PLAYER_MINI_STATE
+{
+	PLAYER_MINI_STATE_NORMAL,
+	PLAYER_MINI_STATE_ON_LADDER
+};
+
 class PlayerMini :
 	public PhysicsObject
 {
 public:
+	MovableRect* ladder;
+	PLAYER_MINI_STATE playerMiniState;
 	DelayTime bulletDelay;
 	PlayerMini();
 

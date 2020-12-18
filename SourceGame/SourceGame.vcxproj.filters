@@ -186,6 +186,15 @@
     <ClInclude Include="WorldIntro.h">
       <Filter>WorldAndCamera</Filter>
     </ClInclude>
+    <ClInclude Include="Scorebar.h">
+      <Filter>Objects\Misc</Filter>
+    </ClInclude>
+    <ClInclude Include="Ladder.h">
+      <Filter>Objects</Filter>
+    </ClInclude>
+    <ClInclude Include="PlayerMiniOverWorldBullet.h">
+      <Filter>Objects\Arise</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Sprite.cpp">
@@ -313,6 +322,15 @@
     </ClCompile>
     <ClCompile Include="WorldIntro.cpp">
       <Filter>WorldAndCamera</Filter>
+    </ClCompile>
+    <ClCompile Include="Scorebar.cpp">
+      <Filter>Objects\Misc</Filter>
+    </ClCompile>
+    <ClCompile Include="Ladder.cpp">
+      <Filter>Objects</Filter>
+    </ClCompile>
+    <ClCompile Include="PlayerMiniOverWorldBullet.cpp">
+      <Filter>Objects\Arise</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

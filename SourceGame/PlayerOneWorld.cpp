@@ -1,17 +1,19 @@
 #include "PlayerOneWorld.h"
+#include "PlayerMiniOverWorldBullet.h"
 #include<string>
 
-PlayerOneWorld* PlayerOneWorld::instance = 0;
-PlayerOneWorld* PlayerOneWorld::getInstance()
+
+PlayerOverWorld* PlayerOverWorld::instance = 0;
+PlayerOverWorld* PlayerOverWorld::getInstance()
 {
-	if (PlayerOneWorld::instance == 0)
+	if (PlayerOverWorld::instance == 0)
 	{
-		PlayerOneWorld::instance = new PlayerOneWorld();
+		PlayerOverWorld::instance = new PlayerOverWorld();
 	}
-	return PlayerOneWorld::instance;
+	return PlayerOverWorld::instance;
 }
 
-void PlayerOneWorld::onUpdate(float dt)
+void PlayerOverWorld::onUpdate(float dt)
 {
 	bool keyLeftDown, keyRightDown, keyUpDown, keyDownDown;
 	/* kiểm tra key bên trái có được giữ */
@@ -48,9 +50,14 @@ void PlayerOneWorld::onUpdate(float dt)
 
 	setDx(moveX * S("player-one-world-dx"));
 	setDy(moveY * S("player-one-world-dx"));
+
+	if (KEY::getInstance()->isAttackDown)
+	{
+
+	}
 }
 
-void PlayerOneWorld::onCollision(MovableRect * other, float collisionTime, int nx, int ny)
+void PlayerOverWorld::onCollision(MovableRect * other, float collisionTime, int nx, int ny)
 {
 	if (other->getCollisionType() == COLLISION_TYPE_GROUND)
 	{
@@ -60,12 +67,12 @@ void PlayerOneWorld::onCollision(MovableRect * other, float collisionTime, int n
 	}
 }
 
-void PlayerOneWorld::onAABBCheck(MovableRect* other)
+void PlayerOverWorld::onAABBCheck(MovableRect* other)
 {
 	
 }
 
-void PlayerOneWorld::setPlayerDirection(PLAYER_OW_DIRECTION direction)
+void PlayerOverWorld::setPlayerDirection(PLAYER_OW_DIRECTION direction)
 {
 	switch (direction)
 	{
@@ -96,7 +103,7 @@ void PlayerOneWorld::setPlayerDirection(PLAYER_OW_DIRECTION direction)
 	}
 }
 
-PlayerOneWorld::PlayerOneWorld()
+PlayerOverWorld::PlayerOverWorld()
 {
 	setSprite(SpriteManager::getInstance()->getSprite(SPRITE_INFO_PLAYER_ONE_WORLD));
 	setWidth(17);
@@ -104,6 +111,6 @@ PlayerOneWorld::PlayerOneWorld()
 }
 
 
-PlayerOneWorld::~PlayerOneWorld()
+PlayerOverWorld::~PlayerOverWorld()
 {
 }

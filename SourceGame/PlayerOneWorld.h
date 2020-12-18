@@ -22,18 +22,18 @@ enum PLAYER_OW_DIRECTION
 	PLAYER_OW_DIRECTION_DOWN
 };
 
-class PlayerOneWorld :
+class PlayerOverWorld :
 	public PhysicsObject
 {
 	int moveX, moveY;
-	static PlayerOneWorld* instance;
+	static PlayerOverWorld* instance;
 public:
-	static PlayerOneWorld* getInstance();
+	static PlayerOverWorld* getInstance();
 	void onUpdate(float dt) override;
 	void onCollision(MovableRect* other, float collisionTime, int nx, int ny) override;
 	void onAABBCheck(MovableRect* other) override;
 	void setPlayerDirection(PLAYER_OW_DIRECTION direction);
-	PlayerOneWorld();
-	~PlayerOneWorld();
+	PlayerOverWorld();
+	~PlayerOverWorld();
 
 };

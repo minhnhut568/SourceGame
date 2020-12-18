@@ -1,0 +1,17 @@
+Sprite ddd
+R	G	B
+255	25	151	255
+Animation Count
+1
+
+
+Name
+player-overworld-bullet
+Frame Count
+2
+
+FrameX		FrameY		FrameWidth		FrameHeight		AnchorX		AnchorY
+0			2			8				6				0			0
+8			0			6				8				0			0
+
+

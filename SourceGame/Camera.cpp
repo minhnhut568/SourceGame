@@ -48,7 +48,7 @@ void Camera::update()
 	switch (Game::getInstance()->worldType)
 	{
 	case WT_ONE_WORLD:
-		player = PlayerOneWorld::getInstance();
+		player = PlayerOverWorld::getInstance();
 		break;
 	case WT_WORLD:
 		player = Player::getInstance();

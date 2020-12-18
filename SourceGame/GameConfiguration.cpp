@@ -30,6 +30,8 @@ double GameConfiguration::GetConfiguration(const char * key)
 		/* trọng lực mặc định của đối tượng 80 (px/s^2) */
 		globalsConfigurationDouble->insert(pair<const char*, double>("object_default_ay", -2050));
 
+		globalsConfigurationDouble->insert(pair<const char*, double>("max-health", 8));
+
 
 		/*  PLAYER  */
 		globalsConfigurationDouble->insert(pair<const char*, double>("player_vx", 190)); /* 60 pixel/s */
