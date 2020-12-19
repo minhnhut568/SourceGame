@@ -50,7 +50,7 @@ void Game::GameUpdate(float dt)
 	case WT_WORLD:
 		world->update(dt);
 		break;
-	case WT_ONE_WORLD:
+	case WT_OVER_WORLD:
 		overWorld->update(dt);
 		break;
 	default:
@@ -72,7 +72,7 @@ void Game::GameRender()
 		world->render();
 		Scorebar::getInstance()->render();
 		break;
-	case WT_ONE_WORLD:
+	case WT_OVER_WORLD:
 		overWorld->render();
 		Scorebar::getInstance()->render();
 		break;

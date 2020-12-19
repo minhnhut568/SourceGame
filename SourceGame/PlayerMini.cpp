@@ -171,7 +171,7 @@ void PlayerMini::onAABBCheck(MovableRect* other)
 	{
 		if (KEY::getInstance()->isDownDown)
 		{
-			Game::getInstance()->worldType = WorldType::WT_ONE_WORLD;
+			Game::getInstance()->worldType = WorldType::WT_OVER_WORLD;
 			Game::getInstance()->overWorld->setCurrentSpace(0);
 			Game::getInstance()->overWorld->resetLocationInSpace();
 		}

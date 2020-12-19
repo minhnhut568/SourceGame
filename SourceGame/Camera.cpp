@@ -1,7 +1,7 @@
 #include "Camera.h"
 #include<d3dx9.h>
 #include"Player.h"
-#include"PlayerOneWorld.h"
+#include"PlayerOverWorld.h"
 #include"Game.h"
 
 Camera * Camera::instance = 0;
@@ -47,7 +47,7 @@ void Camera::update()
 	BaseObject* player = 0;
 	switch (Game::getInstance()->worldType)
 	{
-	case WT_ONE_WORLD:
+	case WT_OVER_WORLD:
 		player = PlayerOverWorld::getInstance();
 		break;
 	case WT_WORLD:
