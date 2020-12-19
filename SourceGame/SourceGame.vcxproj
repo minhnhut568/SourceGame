@@ -165,7 +165,7 @@
     <ClInclude Include="Ladder.h" />
     <ClInclude Include="List.h" />
     <ClInclude Include="MovableRect.h" />
-    <ClInclude Include="OneWorld.h" />
+    <ClInclude Include="OverWorld.h" />
     <ClInclude Include="Orbs.h" />
     <ClInclude Include="PhysicsObject.h" />
     <ClInclude Include="Player.h" />
@@ -173,7 +173,7 @@
     <ClInclude Include="PlayerMini.h" />
     <ClInclude Include="PlayerMiniBullet.h" />
     <ClInclude Include="PlayerMiniOverWorldBullet.h" />
-    <ClInclude Include="PlayerOneWorld.h" />
+    <ClInclude Include="PlayerOverWorld.h" />
     <ClInclude Include="Rect.h" />
     <ClInclude Include="Scorebar.h" />
     <ClInclude Include="Skulls.h" />
@@ -212,7 +212,7 @@
     <ClCompile Include="KEY.cpp" />
     <ClCompile Include="Ladder.cpp" />
     <ClCompile Include="MovableRect.cpp" />
-    <ClCompile Include="OneWorld.cpp" />
+    <ClCompile Include="OverWorld.cpp" />
     <ClCompile Include="Orbs.cpp" />
     <ClCompile Include="PhysicsObject.cpp" />
     <ClCompile Include="Player.cpp" />
@@ -220,7 +220,7 @@
     <ClCompile Include="PlayerMini.cpp" />
     <ClCompile Include="PlayerMiniBullet.cpp" />
     <ClCompile Include="PlayerMiniOverWorldBullet.cpp" />
-    <ClCompile Include="PlayerOneWorld.cpp" />
+    <ClCompile Include="PlayerOverWorld.cpp" />
     <ClCompile Include="Rect.cpp" />
     <ClCompile Include="Scorebar.cpp" />
     <ClCompile Include="Skulls.cpp" />

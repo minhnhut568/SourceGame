@@ -177,12 +177,6 @@
     <ClInclude Include="PlayerMini.h">
       <Filter>Objects\Player</Filter>
     </ClInclude>
-    <ClInclude Include="PlayerOneWorld.h">
-      <Filter>Objects\Player</Filter>
-    </ClInclude>
-    <ClInclude Include="OneWorld.h">
-      <Filter>WorldAndCamera</Filter>
-    </ClInclude>
     <ClInclude Include="WorldIntro.h">
       <Filter>WorldAndCamera</Filter>
     </ClInclude>
@@ -194,6 +188,12 @@
     </ClInclude>
     <ClInclude Include="PlayerMiniOverWorldBullet.h">
       <Filter>Objects\Arise</Filter>
+    </ClInclude>
+    <ClInclude Include="OverWorld.h">
+      <Filter>WorldAndCamera</Filter>
+    </ClInclude>
+    <ClInclude Include="PlayerOverWorld.h">
+      <Filter>Objects\Player</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -314,12 +314,6 @@
     <ClCompile Include="PlayerMini.cpp">
       <Filter>Objects\Player</Filter>
     </ClCompile>
-    <ClCompile Include="PlayerOneWorld.cpp">
-      <Filter>Objects\Player</Filter>
-    </ClCompile>
-    <ClCompile Include="OneWorld.cpp">
-      <Filter>WorldAndCamera</Filter>
-    </ClCompile>
     <ClCompile Include="WorldIntro.cpp">
       <Filter>WorldAndCamera</Filter>
     </ClCompile>
@@ -331,6 +325,12 @@
     </ClCompile>
     <ClCompile Include="PlayerMiniOverWorldBullet.cpp">
       <Filter>Objects\Arise</Filter>
+    </ClCompile>
+    <ClCompile Include="OverWorld.cpp">
+      <Filter>WorldAndCamera</Filter>
+    </ClCompile>
+    <ClCompile Include="PlayerOverWorld.cpp">
+      <Filter>Objects\Player</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

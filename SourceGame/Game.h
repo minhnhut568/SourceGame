@@ -6,14 +6,14 @@
 #include"Animation.h"
 #include"Sprite.h"
 #include"World.h"
-#include"OneWorld.h"
+#include"OverWorld.h"
 #include"WorldIntro.h"
 
 enum WorldType
 {
 	WT_INTRO,
 	WT_WORLD,
-	WT_ONE_WORLD
+	WT_OVER_WORLD
 };
 
 class Game
