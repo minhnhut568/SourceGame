@@ -3,6 +3,8 @@
 #include"SpriteManager.h"
 #include"KEY.h"
 #include "DelayTime.h"
+#include "GameTime.h"
+#include "DelayTime.h"
 
 enum PLAYER_OW_ACTION
 {
@@ -31,8 +33,12 @@ public:
 	static PlayerOverWorld* getInstance();
 	void onUpdate(float dt) override;
 	void onCollision(MovableRect* other, float collisionTime, int nx, int ny) override;
+	GameTime blinkTime;
+	DelayTime blinkDelay;
+	DelayTime blinkCantControlDelay;
 	void onAABBCheck(MovableRect* other) override;
 	void setPlayerDirection(PLAYER_OW_DIRECTION direction);
+
 	PlayerOverWorld();
 	~PlayerOverWorld();
 

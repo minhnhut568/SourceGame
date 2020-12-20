@@ -13,7 +13,12 @@ enum WorldType
 {
 	WT_INTRO,
 	WT_WORLD,
-	WT_OVER_WORLD
+	WT_OVER_WORLD_SPACE0,
+	WT_OVER_WORLD_SPACE1,
+	WT_OVER_WORLD_SPACE2,
+	WT_TO_WORLD_SPACE6,
+	WT_TO_WORLD_SPACE4,
+	WT_TO_WORLD_SPACE5
 };
 
 class Game
@@ -25,7 +30,7 @@ class Game
 public:
 	World* world;
 
-	OneWorld* overWorld;
+	OverWorld* overWorld;
 	WorldIntro* worldIntro;
 	WorldType worldType;
 	static Game* getInstance();

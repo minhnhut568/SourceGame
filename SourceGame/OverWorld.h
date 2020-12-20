@@ -7,7 +7,7 @@
 
 
 
-class OneWorld
+class OverWorld
 {
 	/* dùng tilemap để vẽ map */
 	Tilemap tilemap;
@@ -50,7 +50,7 @@ public:
 
 	/* vẽ các đối tượng trong game */
 	void render();
-	OneWorld();
-	~OneWorld();
+	OverWorld();
+	~OverWorld();
 };
 

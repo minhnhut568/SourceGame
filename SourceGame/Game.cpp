@@ -19,7 +19,7 @@ void Game::GameInit()
 	world = new World();
 	world->Init("assets/levels/area2");
 
-	overWorld = new OneWorld();
+	overWorld = new OverWorld();
 	overWorld->Init("assets/levels/area2_oneworld");
 
 	worldIntro = new WorldIntro();
@@ -31,13 +31,10 @@ void Game::GameInit()
 
 	worldType = WT_WORLD;
 
-
-
-	world->setCurrentSpace(5);
+	world->setCurrentSpace(0);
 	world->resetLocationInSpace();
 
 
-	// GameDirectX::getInstance()->initDirectXWithSize(256, 280);
 }
 /* Các câu lệnh cập nhật game */
 void Game::GameUpdate(float dt)
@@ -50,7 +47,13 @@ void Game::GameUpdate(float dt)
 	case WT_WORLD:
 		world->update(dt);
 		break;
-	case WT_OVER_WORLD:
+	case WT_OVER_WORLD_SPACE0:
+		overWorld->update(dt);
+		break;
+	case WT_OVER_WORLD_SPACE1:
+		overWorld->update(dt);
+		break;
+	case WT_OVER_WORLD_SPACE2:
 		overWorld->update(dt);
 		break;
 	default:
@@ -72,8 +75,28 @@ void Game::GameRender()
 		world->render();
 		Scorebar::getInstance()->render();
 		break;
-	case WT_OVER_WORLD:
+	case WT_OVER_WORLD_SPACE0:
 		overWorld->render();
+		Scorebar::getInstance()->render();
+		break;
+	case WT_OVER_WORLD_SPACE1:
+		overWorld->render();
+		Scorebar::getInstance()->render();
+		break;
+	case WT_OVER_WORLD_SPACE2:
+		overWorld->render();
+		Scorebar::getInstance()->render();
+		break;
+	case COLLISION_TYPE_GATE_TO_WORLD_SPACE6:
+		world->render();
+		Scorebar::getInstance()->render();
+		break;
+	case COLLISION_TYPE_GATE_TO_WORLD_SPACE4:
+		world->render();
+		Scorebar::getInstance()->render();
+		break;
+	case COLLISION_TYPE_GATE_TO_WORLD_SPACE5:
+		world->render();
 		Scorebar::getInstance()->render();
 		break;
 	default:

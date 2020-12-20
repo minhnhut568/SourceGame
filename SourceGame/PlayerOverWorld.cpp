@@ -1,6 +1,11 @@
 #include "PlayerOverWorld.h"
 #include "PlayerMiniOverWorldBullet.h"
-#include<string>
+#include "Game.h"
+#include "Scorebar.h"
+#include "Player.h"
+#include "SpriteManager.h"
+#include "KEY.h"
+#include "Collision.h"
 
 
 PlayerOverWorld* PlayerOverWorld::instance = 0;
@@ -69,7 +74,42 @@ void PlayerOverWorld::onCollision(MovableRect * other, float collisionTime, int 
 
 void PlayerOverWorld::onAABBCheck(MovableRect* other)
 {
-	
+	/*if (other->getCollisionType() == COLLISION_TYPE::COLLISION_TYPE_ENEMY && !blinkDelay.isOnTime())
+	{
+		blinkDelay.start();
+		blinkCantControlDelay.start();
+		setVx(S("player_blink_vx"));
+		Scorebar::getInstance()->decreaseHealth(1);
+	}*/
+
+	if (other->getCollisionType() == COLLISION_TYPE_GATE_TO_WORLD_SPACE6)
+	{
+		if (KEY::getInstance()->isEnterDown)
+		{
+			Game::getInstance()->worldType = WorldType::WT_WORLD;
+			Game::getInstance()->world->setCurrentSpace(6);
+			Game::getInstance()->world->resetLocationInSpace();
+		}
+	}
+	if (other->getCollisionType() == COLLISION_TYPE_GATE_TO_WORLD_SPACE4)
+	{
+		if (KEY::getInstance()->isEnterDown)
+		{
+			Game::getInstance()->worldType = WorldType::WT_WORLD;
+			Game::getInstance()->world->setCurrentSpace(4);
+			Game::getInstance()->world->resetLocationInSpace();
+		}
+	}
+	if (other->getCollisionType() == COLLISION_TYPE_GATE_TO_WORLD_SPACE5)
+	{
+		if (KEY::getInstance()->isEnterDown)
+		{
+			Game::getInstance()->worldType = WorldType::WT_WORLD;
+			Game::getInstance()->world->setCurrentSpace(5);
+			Game::getInstance()->world->resetLocationInSpace();
+		}
+	}
+
 }
 
 void PlayerOverWorld::setPlayerDirection(PLAYER_OW_DIRECTION direction)

@@ -167,12 +167,30 @@ void PlayerMini::onAABBCheck(MovableRect* other)
 		Scorebar::getInstance()->decreaseHealth(1);
 	}
 
-	if (other->getCollisionType() == COLLISION_TYPE_GATE_OVER_WORLD)
+	if (other->getCollisionType() == COLLISION_TYPE_GATE_OVER_WORLD_SPACE0)
 	{
 		if (KEY::getInstance()->isDownDown)
 		{
-			Game::getInstance()->worldType = WorldType::WT_OVER_WORLD;
+			Game::getInstance()->worldType = WorldType::WT_OVER_WORLD_SPACE0;
 			Game::getInstance()->overWorld->setCurrentSpace(0);
+			Game::getInstance()->overWorld->resetLocationInSpace();
+		}
+	}
+	if (other->getCollisionType() == COLLISION_TYPE_GATE_OVER_WORLD_SPACE1)
+	{
+		if (KEY::getInstance()->isDownDown)
+		{
+			Game::getInstance()->worldType = WorldType::WT_OVER_WORLD_SPACE1;
+			Game::getInstance()->overWorld->setCurrentSpace(1);
+			Game::getInstance()->overWorld->resetLocationInSpace();
+		}
+	}
+	if (other->getCollisionType() == COLLISION_TYPE_GATE_OVER_WORLD_SPACE2)
+	{
+		if (KEY::getInstance()->isDownDown)
+		{
+			Game::getInstance()->worldType = WorldType::WT_OVER_WORLD_SPACE2;
+			Game::getInstance()->overWorld->setCurrentSpace(2);
 			Game::getInstance()->overWorld->resetLocationInSpace();
 		}
 	}
