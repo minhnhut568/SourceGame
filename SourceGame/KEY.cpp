@@ -34,12 +34,22 @@ void KEY::update()
 	isJumpPress = (isPreviousJumpDown==false && isJumpDown==true);
 
 	/* chuyển space */
-	isSpace1Down = GetAsyncKeyState(getKeyChar('q'));
-	isSpace2Down = GetAsyncKeyState(getKeyChar('w'));
-	isSpace3Down = GetAsyncKeyState(getKeyChar('e'));
-	isSpace4Down = GetAsyncKeyState(getKeyChar('r'));
-	isSpace5Down = GetAsyncKeyState(getKeyChar('t'));
-	isSpaceTestDown = GetAsyncKeyState(getKeyChar('p'));
+	isSpace0Down = GetAsyncKeyState(getKeyChar('q'));
+	isSpace1Down = GetAsyncKeyState(getKeyChar('w'));
+	isSpace2Down = GetAsyncKeyState(getKeyChar('e'));
+	isSpace3Down = GetAsyncKeyState(getKeyChar('r'));
+	isSpace4Down = GetAsyncKeyState(getKeyChar('t'));
+	isSpace5Down = GetAsyncKeyState(getKeyChar('y'));
+	isSpace6Down = GetAsyncKeyState(getKeyChar('u'));
+	isSpace7Down = GetAsyncKeyState(getKeyChar('i'));
+	isSpace8Down = GetAsyncKeyState(getKeyChar('o'));
+	isSpace10Down = GetAsyncKeyState(getKeyChar('p'));
+	isSpace11Down = GetAsyncKeyState(getKeyChar('l'));
+	isSpace12Down = GetAsyncKeyState(getKeyChar('k'));
+	isSpace13Down = GetAsyncKeyState(getKeyChar('j'));
+	isSpace14Down = GetAsyncKeyState(getKeyChar('h'));
+
+	isSpaceBossDown = GetAsyncKeyState(getKeyChar('b'));
 	changePlayer = (previousChangePlayerDown == false && changePlayerDown == true);
 }
 

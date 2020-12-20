@@ -47,7 +47,13 @@ void Camera::update()
 	BaseObject* player = 0;
 	switch (Game::getInstance()->worldType)
 	{
-	case WT_OVER_WORLD:
+	case WT_OVER_WORLD_SPACE0:
+		player = PlayerOverWorld::getInstance();
+		break;
+	case WT_OVER_WORLD_SPACE1:
+		player = PlayerOverWorld::getInstance();
+		break;
+	case WT_OVER_WORLD_SPACE2:
 		player = PlayerOverWorld::getInstance();
 		break;
 	case WT_WORLD:
@@ -98,11 +104,8 @@ void Camera::update()
 		player->setDx(0);
 	}
 
-
-
 	// y
 
-	
 	if (player->getDy() < 0 && getMidY() > player->getMidY())
 	{
 		

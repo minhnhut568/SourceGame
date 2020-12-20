@@ -230,11 +230,6 @@ void Player::onUpdate(float dt)
 		bulletDelay.start();
 	}
 
-	//if (getDx() != 0)
-	//{
-	//	TRACE_VAL_LN("Player Dx", getX());
-	//}
-
 	/* gọi lại phương thức xử lý onUpdate đã được định nghĩa ở lớp cha control click vào PhysicsObject::onUpdate để biết */
 
 	PhysicsObject::onUpdate(dt);

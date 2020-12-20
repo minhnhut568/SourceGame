@@ -88,13 +88,6 @@ void World::Init(const char* tilesheetPath,
 		case SPRITE_INFO_SNAILS:
 			obj = new Snails();
 			break;
-
-	
-
-		
-		/*case SPRITE_INFO_FLOATER_BULLET:
-			obj = new FloaterBullet();
-			break;*/
 		
 		default:
 			obj = new BaseObject();
@@ -175,7 +168,7 @@ void World::Init(const char* tilesheetPath,
 	}
 
 	/* bắt đầu từ space 0 */
-	setCurrentSpace(5);
+	setCurrentSpace(0);
 	resetLocationInSpace();
 	changeSpace = CHANGE_SPACE_UPDATE;
 }
@@ -274,34 +267,79 @@ void World::update(float dt)
 		key->update();
 
 		/* chuyển space khi nhấn phím */
-		if (key->isSpace1Down)
+		if (key->isSpace0Down)
 		{
 			setCurrentSpace(0);
 			resetLocationInSpace();
 		}
-		if (key->isSpace2Down)
+		if (key->isSpace1Down)
 		{
-			setCurrentSpace(5);
+			setCurrentSpace(1);
 			resetLocationInSpace();
 		}
-		if (key->isSpace3Down)
+		if (key->isSpace2Down)
 		{
 			setCurrentSpace(2);
 			resetLocationInSpace();
 		}
-		if (key->isSpace4Down)
+		if (key->isSpace3Down)
 		{
 			setCurrentSpace(3);
 			resetLocationInSpace();
 		}
-		if (key->isSpace5Down)
+		if (key->isSpace4Down)
 		{
 			setCurrentSpace(4);
 			resetLocationInSpace();
 		}
-		if (key->isSpaceTestDown)
+		if (key->isSpace5Down)
+		{
+			setCurrentSpace(5);
+			resetLocationInSpace();
+		}
+		if (key->isSpace6Down)
+		{
+			setCurrentSpace(6);
+			resetLocationInSpace();
+		}
+		if (key->isSpace7Down)
+		{
+			setCurrentSpace(7);
+			resetLocationInSpace();
+		}
+		if (key->isSpace8Down)
+		{
+			setCurrentSpace(8);
+			resetLocationInSpace();
+		}
+		if (key->isSpace10Down)
+		{
+			setCurrentSpace(10);
+			resetLocationInSpace();
+		}
+		if (key->isSpace11Down)
 		{
 			setCurrentSpace(11);
+			resetLocationInSpace();
+		}
+		if (key->isSpace12Down)
+		{
+			setCurrentSpace(12);
+			resetLocationInSpace();
+		}
+		if (key->isSpace13Down)
+		{
+			setCurrentSpace(13);
+			resetLocationInSpace();
+		}
+		if (key->isSpace14Down)
+		{
+			setCurrentSpace(14);
+			resetLocationInSpace();
+		}
+		if (key->isSpaceBossDown)
+		{
+			setCurrentSpace(9);
 			resetLocationInSpace();
 		}
 

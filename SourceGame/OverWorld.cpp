@@ -13,21 +13,19 @@
 #include "Orbs.h"
 #include "Skulls.h"
 #include "Snails.h"
+#include "Player.h"
 
 using namespace std;
 
 #include"Collision.h"
 #include "AriseBase.h"
 
-void OneWorld::Init(const char* tilesheetPath,
+void OverWorld::Init(const char* tilesheetPath,
 	const char* matrixPath,
 	const char* objectsPath,
 	const char* collisionTypeCollidePath,
 	const char* spacePath)
 {
-	/* khởi tạo vị trí player */
-
-
 
 	/* khởi tạo tilemap */
 	tilemap.Init(tilesheetPath, matrixPath);
@@ -52,12 +50,6 @@ void OneWorld::Init(const char* tilesheetPath,
 		fs >> id;
 		switch (id)
 		{
-
-
-
-			/*case SPRITE_INFO_FLOATER_BULLET:
-				obj = new FloaterBullet();
-				break;*/
 
 		default:
 			obj = new BaseObject();
@@ -142,7 +134,7 @@ void OneWorld::Init(const char* tilesheetPath,
 	resetLocationInSpace();
 }
 
-void OneWorld::Init(const char* folderPath)
+void OverWorld::Init(const char* folderPath)
 {
 	/* tìm đường dẫn tilesheet và matrix object */
 	string folderPathString = (string)folderPath;
@@ -169,12 +161,12 @@ void OneWorld::Init(const char* folderPath)
 		spacePath.c_str());
 }
 
-Tilemap* OneWorld::getTileMap()
+Tilemap* OverWorld::getTileMap()
 {
 	return &tilemap;
 }
 
-void OneWorld::update(float dt)
+void OverWorld::update(float dt)
 {
 	Camera* camera = Camera::getInstance();
 	auto player = PlayerOverWorld::getInstance();
@@ -183,32 +175,6 @@ void OneWorld::update(float dt)
 	/* cập nhật key */
 	key->update();
 
-	/* chuyển space khi nhấn phím */
-	if (key->isSpace1Down)
-	{
-		setCurrentSpace(0);
-		resetLocationInSpace();
-	}
-	if (key->isSpace2Down)
-	{
-		setCurrentSpace(1);
-		resetLocationInSpace();
-	}
-	if (key->isSpace3Down)
-	{
-		setCurrentSpace(2);
-		resetLocationInSpace();
-	}
-	if (key->isSpace4Down)
-	{
-		setCurrentSpace(3);
-		resetLocationInSpace();
-	}
-	if (key->isSpace5Down)
-	{
-		setCurrentSpace(4);
-		resetLocationInSpace();
-	}
 
 	auto ariseObjects = AriseBase::getAriseObjects();
 
@@ -254,30 +220,29 @@ void OneWorld::update(float dt)
 	}
 
 	PlayerOverWorld::getInstance()->update(dt);
+	Player::updatePlayer(dt);
 	Camera::getInstance()->update();
-
 }
 
-void OneWorld::setCurrentSpace(int spaceIndex)
+void OverWorld::setCurrentSpace(int spaceIndex)
 {
 	this->currentSpace = spaces.at(spaceIndex);
 	Camera::getInstance()->setSpace(this->currentSpace);
 }
 
-Space* OneWorld::getCurrentSpace()
+Space* OverWorld::getCurrentSpace()
 {
 	return currentSpace;
 }
 
-void OneWorld::resetLocationInSpace()
+void OverWorld::resetLocationInSpace()
 {
 	Camera* camera = Camera::getInstance();
-
 	camera->setLocation(getCurrentSpace()->CameraX, getCurrentSpace()->CameraY);
 	PlayerOverWorld::getInstance()->setLocation(getCurrentSpace()->PlayerX, getCurrentSpace()->PlayerY);
 }
 
-void OneWorld::render()
+void OverWorld::render()
 {
 	tilemap.render(Camera::getInstance());
 	for (size_t i = 0; i < allObjects.Count; i++)
@@ -289,9 +254,9 @@ void OneWorld::render()
 	PlayerOverWorld::getInstance()->render(Camera::getInstance());
 }
 
-OneWorld::OneWorld()
+OverWorld::OverWorld()
 {
 }
-OneWorld::~OneWorld()
+OverWorld::~OverWorld()
 {
 }
