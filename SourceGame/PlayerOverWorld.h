@@ -29,6 +29,9 @@ class PlayerOverWorld :
 {
 	int moveX, moveY;
 	static PlayerOverWorld* instance;
+	PLAYER_OW_DIRECTION playerDirection;
+
+	DelayTime shootDelay;
 public:
 	static PlayerOverWorld* getInstance();
 	void onUpdate(float dt) override;

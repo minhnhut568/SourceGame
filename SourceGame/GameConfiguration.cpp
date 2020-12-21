@@ -18,8 +18,8 @@ double GameConfiguration::GetConfiguration(const char * key)
 		globalsConfigurationDouble->insert(pair<const char*, double>("window_height", 448));
 
 		/* backbuffer_width, backbuffer_height là kích thước của backbuffer */
-		globalsConfigurationDouble->insert(pair<const char*, double>("backbuffer_width", 222));
-		globalsConfigurationDouble->insert(pair<const char*, double>("backbuffer_height", 240));
+		globalsConfigurationDouble->insert(pair<const char*, double>("backbuffer_width", 256));
+		globalsConfigurationDouble->insert(pair<const char*, double>("backbuffer_height", 280));
 
 		/* fps là frame_per_second càng lớn càng mượt nhưng nó sử dụng nhiều cpu hơn */
 		globalsConfigurationDouble->insert(pair<const char*, double>("fps", 120));
@@ -42,6 +42,7 @@ double GameConfiguration::GetConfiguration(const char * key)
 		globalsConfigurationDouble->insert(pair<const char*, double>("player_blink_time", 20));
 		globalsConfigurationDouble->insert(pair<const char*, double>("player_blink_delay", 2000));
 		globalsConfigurationDouble->insert(pair<const char*, double>("player_blink_can't_control_delay", 200));
+		globalsConfigurationDouble->insert(pair<const char*, double>("player-bullet-over-world-dx", 4));
 
 		globalsConfigurationDouble->insert(pair<const char*, double>("player-one-world-dx", 2));
 

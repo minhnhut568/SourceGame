@@ -227,5 +227,7 @@ void GameDirectX::EndGraphics()
 
 void GameDirectX::PresentBackBuffer()
 {
-	d3ddv->Present(0, 0, 0, 0);
+	RECT r;
+	SetRect(&r, 0, 0, backbufferWidth, backbufferHeight);
+	d3ddv->Present(&r, 0, 0, 0);
 }

@@ -12,10 +12,10 @@ void PlayerBullet::onUpdate(float dt)
 
 void PlayerBullet::onAABBCheck(MovableRect* other)
 {
-	/*if (other->getCollisionType() == COLLISION_TYPE_ENEMY)
+	if (other->getCollisionType() == COLLISION_TYPE_ENEMY)
 	{
-		((Enemy*)other)->setConflicBullet();
-	}*/
+		((BaseObject*)other)->setConflicBullet();
+	}
 }
 
 PlayerBullet::PlayerBullet()

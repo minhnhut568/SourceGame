@@ -29,10 +29,19 @@ void Game::GameInit()
 		GLOBALS_D("backbuffer_width"),
 		GLOBALS_D("backbuffer_height"));
 
-	worldType = WT_WORLD;
 
+	// world
+	/*worldType = WT_WORLD;
 	world->setCurrentSpace(0);
-	world->resetLocationInSpace();
+	world->resetLocationInSpace();*/
+
+	// over world
+	//worldType = WT_OVER_WORLD_SPACE0;
+	//overWorld->setCurrentSpace(0);
+	//overWorld->resetLocationInSpace();
+
+	 //intro
+	worldType = WT_INTRO;
 
 
 }
@@ -87,21 +96,45 @@ void Game::GameRender()
 		overWorld->render();
 		Scorebar::getInstance()->render();
 		break;
-	case COLLISION_TYPE_GATE_TO_WORLD_SPACE6:
-		world->render();
-		Scorebar::getInstance()->render();
-		break;
-	case COLLISION_TYPE_GATE_TO_WORLD_SPACE4:
-		world->render();
-		Scorebar::getInstance()->render();
-		break;
-	case COLLISION_TYPE_GATE_TO_WORLD_SPACE5:
-		world->render();
-		Scorebar::getInstance()->render();
-		break;
 	default:
 		break;
 	}
+}
+
+WorldType Game::getWorldType()
+{
+	return worldType;
+}
+
+void Game::setWorldType(WorldType worldType)
+{
+	auto gameDirectx = GameDirectX::getInstance();
+	this->worldType = worldType;
+	switch (worldType)
+	{
+	case WT_INTRO:
+		gameDirectx->backbufferWidth = 256;
+		gameDirectx->backbufferHeight = 280;
+		break;
+	case WT_WORLD:
+		gameDirectx->backbufferWidth = 240;
+		gameDirectx->backbufferHeight = 224;
+		break;
+	case WT_OVER_WORLD_SPACE0:
+	case WT_OVER_WORLD_SPACE1:
+	case WT_OVER_WORLD_SPACE2:
+	case WT_TO_WORLD_SPACE6:
+	case WT_TO_WORLD_SPACE4:
+	case WT_TO_WORLD_SPACE5:
+		gameDirectx->backbufferWidth = 256;
+		gameDirectx->backbufferHeight = 224;
+	default:
+		break;
+	}
+
+
+	Camera::getInstance()->setWidth(gameDirectx->backbufferWidth);
+	Camera::getInstance()->setHeight(gameDirectx->backbufferHeight);
 }
 
 Game::Game()

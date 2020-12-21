@@ -171,7 +171,7 @@ void PlayerMini::onAABBCheck(MovableRect* other)
 	{
 		if (KEY::getInstance()->isDownDown)
 		{
-			Game::getInstance()->worldType = WorldType::WT_OVER_WORLD_SPACE0;
+			Game::getInstance()->setWorldType(WorldType::WT_OVER_WORLD_SPACE0);
 			Game::getInstance()->overWorld->setCurrentSpace(0);
 			Game::getInstance()->overWorld->resetLocationInSpace();
 		}
@@ -180,7 +180,7 @@ void PlayerMini::onAABBCheck(MovableRect* other)
 	{
 		if (KEY::getInstance()->isDownDown)
 		{
-			Game::getInstance()->worldType = WorldType::WT_OVER_WORLD_SPACE1;
+			Game::getInstance()->setWorldType(WorldType::WT_OVER_WORLD_SPACE1);
 			Game::getInstance()->overWorld->setCurrentSpace(1);
 			Game::getInstance()->overWorld->resetLocationInSpace();
 		}
@@ -189,7 +189,7 @@ void PlayerMini::onAABBCheck(MovableRect* other)
 	{
 		if (KEY::getInstance()->isDownDown)
 		{
-			Game::getInstance()->worldType = WorldType::WT_OVER_WORLD_SPACE2;
+			Game::getInstance()->setWorldType(WorldType::WT_OVER_WORLD_SPACE2);
 			Game::getInstance()->overWorld->setCurrentSpace(2);
 			Game::getInstance()->overWorld->resetLocationInSpace();
 		}

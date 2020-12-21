@@ -17,13 +17,8 @@ AriseBase::AriseBase()
 
 void AriseBase::onUpdate(float dt)
 {
-	PhysicsObject::onUpdate(dt);
-	Camera* camera = Camera::getInstance();
 
-	if (!Collision::AABBCheck(camera, this))
-	{
-		this->markForDelete = true;
-	}
+	PhysicsObject::onUpdate(dt);
 
 }
 
@@ -34,6 +29,13 @@ void AriseBase::updateAriseObjects(float dt)
 	{
 		AriseBase* obj = list->at(i);
 		obj->update(dt);
+
+		Camera* camera = Camera::getInstance();
+
+		if (!Collision::AABBCheck(camera, obj))
+		{
+			obj->markForDelete = true;
+		}
 
 		if (obj->markForDelete) {
 			list->_Remove(obj);

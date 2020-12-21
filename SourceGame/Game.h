@@ -23,8 +23,10 @@ enum WorldType
 
 class Game
 {
+private:
 	/* singleton pattern */
 	static Game* instance;
+	WorldType worldType;
 
 
 public:
@@ -32,7 +34,6 @@ public:
 
 	OverWorld* overWorld;
 	WorldIntro* worldIntro;
-	WorldType worldType;
 	static Game* getInstance();
 	/* Các câu lệnh khởi tạo game */
 	void GameInit();
@@ -40,6 +41,9 @@ public:
 	void GameUpdate(float dt);
 	/* Các câu lệnh vẽ của game */
 	void GameRender();
+	WorldType getWorldType();
+
+	void setWorldType(WorldType worldType);
 	Game();
 	~Game();
 };

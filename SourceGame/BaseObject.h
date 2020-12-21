@@ -66,6 +66,9 @@ public:
 	*/
 	virtual void render(Camera* camera);
 
+	virtual void setConflicBullet();
+
+
 	int getAnimation();
 	void setAnimation(int animation);
 

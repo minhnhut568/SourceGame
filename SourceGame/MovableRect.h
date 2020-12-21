@@ -7,11 +7,11 @@ class MovableRect :
 {
 	/* độ dời di chuyển của đối tượng */
 	float dx, dy;
-	COLLISION_TYPE collisionType;
+	int collisionType;
 public:
 	bool alive;
-	COLLISION_TYPE getCollisionType();
-	void setCollisionType(COLLISION_TYPE collisionType);
+	int getCollisionType();
+	void setCollisionType(int collisionType);
 	virtual void setDx(float dx);
 	virtual void setDy(float dy);
 	float getDx();
