@@ -20,6 +20,7 @@ PlayerOverWorld* PlayerOverWorld::getInstance()
 
 void PlayerOverWorld::onUpdate(float dt)
 {
+	shootDelay.update();
 	bool keyLeftDown, keyRightDown, keyUpDown, keyDownDown;
 	/* kiểm tra key bên trái có được giữ */
 	keyLeftDown = KEY::getInstance()->isLeftDown;
@@ -27,6 +28,38 @@ void PlayerOverWorld::onUpdate(float dt)
 	keyRightDown = KEY::getInstance()->isRightDown;
 	keyUpDown = KEY::getInstance()->isUpDown;
 	keyDownDown = KEY::getInstance()->isDownDown;
+
+	if (KEY::getInstance()->isAttackDown)
+	{
+		if (!shootDelay.isOnTime())
+		{
+			PlayerMiniOverWorldBullet* bullet = new PlayerMiniOverWorldBullet();
+			bullet->setX(getMidX());
+			bullet->setY(getMidY());
+
+			if (this->playerDirection == PLAYER_OW_DIRECTION_RIGHT)
+			{
+				bullet->setDx(S("player-bullet-over-world-dx"));
+			}
+
+			if (this->playerDirection == PLAYER_OW_DIRECTION_LEFT)
+			{
+				bullet->setDx(-S("player-bullet-over-world-dx"));
+			}
+
+			if (this->playerDirection == PLAYER_OW_DIRECTION_UP)
+			{
+				bullet->setDy(S("player-bullet-over-world-dx"));
+			}
+
+			if (this->playerDirection == PLAYER_OW_DIRECTION_DOWN)
+			{
+				bullet->setDy(-S("player-bullet-over-world-dx"));
+			}
+
+			shootDelay.start();
+		}
+	}
 
 	setPauseAnimation(false);
 	if (keyLeftDown)
@@ -56,10 +89,7 @@ void PlayerOverWorld::onUpdate(float dt)
 	setDx(moveX * S("player-one-world-dx"));
 	setDy(moveY * S("player-one-world-dx"));
 
-	if (KEY::getInstance()->isAttackDown)
-	{
 
-	}
 }
 
 void PlayerOverWorld::onCollision(MovableRect * other, float collisionTime, int nx, int ny)
@@ -86,7 +116,7 @@ void PlayerOverWorld::onAABBCheck(MovableRect* other)
 	{
 		if (KEY::getInstance()->isEnterDown)
 		{
-			Game::getInstance()->worldType = WorldType::WT_WORLD;
+			Game::getInstance()->setWorldType(WorldType::WT_WORLD);
 			Game::getInstance()->world->setCurrentSpace(6);
 			Game::getInstance()->world->resetLocationInSpace();
 		}
@@ -95,7 +125,7 @@ void PlayerOverWorld::onAABBCheck(MovableRect* other)
 	{
 		if (KEY::getInstance()->isEnterDown)
 		{
-			Game::getInstance()->worldType = WorldType::WT_WORLD;
+			Game::getInstance()->setWorldType(WorldType::WT_WORLD);
 			Game::getInstance()->world->setCurrentSpace(4);
 			Game::getInstance()->world->resetLocationInSpace();
 		}
@@ -104,7 +134,7 @@ void PlayerOverWorld::onAABBCheck(MovableRect* other)
 	{
 		if (KEY::getInstance()->isEnterDown)
 		{
-			Game::getInstance()->worldType = WorldType::WT_WORLD;
+			Game::getInstance()->setWorldType(WorldType::WT_WORLD);
 			Game::getInstance()->world->setCurrentSpace(5);
 			Game::getInstance()->world->resetLocationInSpace();
 		}
@@ -114,6 +144,7 @@ void PlayerOverWorld::onAABBCheck(MovableRect* other)
 
 void PlayerOverWorld::setPlayerDirection(PLAYER_OW_DIRECTION direction)
 {
+	this->playerDirection = direction;
 	switch (direction)
 	{
 	case PLAYER_OW_DIRECTION_LEFT:
@@ -148,6 +179,7 @@ PlayerOverWorld::PlayerOverWorld()
 	setSprite(SpriteManager::getInstance()->getSprite(SPRITE_INFO_PLAYER_ONE_WORLD));
 	setWidth(17);
 	setHeight(30);
+	shootDelay.init(300);
 }
 
 

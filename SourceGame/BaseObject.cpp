@@ -141,6 +141,10 @@ void BaseObject::render(Camera* camera)
 	}
 }
 
+void BaseObject::setConflicBullet()
+{
+}
+
 int BaseObject::getAnimation()
 {
 	return animationIndex;

@@ -68,6 +68,7 @@ void Scorebar::update()
 
 void Scorebar::render()
 {
+	healthLoccation = getHealthLocation();
 	int l_curHealth = getCurHealth();
 	for (int i = maxHealth; i > 0; i--)
 	{

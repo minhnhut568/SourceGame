@@ -14,7 +14,7 @@ void WorldIntro::update()
 	KEY::getInstance()->update();
 	if (KEY::getInstance()->isEnterDown)
 	{
-		Game::getInstance()->worldType = WorldType::WT_WORLD;
+		Game::getInstance()->setWorldType(WorldType::WT_WORLD);
 		Game::getInstance()->world->setCurrentSpace(0);
 		Game::getInstance()->world->resetLocationInSpace();
 	}

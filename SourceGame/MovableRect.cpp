@@ -8,11 +8,11 @@ void MovableRect::onAABBCheck(MovableRect* other)
 {
 }
 
-COLLISION_TYPE MovableRect::getCollisionType()
+int MovableRect::getCollisionType()
 {
 	return this->collisionType;
 }
-void MovableRect::setCollisionType(COLLISION_TYPE collisionType)
+void MovableRect::setCollisionType(int collisionType)
 {
 	this->collisionType = collisionType;
 }

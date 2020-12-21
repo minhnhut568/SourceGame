@@ -14,6 +14,7 @@
 #include "Skulls.h"
 #include "Snails.h"
 #include "Player.h"
+#include "Cannons.h"
 
 using namespace std;
 
@@ -50,7 +51,9 @@ void OverWorld::Init(const char* tilesheetPath,
 		fs >> id;
 		switch (id)
 		{
-
+		case SPRITE_INFO_CANNONS:
+			obj = new Cannons();
+			break;
 		default:
 			obj = new BaseObject();
 			break;

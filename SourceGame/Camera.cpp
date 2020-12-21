@@ -34,6 +34,11 @@ void Camera::convertWorldToView(float xWorld, float yWorld, float & xView, float
 
 }
 
+void Camera::onCollision(MovableRect* other, float collisionTime, int nx, int ny)
+{
+	preventMovementWhenCollision(collisionTime, nx, ny);
+}
+
 void Camera::setSpace(Space * space)
 {
 	this->space = space;
@@ -45,7 +50,7 @@ void Camera::update()
 	setDx(0);
 
 	BaseObject* player = 0;
-	switch (Game::getInstance()->worldType)
+	switch (Game::getInstance()->getWorldType())
 	{
 	case WT_OVER_WORLD_SPACE0:
 		player = PlayerOverWorld::getInstance();
@@ -142,6 +147,7 @@ void Camera::update()
 
 Camera::Camera()
 {
+	alive = true;
 }
 
 

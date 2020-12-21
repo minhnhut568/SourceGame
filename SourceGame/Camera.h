@@ -16,6 +16,7 @@ public:
 		Phương thức này trong sách game có giở sách ra xem sẽ thấy
 	*/
 	void convertWorldToView(float xWorld, float yWorld, float& xView, float& yView);
+	void onCollision(MovableRect* other, float collisionTime, int nx, int ny) override;
 
 	void setSpace(Space* space);
 

@@ -8,6 +8,10 @@ void PlayerMiniOverWorldBullet::onUpdate(float dt)
 	{
 		this->markForDelete = true;
 	}
+	if (getFrameAnimation() == getLastFrameCurrentAnimation())
+	{
+		setPauseAnimation(true);
+	}
 }
 
 void PlayerMiniOverWorldBullet::onAABBCheck(MovableRect* other)
@@ -20,9 +24,11 @@ void PlayerMiniOverWorldBullet::onAABBCheck(MovableRect* other)
 
 PlayerMiniOverWorldBullet::PlayerMiniOverWorldBullet()
 {
-	setSprite(SpriteManager::getInstance()->getSprite(SPRITE_INFO_PLAYER_ONE_WORLD_BULLET));
+	setSprite(SpriteManager::getInstance()->getSprite(SPRITE_INFO_PLAYER_OVER_WORLD_BULLET));
 	setWidth(getSprite()->image->Width);
 	setWidth(getSprite()->image->Height);
 	//setPhysicsEnable(false);
 	setDirection(TEXTURE_DIRECTION_RIGHT);
+
+	//animationGameTime.init(500);
 }

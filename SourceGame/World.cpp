@@ -168,7 +168,7 @@ void World::Init(const char* tilesheetPath,
 	}
 
 	/* bắt đầu từ space 0 */
-	setCurrentSpace(0);
+	setCurrentSpace(6);
 	resetLocationInSpace();
 	changeSpace = CHANGE_SPACE_UPDATE;
 }
@@ -232,28 +232,41 @@ void World::update(float dt)
 		}
 		break;
 	case CHANGE_SPACE_MOVING:
-		if (cameraMoveDx > 0 &&changeSpaceCameraX > camera->getX() || cameraMoveDx < 0 && changeSpaceCameraX < camera->getX())
+	{
+		if (cameraMoveDx > 0 && changeSpaceCameraX > camera->getX() || cameraMoveDx < 0 && changeSpaceCameraX < camera->getX())
 		{
-			camera->setX(camera->getX() + cameraMoveDx);
+			camera->setDx(cameraMoveDx);
 		}
 		else
 		{
+			camera->setDx(0);
 			cameraMoveDx = 0;
 		}
-		
+
 		if (cameraMoveDy > 0 && changeSpaceCameraY > camera->getY() || cameraMoveDy < 0 && changeSpaceCameraY < camera->getY())
 		{
-			camera->setY(camera->getY() + cameraMoveDy);
+			camera->setDy(cameraMoveDy);
 		}
 		else
 		{
+			camera->setDy(0);
 			cameraMoveDy = 0;
 		}
 		if (cameraMoveDx == 0 && cameraMoveDy == 0)
 		{
 			changeSpace = CHANGE_SPACE_MOVING_END;
 		}
+
+		auto preventCameras = objectCategories.at(COLLISION_TYPE_PREVENT_CAMERA);
+		for (int i = 0; i < preventCameras->Count; i++)
+		{
+			auto obj = preventCameras->at(i);
+			Collision::CheckCollision(camera, obj);
+		}
+		camera->goX();
+		camera->goY();
 		break;
+	}
 	case CHANGE_SPACE_MOVING_END:
 		player->setX(changeSpacePlayerX);
 		player->setY(changeSpacePlayerY);
@@ -351,6 +364,7 @@ void World::update(float dt)
 			auto obj = allObjects[i];
 			obj->update(dt);
 			Collision::CheckCollision(Player::getPlayerMain(), obj);
+			Collision::CheckCollision(Player::getPlayerMini(), obj);
 			Collision::CheckCollision(Player::getPlayerMini(), obj);
 
 			for (size_t i2 = 0; i2 < ariseObjects->size(); i2++)
