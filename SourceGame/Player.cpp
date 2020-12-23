@@ -271,9 +271,13 @@ void Player::updatePlayer(float dt)
 
 void Player::renderPlayer()
 {
+	playerMain->setWidth(26);
+	playerMain->setHeight(17);
 	if (currentPlayer == playerMini)
 	{
 		playerMain->render(Camera::getInstance());
+		playerMini->setWidth(8);
+		playerMini->setHeight(17);
 		playerMini->render(Camera::getInstance());
 	}
 	else
@@ -284,6 +288,7 @@ void Player::renderPlayer()
 
 Player::Player()
 {
+	
 	setSprite(SPR(SPRITE_INFO_PLAYER));
 	bulletDelay.init(S("player_bulle_delay"));
 	setDirection(TEXTURE_DIRECTION::TEXTURE_DIRECTION_RIGHT);
