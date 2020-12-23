@@ -198,6 +198,9 @@
     <ClInclude Include="Cannons.h">
       <Filter>Objects\Enemies</Filter>
     </ClInclude>
+    <ClInclude Include="Boss.h">
+      <Filter>Objects\Enemies</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Sprite.cpp">
@@ -336,6 +339,9 @@
       <Filter>Objects\Player</Filter>
     </ClCompile>
     <ClCompile Include="Cannons.cpp">
+      <Filter>Objects\Enemies</Filter>
+    </ClCompile>
+    <ClCompile Include="Boss.cpp">
       <Filter>Objects\Enemies</Filter>
     </ClCompile>
   </ItemGroup>

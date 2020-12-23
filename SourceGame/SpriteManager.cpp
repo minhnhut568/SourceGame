@@ -94,6 +94,10 @@ SpriteManager::SpriteManager()
 	sprites[SPRITE_INFO_CANNONS]->InitFromFile("assets/sprites/cannons");
 	sprites[SPRITE_INFO_CANNONS]->image->direction = TEXTURE_DIRECTION_LEFT;
 
+	//SPRITE_INFO_BOSS
+	sprites[SPRITE_INFO_BOSS]->InitFromFile("assets/sprites/boss");
+	sprites[SPRITE_INFO_BOSS]->image->direction = TEXTURE_DIRECTION_LEFT;
+
 }
 SpriteManager::~SpriteManager()
 {
