@@ -15,6 +15,7 @@
 #include "Snails.h"
 #include "Player.h"
 #include "Cannons.h"
+#include "Boss.h"
 
 using namespace std;
 
@@ -53,6 +54,9 @@ void OverWorld::Init(const char* tilesheetPath,
 		{
 		case SPRITE_INFO_CANNONS:
 			obj = new Cannons();
+			break;
+		case SPRITE_INFO_BOSS:
+			obj = new Boss();
 			break;
 		default:
 			obj = new BaseObject();
@@ -93,6 +97,7 @@ void OverWorld::Init(const char* tilesheetPath,
 	fsColli >> numberOfCollisionTypeCollides;
 	for (size_t i = 0; i < numberOfCollisionTypeCollides; i++)
 	{
+
 		int collisionType1, collisionType2;
 		fsColli >> collisionType1 >> collisionType2;
 		CollisionTypeCollide* collisionTypeCollide = new CollisionTypeCollide();
@@ -224,7 +229,10 @@ void OverWorld::update(float dt)
 
 	PlayerOverWorld::getInstance()->update(dt);
 	Player::updatePlayer(dt);
+
 	Camera::getInstance()->update();
+
+
 }
 
 void OverWorld::setCurrentSpace(int spaceIndex)
