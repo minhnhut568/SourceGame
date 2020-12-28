@@ -1,6 +1,8 @@
 #pragma once
 #include"MovableRect.h"
 #include"Space.h"
+#include"BaseObject.h"
+
 /* camera là 1 hình chữ nhật có thể di chuyển nên sẽ kế thừa lại lớp MovableRect */
 class Camera : public MovableRect
 {
@@ -9,6 +11,11 @@ class Camera : public MovableRect
 	Space* space;
 	
 public:
+	List<BaseObject*>* allObjects;
+	List<List<BaseObject*>*> objectCategories;
+
+	void removeObject(BaseObject* obj);
+
 	static Camera* getInstance();
 	/* phương thức chuyển đổi world qua view
 		Tham số đầu vào là xWorld yWorld

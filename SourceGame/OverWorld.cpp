@@ -259,10 +259,10 @@ void OverWorld::render()
 	for (size_t i = 0; i < allObjects.Count; i++)
 	{
 		/* vẽ đối tượng */
-		allObjects[i]->render(Camera::getInstance());
+		allObjects[i]->render();
 	}
 	AriseBase::renderAriseObjects();
-	PlayerOverWorld::getInstance()->render(Camera::getInstance());
+	PlayerOverWorld::getInstance()->render();
 }
 
 OverWorld::OverWorld()

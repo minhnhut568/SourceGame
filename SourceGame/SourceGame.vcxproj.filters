@@ -46,6 +46,9 @@
     <Filter Include="Objects\Player">
       <UniqueIdentifier>{6eece7fb-54d5-4b7a-9b31-1699fc467d15}</UniqueIdentifier>
     </Filter>
+    <Filter Include="QuadTree">
+      <UniqueIdentifier>{f2fcaa18-f4f6-4bb6-b111-b1489c70aed5}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Sprite.h">
@@ -201,6 +204,12 @@
     <ClInclude Include="Rect.h">
       <Filter>Objects\Items</Filter>
     </ClInclude>
+    <ClInclude Include="QuadNode.h">
+      <Filter>QuadTree</Filter>
+    </ClInclude>
+    <ClInclude Include="QuadTree.h">
+      <Filter>QuadTree</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Sprite.cpp">
@@ -343,6 +352,12 @@
     </ClCompile>
     <ClCompile Include="Rect.cpp">
       <Filter>Objects\Items</Filter>
+    </ClCompile>
+    <ClCompile Include="QuadNode.cpp">
+      <Filter>QuadTree</Filter>
+    </ClCompile>
+    <ClCompile Include="QuadTree.cpp">
+      <Filter>QuadTree</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

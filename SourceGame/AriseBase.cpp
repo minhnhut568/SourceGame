@@ -1,5 +1,6 @@
 #include "AriseBase.h"
 #include "Collision.h"
+#include"Camera.h"
 
 List<AriseBase*>* AriseBase::ariseObjects = 0;
 List<AriseBase*>* AriseBase::getAriseObjects()
@@ -51,6 +52,6 @@ void AriseBase::renderAriseObjects()
 	for (int i = 0; i < list->Count; i++)
 	{
 		AriseBase* obj = list->at(i);
-		obj->render(Camera::getInstance());
+		obj->render();
 	}
 }

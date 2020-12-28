@@ -2,5 +2,4 @@
 
 void Boss::onUpdate(float dt)
 {
-
 }

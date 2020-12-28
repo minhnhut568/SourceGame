@@ -1,4 +1,5 @@
 #include "BaseObject.h"
+#include"Camera.h"
 
 void BaseObject::setSprite(Sprite * sprite)
 {
@@ -53,6 +54,8 @@ void BaseObject::onInitFromFile(ifstream& fs, int mapHeight)
 	/* khởi tạo collisionType */
 
 	setCollisionType((COLLISION_TYPE)collisionType);
+
+	initBox.set(x, y, width, height);
 }
 
 
@@ -95,8 +98,9 @@ void BaseObject::onUpdate(float dt)
 	setPauseAnimation(false);
 }
 
-void BaseObject::render(Camera* camera)
+void BaseObject::render()
 {
+	Camera* camera = Camera::getInstance();
 	if (!alive)
 	{
 		return;
@@ -183,6 +187,12 @@ void BaseObject::setDirection(int direction)
 int BaseObject::getLastFrameCurrentAnimation()
 {
 	return sprite->animations[animationIndex]->frames.Count-1;
+}
+
+void BaseObject::onInitLocation()
+{
+	setX(initBox.getX());
+	setY(initBox.getY());
 }
 
 

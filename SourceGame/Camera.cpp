@@ -3,9 +3,15 @@
 #include"Player.h"
 #include"PlayerOverWorld.h"
 #include"Game.h"
+#include"CollisionType.h"
 
-Camera * Camera::instance = 0;
-Camera * Camera::getInstance()
+Camera* Camera::instance = 0;
+void Camera::removeObject(BaseObject* obj)
+{
+	allObjects->_Remove(obj);
+	objectCategories.at(obj->getCollisionType())->_Remove(obj);
+}
+Camera* Camera::getInstance()
 {
 	if (instance == 0)
 	{
@@ -14,7 +20,7 @@ Camera * Camera::getInstance()
 	return instance;
 }
 
-void Camera::convertWorldToView(float xWorld, float yWorld, float & xView, float & yView)
+void Camera::convertWorldToView(float xWorld, float yWorld, float& xView, float& yView)
 {
 	/* ma trận biến đổi world to view */
 	D3DXMATRIX matrixWorldToView;
@@ -30,7 +36,7 @@ void Camera::convertWorldToView(float xWorld, float yWorld, float & xView, float
 
 	xView = MatrixResult.x;
 	yView = MatrixResult.y;
-	
+
 
 }
 
@@ -39,7 +45,7 @@ void Camera::onCollision(MovableRect* other, float collisionTime, int nx, int ny
 	preventMovementWhenCollision(collisionTime, nx, ny);
 }
 
-void Camera::setSpace(Space * space)
+void Camera::setSpace(Space* space)
 {
 	this->space = space;
 }
@@ -67,7 +73,7 @@ void Camera::update()
 	default:
 		break;
 	}
-	
+
 	/* nếu player đang chạy sang trái (player->getDx()<0) và phần giữa camera nằm bên phải phần giữa player */
 	if (player->getDx() < 0 && getMidX() > player->getMidX())
 	{
@@ -113,12 +119,12 @@ void Camera::update()
 
 	if (player->getDy() < 0 && getMidY() > player->getMidY())
 	{
-		
+
 		setDy(player->getDy());
 	}
 	else if (player->getDy() > 0 && getMidY() < player->getMidY())
 	{
-	
+
 		setDy(player->getDy());
 	}
 	else
@@ -126,7 +132,7 @@ void Camera::update()
 		setDy(0);
 	}
 
-	
+
 	if (getBottom() + getDy() < space->Y - space->Height && getDy() < 0)
 	{
 		setY(space->Y - space->Height + getHeight());
@@ -140,7 +146,7 @@ void Camera::update()
 		setDy(0);
 	}
 
-	
+
 	goX();
 	goY();
 }
@@ -148,6 +154,11 @@ void Camera::update()
 Camera::Camera()
 {
 	alive = true;
+	allObjects = new List<BaseObject*>();
+	for (size_t i = 0; i < COLLISION_TYPE_COUNT; i++)
+	{
+		objectCategories._Add(new List<BaseObject*>());
+	}
 }
 
 

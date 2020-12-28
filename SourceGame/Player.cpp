@@ -275,14 +275,14 @@ void Player::renderPlayer()
 	playerMain->setHeight(17);
 	if (currentPlayer == playerMini)
 	{
-		playerMain->render(Camera::getInstance());
+		playerMain->render();
 		playerMini->setWidth(8);
 		playerMini->setHeight(17);
-		playerMini->render(Camera::getInstance());
+		playerMini->render();
 	}
 	else
 	{
-		playerMain->render(Camera::getInstance());
+		playerMain->render();
 	}
 }
 

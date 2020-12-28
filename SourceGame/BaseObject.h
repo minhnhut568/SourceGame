@@ -2,7 +2,6 @@
 #include "MovableRect.h"
 #include"Sprite.h"
 #include"GameTime.h"
-#include"Camera.h"
 #include"CollisionType.h"
 #include "map"
 using namespace std;
@@ -32,6 +31,7 @@ class BaseObject :
 
 public:
 
+	Rect initBox;
 
 	/* dùng để làm chậm animation */
 	GameTime animationGameTime;
@@ -64,7 +64,7 @@ public:
 	/* hành động vẽ của đối tượng 
 		camera dùng để biến đổi tọa độ của object từ world sang view
 	*/
-	virtual void render(Camera* camera);
+	virtual void render();
 
 	virtual void setConflicBullet();
 
@@ -80,6 +80,7 @@ public:
 
 	int getLastFrameCurrentAnimation();
 
+	virtual void onInitLocation();
 
 
 	BaseObject();

@@ -23,7 +23,8 @@ void World::Init(const char* tilesheetPath,
 	const char* matrixPath,
 	const char* objectsPath,
 	const char* collisionTypeCollidePath,
-	const char* spacePath)
+	const char* spacePath,
+	const char* quadTreePath)
 {
 	/* khởi tạo vị trí player */
 
@@ -120,7 +121,7 @@ void World::Init(const char* tilesheetPath,
 
 	}
 
-
+	quadTree.init(quadTreePath, &allObjects, tilemap.getWorldHeight());
 
 	/* đọc collisiontype collide */
 	int numberOfCollisionTypeCollides = 0;
@@ -193,11 +194,15 @@ void World::Init(const char* folderPath)
 	string spacePath = folderPathString;
 	spacePath.append("/spaces.dat");
 
+	string quadTreePath = folderPathString;
+	quadTreePath.append("/quadtree.dat");
+
 	Init(tilesheetString.c_str(),
 		matrixPathString.c_str(),
 		objectPathString.c_str(),
 		collisionTypeCollidePath.c_str(),
-		spacePath.c_str());
+		spacePath.c_str(),
+		quadTreePath.c_str());
 }
 
 Tilemap* World::getTileMap()
@@ -275,6 +280,7 @@ void World::update(float dt)
 		break;
 	case CHANGE_SPACE_UPDATE:
 	{
+		quadTree.fillObjectsToCamera();
 		KEY* key = KEY::getInstance();
 		/* cập nhật key */
 		key->update();
@@ -359,9 +365,9 @@ void World::update(float dt)
 		auto ariseObjects = AriseBase::getAriseObjects();
 
 		/* cập nhật đối tượng */
-		for (size_t i = 0; i < allObjects.Count; i++)
+		for (size_t i = 0; i < camera->allObjects->Count; i++)
 		{
-			auto obj = allObjects[i];
+			auto obj = camera->allObjects->at(i);
 			obj->update(dt);
 			Collision::CheckCollision(Player::getPlayerMain(), obj);
 			Collision::CheckCollision(Player::getPlayerMini(), obj);
@@ -388,9 +394,9 @@ void World::update(float dt)
 			COLLISION_TYPE col2 = collisionTypeCollides.at(i)->COLLISION_TYPE_2;
 
 			/* danh sách đối tượng thuộc collision type 1 */
-			List<BaseObject*>* collection1 = objectCategories.at(col1);
+			List<BaseObject*>* collection1 = camera->objectCategories.at(col1);
 			/* danh sách đối tượng thuộc collision type 2 */
-			List<BaseObject*>* collection2 = objectCategories.at(col2);
+			List<BaseObject*>* collection2 = camera->objectCategories.at(col2);
 
 			for (size_t i1 = 0; i1 < collection1->size(); i1++)
 			{
@@ -433,11 +439,12 @@ void World::resetLocationInSpace()
 
 void World::render()
 {
-	tilemap.render(Camera::getInstance());
-	for (size_t i = 0; i < allObjects.Count; i++)
+	Camera* camera = Camera::getInstance();
+	tilemap.render(camera);
+	for (size_t i = 0; i < camera->allObjects->Count; i++)
 	{
 		/* vẽ đối tượng */
-		allObjects[i]->render(Camera::getInstance());
+		camera->allObjects->at(i)->render();
 	}
 	AriseBase::renderAriseObjects();
 	Player::renderPlayer();

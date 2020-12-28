@@ -4,6 +4,7 @@
 #include"BaseObject.h"
 #include"CollisionTypeCollide.h"
 #include"Space.h"
+#include "QuadTree.h"
 
 enum CHANGE_SPACE
 {
@@ -32,6 +33,8 @@ class World
 	/* space hiện tại */
 	Space* currentSpace;
 
+	QuadTree quadTree;
+
 public:
 	CHANGE_SPACE changeSpace;
 
@@ -46,7 +49,8 @@ public:
 		const char* matrixPath, 
 		const char* objectsPath,
 		const char* collisionTypeCollidePath,
-		const char* spacePath);
+		const char* spacePath,
+		const char* quadTreePath);
 	void Init(const char* folderPath);
 
 	Tilemap* getTileMap();
