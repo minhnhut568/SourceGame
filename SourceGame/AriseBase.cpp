@@ -14,6 +14,7 @@ List<AriseBase*>* AriseBase::getAriseObjects()
 AriseBase::AriseBase()
 {
 	AriseBase::getAriseObjects()->_Add(this);
+	inmortal = false;
 }
 
 void AriseBase::onUpdate(float dt)
@@ -33,7 +34,7 @@ void AriseBase::updateAriseObjects(float dt)
 
 		Camera* camera = Camera::getInstance();
 
-		if (!Collision::AABBCheck(camera, obj))
+		if (!Collision::AABBCheck(camera, obj) && !obj->inmortal)
 		{
 			obj->markForDelete = true;
 		}

@@ -98,6 +98,10 @@ SpriteManager::SpriteManager()
 	sprites[SPRITE_INFO_BOSS]->InitFromFile("assets/sprites/boss");
 	sprites[SPRITE_INFO_BOSS]->image->direction = TEXTURE_DIRECTION_LEFT;
 
+	//SPRITE_INFO_BOSS_BODY
+	sprites[SPRITE_INFO_BOSS_BODY]->InitFromFile("assets/sprites/boss-body");
+	sprites[SPRITE_INFO_BOSS_BODY]->image->direction = TEXTURE_DIRECTION_LEFT;
+
 }
 SpriteManager::~SpriteManager()
 {

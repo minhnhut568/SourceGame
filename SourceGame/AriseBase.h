@@ -8,6 +8,7 @@ private:
 	static List<AriseBase*>* ariseObjects;
 protected:
 	bool markForDelete;
+	bool inmortal;
 public:
 	static List<AriseBase*>* getAriseObjects();
 

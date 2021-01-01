@@ -4,6 +4,7 @@
 #include"BaseObject.h"
 #include"CollisionTypeCollide.h"
 #include"Space.h"
+#include"Quadtree.h"
 
 
 
@@ -26,13 +27,16 @@ class OverWorld
 	/* space hiện tại */
 	Space* currentSpace;
 
+	QuadTree quadTree;
+
 public:
 
 	void Init(const char* tilesheetPath,
 		const char* matrixPath, 
 		const char* objectsPath,
 		const char* collisionTypeCollidePath,
-		const char* spacePath);
+		const char* spacePath,
+		const char* quadTreePath);
 	void Init(const char* folderPath);
 
 	Tilemap* getTileMap();

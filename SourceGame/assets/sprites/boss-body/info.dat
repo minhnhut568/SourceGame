@@ -1,0 +1,25 @@
+Sprite ff
+R	G	B
+255	12	0	255
+Animation Count
+2
+
+
+Name
+Animation
+Frame Count
+1
+
+FrameX		FrameY		FrameWidth		FrameHeight		AnchorX		AnchorY
+0			15			16				17				0			0
+
+
+Name
+Animation
+Frame Count
+1
+
+FrameX		FrameY		FrameWidth		FrameHeight		AnchorX		AnchorY
+16			0			18				32				0			0
+
+

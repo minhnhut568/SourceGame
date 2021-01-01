@@ -210,6 +210,9 @@
     <ClInclude Include="QuadTree.h">
       <Filter>QuadTree</Filter>
     </ClInclude>
+    <ClInclude Include="BossClaw.h">
+      <Filter>Objects\Enemies</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Sprite.cpp">
@@ -358,6 +361,9 @@
     </ClCompile>
     <ClCompile Include="QuadTree.cpp">
       <Filter>QuadTree</Filter>
+    </ClCompile>
+    <ClCompile Include="BossClaw.cpp">
+      <Filter>Objects\Enemies</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

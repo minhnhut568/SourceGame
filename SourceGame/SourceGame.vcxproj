@@ -142,6 +142,7 @@
     <ClInclude Include="AriseBase.h" />
     <ClInclude Include="BaseObject.h" />
     <ClInclude Include="Boss.h" />
+    <ClInclude Include="BossClaw.h" />
     <ClInclude Include="Camera.h" />
     <ClInclude Include="Cannons.h" />
     <ClInclude Include="Collision.h" />
@@ -197,6 +198,7 @@
     <ClCompile Include="AriseBase.cpp" />
     <ClCompile Include="BaseObject.cpp" />
     <ClCompile Include="Boss.cpp" />
+    <ClCompile Include="BossClaw.cpp" />
     <ClCompile Include="Camera.cpp" />
     <ClCompile Include="Cannons.cpp" />
     <ClCompile Include="Collision.cpp" />

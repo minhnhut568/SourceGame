@@ -26,7 +26,8 @@ void OverWorld::Init(const char* tilesheetPath,
 	const char* matrixPath,
 	const char* objectsPath,
 	const char* collisionTypeCollidePath,
-	const char* spacePath)
+	const char* spacePath,
+	const char* quadTreePath)
 {
 
 	/* khởi tạo tilemap */
@@ -89,7 +90,7 @@ void OverWorld::Init(const char* tilesheetPath,
 
 	}
 
-
+	quadTree.init(quadTreePath, &allObjects, tilemap.getWorldHeight());
 
 	/* đọc collisiontype collide */
 	int numberOfCollisionTypeCollides = 0;
@@ -162,11 +163,15 @@ void OverWorld::Init(const char* folderPath)
 	string spacePath = folderPathString;
 	spacePath.append("/spaces.dat");
 
+	string quadTreePath = folderPathString;
+	quadTreePath.append("/quadtree.dat");
+
 	Init(tilesheetString.c_str(),
 		matrixPathString.c_str(),
 		objectPathString.c_str(),
 		collisionTypeCollidePath.c_str(),
-		spacePath.c_str());
+		spacePath.c_str(),
+		quadTreePath.c_str());
 }
 
 Tilemap* OverWorld::getTileMap()
@@ -178,6 +183,7 @@ void OverWorld::update(float dt)
 {
 	Camera* camera = Camera::getInstance();
 	auto player = PlayerOverWorld::getInstance();
+	quadTree.fillObjectsToCamera();
 
 	KEY* key = KEY::getInstance();
 	/* cập nhật key */
@@ -187,11 +193,13 @@ void OverWorld::update(float dt)
 	auto ariseObjects = AriseBase::getAriseObjects();
 
 	/* cập nhật đối tượng */
-	for (size_t i = 0; i < allObjects.Count; i++)
+	for (size_t i = 0; i < camera->allObjects->Count; i++)
 	{
-		auto obj = allObjects[i];
+		auto obj = camera->allObjects->at(i);
 		obj->update(dt);
-		Collision::CheckCollision(PlayerOverWorld::getInstance(), obj);
+		Collision::CheckCollision(Player::getPlayerMain(), obj);
+		Collision::CheckCollision(Player::getPlayerMini(), obj);
+		Collision::CheckCollision(Player::getPlayerMini(), obj);
 
 		for (size_t i2 = 0; i2 < ariseObjects->size(); i2++)
 		{
@@ -203,7 +211,8 @@ void OverWorld::update(float dt)
 	for (size_t i2 = 0; i2 < ariseObjects->size(); i2++)
 	{
 		/* cho xét va chạm của đối tượng dựa vào 1 cặp collisionType trong CollisionTypeCollide */
-		Collision::CheckCollision(PlayerOverWorld::getInstance(), ariseObjects->at(i2));
+		Collision::CheckCollision(Player::getPlayerMain(), ariseObjects->at(i2));
+		Collision::CheckCollision(Player::getPlayerMini(), ariseObjects->at(i2));
 	}
 
 	/* xét va chạm cho các loại đối tượng với nhau */
@@ -213,9 +222,9 @@ void OverWorld::update(float dt)
 		COLLISION_TYPE col2 = collisionTypeCollides.at(i)->COLLISION_TYPE_2;
 
 		/* danh sách đối tượng thuộc collision type 1 */
-		List<BaseObject*>* collection1 = objectCategories.at(col1);
+		List<BaseObject*>* collection1 = camera->objectCategories.at(col1);
 		/* danh sách đối tượng thuộc collision type 2 */
-		List<BaseObject*>* collection2 = objectCategories.at(col2);
+		List<BaseObject*>* collection2 = camera->objectCategories.at(col2);
 
 		for (size_t i1 = 0; i1 < collection1->size(); i1++)
 		{
@@ -229,10 +238,7 @@ void OverWorld::update(float dt)
 
 	PlayerOverWorld::getInstance()->update(dt);
 	Player::updatePlayer(dt);
-
 	Camera::getInstance()->update();
-
-
 }
 
 void OverWorld::setCurrentSpace(int spaceIndex)
@@ -255,11 +261,12 @@ void OverWorld::resetLocationInSpace()
 
 void OverWorld::render()
 {
+	Camera* camera = Camera::getInstance();
 	tilemap.render(Camera::getInstance());
-	for (size_t i = 0; i < allObjects.Count; i++)
+	for (size_t i = 0; i < camera->allObjects->Count; i++)
 	{
 		/* vẽ đối tượng */
-		allObjects[i]->render();
+		camera->allObjects->at(i)->render();
 	}
 	AriseBase::renderAriseObjects();
 	PlayerOverWorld::getInstance()->render();
