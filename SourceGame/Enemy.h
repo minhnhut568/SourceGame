@@ -8,6 +8,6 @@ public:
 	void setDirectionFollowPlayer();
 	void onUpdate(float dt) override;
 
-	void setConflicBullet() override;
+	void setConflicBullet(BaseObject* bullet) override;
 };
 

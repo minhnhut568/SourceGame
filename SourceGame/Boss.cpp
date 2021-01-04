@@ -1,5 +1,12 @@
 #include "Boss.h"
 #include"Camera.h"
+#include<time.h>
+#include<string>
+Boss* Boss::instance = 0;
+Boss* Boss::getInstance()
+{
+	return instance;
+}
 Boss::Boss()
 {
 	bossAtiveHeight = 100;
@@ -10,6 +17,14 @@ Boss::Boss()
 	runCount = 3;
 	isStop = 0;
 	delta = 20;
+	clawDyDelayTime.init(500);
+	bossClawDyDirection = -1;
+	bossRightArm = new BaseObject();
+	health = 20;
+
+	infinityDelay.init(100);
+	infinityDelay.start();
+	instance = this;
 }
 
 double Boss::distanceTwoObj(BaseObject* obj1, BaseObject* obj2)
@@ -29,9 +44,10 @@ void Boss::initClaw()
 {
 	leftWaveObjects = new List<BaseObject*>();
 	leftWaveObjectsRevert = new List<BaseObject*>();
+	rightWaveObjectsRevert = new List<BaseObject*>();
 	rightWaveObjects = new List<BaseObject*>();
 	leftWaveObjects->_Add(this);
-	rightWaveObjects->_Add(this);
+	rightWaveObjects->_Add(bossRightArm);
 	int clawNodeCount = 5;
 	bossClawLeft = new BossClaw();
 	bossClawLeft->setDirection(-1);
@@ -73,6 +89,11 @@ void Boss::initClaw()
 	for (int i = leftWaveObjects->Count - 1; i > 0; i--)
 	{
 		leftWaveObjectsRevert->_Add(leftWaveObjects->at(i));
+	}
+
+	for (int i = rightWaveObjects->Count - 1; i > 0; i--)
+	{
+		rightWaveObjectsRevert->_Add(rightWaveObjects->at(i));
 	}
 }
 
@@ -123,9 +144,26 @@ void Boss::runWave(List<BaseObject*>* objects)
 
 void Boss::onUpdate(float dt)
 {
-	leftWaveObjectsRevert->at(0)->setDy(3);
+	infinityDelay.update();
+	srand(time(NULL));
+	bossRightArm->setY(getY());
+	bossRightArm->setX(getRight() - 10);
+	if (clawDyDelayTime.atTime())
+	{
+		bossClawDyDirection = -bossClawDyDirection;
+	}
+
+	auto sign = (rand() % 2) == 0? 1 : -1;
+
+	leftWaveObjectsRevert->at(0)->setDy(10 * bossClawDyDirection);
+	leftWaveObjectsRevert->at(0)->setDx(-sign*rand() % 10 + getDx());
 	runWave(leftWaveObjectsRevert);
 	runWave(leftWaveObjects);
+
+	rightWaveObjectsRevert->at(0)->setDy(10 * bossClawDyDirection);
+	rightWaveObjectsRevert->at(0)->setDx(sign * rand() % 10 + getDx());
+	runWave(rightWaveObjectsRevert);
+	runWave(rightWaveObjects);
 	//runWave(rightWaveObjects);
 	auto camera = Camera::getInstance();
 	auto dy = dirY;
@@ -158,4 +196,18 @@ void Boss::onUpdate(float dt)
 	}
 	isStop = (isStop + 1) % runCount;
 
+}
+
+void Boss::setConflicBullet(BaseObject* bullet)
+{
+	bullet->alive = false;
+	if (infinityDelay.isTerminated())
+	{
+		health--;
+		infinityDelay.start();
+	}
+	if (health <= 0)
+	{
+		Enemy::setConflicBullet(bullet);
+	}
 }

@@ -1,6 +1,7 @@
 #pragma once
 #include "Enemy.h"
 #include"BossClaw.h"
+#include"DelayTime.h"
 class Boss :
 	public Enemy
 {
@@ -10,7 +11,10 @@ class Boss :
 	int runCount;
 
 	int delta;
+	int health;
+	static Boss* instance;
 public:
+	static Boss* getInstance();
 	Boss();
 	List<BossClaw*> bossClawNodesLeft;
 	BossClaw* bossClawLeft;
@@ -21,6 +25,14 @@ public:
 	List<BaseObject*>* rightWaveObjects;
 
 	List<BaseObject*>* leftWaveObjectsRevert;
+	List<BaseObject*>* rightWaveObjectsRevert;
+
+	GameTime clawDyDelayTime;
+	int bossClawDyDirection;
+
+	BaseObject* bossRightArm;
+
+	DelayTime infinityDelay;
 
 	double distanceTwoObj(BaseObject* obj1, BaseObject* obj2);
 
@@ -31,4 +43,6 @@ public:
 	void runWave(List<BaseObject*>* objects);
 	
 	void onUpdate(float dt) override;
+
+	void setConflicBullet(BaseObject* bullet) override;
 };

@@ -1,5 +1,9 @@
 #include "BossClaw.h"
 #include"SpriteManager.h"
+#include"Boss.h"
+#include"PlayerOverWorld.h"
+#include"Scorebar.h"
+#include<string>
 
 BossClaw::BossClaw()
 {
@@ -14,4 +18,27 @@ BossClaw::BossClaw()
 
 void BossClaw::onUpdate(float dt)
 {
+}
+
+void BossClaw::render()
+{
+	if (Boss::getInstance()->alive)
+	{
+		AriseBase::render();
+	}
+}
+
+void BossClaw::onAABBCheck(MovableRect* other)
+{
+	auto player = PlayerOverWorld::getInstance();
+	if (Boss::getInstance()->alive && other == player)
+	{
+		if (!player->blinkDelay.isOnTime())
+		{
+			TRACE_VAL_LN("onAABBCheck PlayerOverWorld", 0);
+			player->blinkDelay.start();
+			player->blinkCantControlDelay.start();
+			Scorebar::getInstance()->decreaseHealth(1);
+		}
+	}
 }

@@ -20,6 +20,7 @@ PlayerOverWorld* PlayerOverWorld::getInstance()
 
 void PlayerOverWorld::onUpdate(float dt)
 {
+	blinkDelay.update();
 	shootDelay.update();
 	bool keyLeftDown, keyRightDown, keyUpDown, keyDownDown;
 	/* kiểm tra key bên trái có được giữ */
@@ -104,13 +105,12 @@ void PlayerOverWorld::onCollision(MovableRect * other, float collisionTime, int 
 
 void PlayerOverWorld::onAABBCheck(MovableRect* other)
 {
-	/*if (other->getCollisionType() == COLLISION_TYPE::COLLISION_TYPE_ENEMY && !blinkDelay.isOnTime())
+	if (other->getCollisionType() == COLLISION_TYPE::COLLISION_TYPE_ENEMY && !blinkDelay.isOnTime())
 	{
 		blinkDelay.start();
 		blinkCantControlDelay.start();
-		setVx(S("player_blink_vx"));
 		Scorebar::getInstance()->decreaseHealth(1);
-	}*/
+	}
 
 	if (other->getCollisionType() == COLLISION_TYPE_GATE_TO_WORLD_SPACE6)
 	{
@@ -180,6 +180,7 @@ PlayerOverWorld::PlayerOverWorld()
 	setWidth(17);
 	setHeight(30);
 	shootDelay.init(300);
+	blinkDelay.init(200);
 }
 
 

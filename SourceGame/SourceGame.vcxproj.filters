@@ -213,6 +213,9 @@
     <ClInclude Include="BossClaw.h">
       <Filter>Objects\Enemies</Filter>
     </ClInclude>
+    <ClInclude Include="ItemP.h">
+      <Filter>Objects\Arise</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Sprite.cpp">
@@ -364,6 +367,9 @@
     </ClCompile>
     <ClCompile Include="BossClaw.cpp">
       <Filter>Objects\Enemies</Filter>
+    </ClCompile>
+    <ClCompile Include="ItemP.cpp">
+      <Filter>Objects\Arise</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

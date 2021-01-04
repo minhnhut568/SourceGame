@@ -66,7 +66,7 @@ public:
 	*/
 	virtual void render();
 
-	virtual void setConflicBullet();
+	virtual void setConflicBullet(BaseObject* bullet);
 
 
 	int getAnimation();

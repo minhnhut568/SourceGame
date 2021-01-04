@@ -18,7 +18,7 @@ void PlayerMiniOverWorldBullet::onAABBCheck(MovableRect* other)
 {
 	if (other->getCollisionType() == COLLISION_TYPE_ENEMY)
 	{
-		((Enemy*)other)->setConflicBullet();
+		((Enemy*)other)->setConflicBullet(this);
 	}
 }
 

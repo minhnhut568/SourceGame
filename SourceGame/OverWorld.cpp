@@ -14,6 +14,7 @@
 #include "Skulls.h"
 #include "Snails.h"
 #include "Player.h"
+#include "PlayerOverWorld.h"
 #include "Cannons.h"
 #include "Boss.h"
 
@@ -197,9 +198,7 @@ void OverWorld::update(float dt)
 	{
 		auto obj = camera->allObjects->at(i);
 		obj->update(dt);
-		Collision::CheckCollision(Player::getPlayerMain(), obj);
-		Collision::CheckCollision(Player::getPlayerMini(), obj);
-		Collision::CheckCollision(Player::getPlayerMini(), obj);
+		Collision::CheckCollision(PlayerOverWorld::getInstance(), obj);
 
 		for (size_t i2 = 0; i2 < ariseObjects->size(); i2++)
 		{
@@ -211,8 +210,7 @@ void OverWorld::update(float dt)
 	for (size_t i2 = 0; i2 < ariseObjects->size(); i2++)
 	{
 		/* cho xét va chạm của đối tượng dựa vào 1 cặp collisionType trong CollisionTypeCollide */
-		Collision::CheckCollision(Player::getPlayerMain(), ariseObjects->at(i2));
-		Collision::CheckCollision(Player::getPlayerMini(), ariseObjects->at(i2));
+		Collision::CheckCollision(PlayerOverWorld::getInstance(), ariseObjects->at(i2));
 	}
 
 	/* xét va chạm cho các loại đối tượng với nhau */

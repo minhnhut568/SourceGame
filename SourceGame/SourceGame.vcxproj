@@ -164,6 +164,7 @@
     <ClInclude Include="Gate.h" />
     <ClInclude Include="Gunner.h" />
     <ClInclude Include="Insect.h" />
+    <ClInclude Include="ItemP.h" />
     <ClInclude Include="KEY.h" />
     <ClInclude Include="Ladder.h" />
     <ClInclude Include="List.h" />
@@ -217,6 +218,7 @@
     <ClCompile Include="Gate.cpp" />
     <ClCompile Include="Gunner.cpp" />
     <ClCompile Include="Insect.cpp" />
+    <ClCompile Include="ItemP.cpp" />
     <ClCompile Include="KEY.cpp" />
     <ClCompile Include="Ladder.cpp" />
     <ClCompile Include="MovableRect.cpp" />

@@ -31,17 +31,17 @@ void Game::GameInit()
 
 
 	// world
-	/*worldType = WT_WORLD;
+	worldType = WT_WORLD;
 	world->setCurrentSpace(4);
-	world->resetLocationInSpace();*/
+	world->resetLocationInSpace();
 
 	// over world
-	worldType = WT_OVER_WORLD_SPACE0;
+	/*worldType = WT_OVER_WORLD_SPACE0;
 	overWorld->setCurrentSpace(3);
-	overWorld->resetLocationInSpace();
+	overWorld->resetLocationInSpace();*/
 
 	 //intro
-	/*worldType = WT_INTRO;*/
+	worldType = WT_INTRO;
 
 
 }

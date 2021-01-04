@@ -1,5 +1,6 @@
 #include "Enemy.h"
 #include "Player.h"
+#include "ItemP.h"
 
 void Enemy::onCollision(MovableRect* other, float collisionTime, int nx, int ny)
 {
@@ -27,7 +28,11 @@ void Enemy::onUpdate(float dt)
 	PhysicsObject::onUpdate(dt);
 }
 
-void Enemy::setConflicBullet()
+void Enemy::setConflicBullet(BaseObject* bullet)
 {
+	bullet->alive = false;
 	alive = false;
+	ItemP* item = new ItemP();
+	item->setX(getX());
+	item->setY(getY() + 16);
 }

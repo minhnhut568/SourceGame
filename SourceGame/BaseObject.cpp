@@ -145,7 +145,7 @@ void BaseObject::render()
 	}
 }
 
-void BaseObject::setConflicBullet()
+void BaseObject::setConflicBullet(BaseObject* bullet)
 {
 }
 

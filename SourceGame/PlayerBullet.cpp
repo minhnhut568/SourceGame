@@ -14,7 +14,7 @@ void PlayerBullet::onAABBCheck(MovableRect* other)
 {
 	if (other->getCollisionType() == COLLISION_TYPE_ENEMY)
 	{
-		((BaseObject*)other)->setConflicBullet();
+		((BaseObject*)other)->setConflicBullet(this);
 	}
 }
 
@@ -22,6 +22,6 @@ PlayerBullet::PlayerBullet()
 {
 	setSprite(SpriteManager::getInstance()->getSprite(SPRITE_INFO_BULLET));
 	setWidth(getSprite()->image->Width);
-	setWidth(getSprite()->image->Height);
+	setHeight(getSprite()->image->Height);
 	setDirection(TEXTURE_DIRECTION_RIGHT);
 }
