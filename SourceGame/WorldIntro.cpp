@@ -14,7 +14,7 @@ WorldIntro::WorldIntro()
 	introAction = 0;
 	introSprite = SpriteManager::getSprite(SPRITE_INFO_INTRO);
 	introTime.init(200);
-	introDelay.init(1000);
+	introDelay.init(3000);
 	GameDirectX::getInstance()->backbufferWidth = 256;
 	GameDirectX::getInstance()->backbufferHeight = 224;
 }
