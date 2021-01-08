@@ -1,0 +1,23 @@
+Sprite ss
+R	G	B
+255	255	255	255
+Animation Count
+1
+
+
+Name
+Animation
+Frame Count
+10
+
+FrameX		FrameY		FrameWidth		FrameHeight		AnchorX		AnchorY
+0			0			256				280				0			0
+256 		0			256				280				0			0
+512 		0			256				280				0			0
+768 		0			256				280				0			0
+1024 		0			256				280				0			0
+1280 		0			256				280				0			0
+1536 		0			256				280				0			0
+1792 		0			256				280				0			0
+2048 		0			256				280				0			0
+2304 		0			256				280				0			0
