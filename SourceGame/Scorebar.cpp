@@ -7,11 +7,18 @@ void Scorebar::decreaseHealth(int health)
 {
 	if (Player::getInstance() == Player::getPlayerMain())
 	{
-		if (curHealth - health == 0)
+		if (curHealth - health >= maxHealth)
+		{
+			curHealth = maxHealth;
+		}
+		else if (curHealth - health <= 0)
 		{
 			curHealth = 0;
 		}
-		curHealth = curHealth - health;
+		else
+		{
+			curHealth = curHealth - health;
+		}
 	}
 	else
 	{

@@ -1,0 +1,100 @@
+Sprite ss
+R	G	B
+255	255	255	255
+Animation Count
+7
+
+
+Name
+Animation
+Frame Count
+4
+
+FrameX		FrameY		FrameWidth		FrameHeight		AnchorX		AnchorY
+0			0			256				224				0			0
+256			0			256				224				0			0
+512			0			256				224				0			0
+768			0			256				224				0			0
+
+
+Name
+Animation
+Frame Count
+4
+
+FrameX		FrameY		FrameWidth		FrameHeight		AnchorX		AnchorY
+1024			0			256				224				0			0
+1280			0			256				224				0			0
+1536			0			256				224				0			0
+1792			0			256				224				0			0
+
+
+Name
+Animation
+Frame Count
+4
+
+FrameX		FrameY		FrameWidth		FrameHeight		AnchorX		AnchorY
+2048			0			256				224				0			0
+2304			0			256				224				0			0
+2560			0			256				224				0			0
+2816			0			256				224				0			0
+
+
+Name
+Animation
+Frame Count
+4
+
+FrameX		FrameY		FrameWidth		FrameHeight		AnchorX		AnchorY
+3072			0			256				224				0			0
+3328			0			256				224				0			0
+3584			0			256				224				0			0
+3840			0			256				224				0			0
+
+
+Name
+Animation
+Frame Count
+9
+
+FrameX		FrameY		FrameWidth		FrameHeight		AnchorX		AnchorY
+4096			0			256				224				0			0
+4352			0			256				224				0			0
+4608			0			256				224				0			0
+256			0			256				224				0			0
+512			0			256				224				0			0
+768			0			256				224				0			0
+1024			0			256				224				0			0
+1280			0			256				224				0			0
+1536			0			256				224				0			0
+
+
+Name
+Animation
+Frame Count
+8
+
+FrameX		FrameY		FrameWidth		FrameHeight		AnchorX		AnchorY
+1792			0			256				224				0			0
+2048			0			256				224				0			0
+2304			0			256				224				0			0
+2560			0			256				224				0			0
+2816			0			256				224				0			0
+3072			0			256				224				0			0
+3328			0			256				224				0			0
+3584			0			256				224				0			0
+
+
+Name
+Animation
+Frame Count
+4
+
+FrameX		FrameY		FrameWidth		FrameHeight		AnchorX		AnchorY
+3840			0			256				224				0			0
+4096			0			256				224				0			0
+4352			0			256				224				0			0
+4608			0			256				224				0			0
+
+

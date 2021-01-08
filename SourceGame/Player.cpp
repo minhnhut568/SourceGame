@@ -254,6 +254,7 @@ void Player::onAABBCheck(MovableRect* other)
 		setVx(S("player_blink_vx"));
 		Scorebar::getInstance()->decreaseHealth(1);
 	}
+
 }
 
 void Player::updatePlayer(float dt)
@@ -298,6 +299,8 @@ Player::Player()
 	blinkDelay.init(S("player_blink_delay"));
 	blinkCantControlDelay.init(S("player_blink_can't_control_delay"));
 	setCollisionType(COLLISION_TYPE::COLLISION_TYPE_PLAYER);
+
+
 }
 
 

@@ -6,6 +6,6 @@ class ItemP :
 public:
 	ItemP();
 	void onCollision(MovableRect* other, float collisionTime, int nx, int ny) override;
-
+	void onAABBCheck(MovableRect* other) override;
 };
 
