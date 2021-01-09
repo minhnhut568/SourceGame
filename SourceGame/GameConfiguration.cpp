@@ -74,6 +74,9 @@ double GameConfiguration::GetConfiguration(const char * key)
 		globalsConfigurationDouble->insert(pair<const char*, double>("skulls_run_delay", 300));
 
 		globalsConfigurationDouble->insert(pair<const char*, double>("skulls_bullet_live_delay", 1000));
+
+		globalsConfigurationDouble->insert(pair<const char*, double>("cannons_shoot_time", 400));
+		globalsConfigurationDouble->insert(pair<const char*, double>("cannons_shoot_delay", 100));
 		
 
 
