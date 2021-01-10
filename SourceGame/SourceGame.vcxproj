@@ -93,7 +93,7 @@
       <ConformanceMode>true</ConformanceMode>
     </ClCompile>
     <Link>
-      <AdditionalDependencies>dinput8.lib;dxguid.lib;d3d9.lib;d3dx9.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;comdlg32.lib;advapi32.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;odbc32.lib;odbccp32.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>winmm.lib;dsound.lib;dinput8.lib;dxguid.lib;d3d9.lib;d3dx9.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;comdlg32.lib;advapi32.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;odbc32.lib;odbccp32.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
@@ -185,6 +185,7 @@
     <ClInclude Include="Skulls.h" />
     <ClInclude Include="SkullsBullet.h" />
     <ClInclude Include="Snails.h" />
+    <ClInclude Include="Sound.h" />
     <ClInclude Include="Space.h" />
     <ClInclude Include="Sprite.h" />
     <ClInclude Include="SpriteManager.h" />
@@ -238,6 +239,7 @@
     <ClCompile Include="Skulls.cpp" />
     <ClCompile Include="SkullsBullet.cpp" />
     <ClCompile Include="Snails.cpp" />
+    <ClCompile Include="Sound.cpp" />
     <ClCompile Include="Sprite.cpp" />
     <ClCompile Include="SpriteManager.cpp" />
     <ClCompile Include="Tilemap.cpp" />
@@ -246,6 +248,9 @@
     <ClCompile Include="World.cpp" />
     <ClCompile Include="WorldIntro.cpp" />
     <ClCompile Include="Worm.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <Media Include="assets\sound\Intro.wav" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

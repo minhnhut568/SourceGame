@@ -216,6 +216,9 @@
     <ClInclude Include="ItemP.h">
       <Filter>Objects\Arise</Filter>
     </ClInclude>
+    <ClInclude Include="Sound.h">
+      <Filter>Utils</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Sprite.cpp">
@@ -371,5 +374,13 @@
     <ClCompile Include="ItemP.cpp">
       <Filter>Objects\Arise</Filter>
     </ClCompile>
+    <ClCompile Include="Sound.cpp">
+      <Filter>Utils</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <Media Include="assets\sound\Intro.wav">
+      <Filter>Resource Files</Filter>
+    </Media>
   </ItemGroup>
 </Project>
