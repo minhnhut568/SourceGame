@@ -13,9 +13,6 @@ Cannons::Cannons()
 void Cannons::onUpdate(float dt)
 {
 	shootDelay.update();
-
-
-
 	if (shootTime.atTime()) {
 		FloaterBullet* bullet1 = new FloaterBullet();
 		FloaterBullet* bullet2 = new FloaterBullet();
@@ -23,7 +20,6 @@ void Cannons::onUpdate(float dt)
 		bullet1->setY(this->getY() - 3);
 		bullet2->setX(this->getX() - 8);
 		bullet2->setY(this->getY() - 3);
-
 		if (isVertical)
 		{
 			bullet1->setDy(3);
@@ -40,13 +36,9 @@ void Cannons::onUpdate(float dt)
 			bullet2->setDx(-3);
 			bullet2->setDy(0);
 		}
-
 		isVertical = !isVertical;
 	}
-	
-
 }
-
 void Cannons::onCollision(MovableRect* other, float collisionTime, int nx, int ny)
 {
 }

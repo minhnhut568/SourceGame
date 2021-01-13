@@ -42,6 +42,11 @@ void Game::GameInit()
 
 	 //intro
 	worldType = WT_INTRO;
+<<<<<<< Updated upstream
+=======
+
+
+>>>>>>> Stashed changes
 }
 /* Các câu lệnh cập nhật game */
 void Game::GameUpdate(float dt)
