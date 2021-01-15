@@ -219,6 +219,12 @@
     <ClInclude Include="Sound.h">
       <Filter>Utils</Filter>
     </ClInclude>
+    <ClInclude Include="OverworldSubBullet.h">
+      <Filter>Objects\Arise</Filter>
+    </ClInclude>
+    <ClInclude Include="Teleporter.h">
+      <Filter>Objects\Enemies</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Sprite.cpp">
@@ -376,6 +382,12 @@
     </ClCompile>
     <ClCompile Include="Sound.cpp">
       <Filter>Utils</Filter>
+    </ClCompile>
+    <ClCompile Include="OverworldSubBullet.cpp">
+      <Filter>Objects\Arise</Filter>
+    </ClCompile>
+    <ClCompile Include="Teleporter.cpp">
+      <Filter>Objects\Enemies</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

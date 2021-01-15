@@ -29,7 +29,7 @@ void Worm::onUpdate(float dt)
 		setVx(S("worm_vx") * getDirection());
 		break;
 	case WORM_STATE_JUMP:
-		if (getY() - startY > S("worm_y_climp"))
+		if (getY() - startY > S("worm_y_climp")) //16px
 		{
 			wormState = WORM_STATE_RUN;
 			setPhysicsEnable(true);
@@ -53,7 +53,7 @@ void Worm::onCollision(MovableRect* other, float collisionTime, int nx, int ny)
 	{
 		setDy(S("worm_dy"));
 		setPhysicsEnable(false);
-		startY = getY();
+		startY = getY(); //Dung vo gach
 		wormState = WORM_STATE_JUMP;
 	}
 	Enemy::onCollision(other, collisionTime, nx, ny);

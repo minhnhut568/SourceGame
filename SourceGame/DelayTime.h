@@ -4,10 +4,10 @@
 class DelayTime
 {
 private:
-	DWORD startTime;
 	DWORD tickPerFrame;
 	bool ready, terminated;
 public:
+	DWORD startTime;
 	// bat dau
 	void start(DWORD time = -1);
 	// khi thoi gian dinh san ket thuc

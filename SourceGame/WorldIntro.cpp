@@ -45,8 +45,6 @@ void WorldIntro::update()
 		}
 	}
 
-	TRACE_VAL_LN("introAction", introAction);
-	TRACE_VAL_LN("introFrameIndex", introFrameIndex);
 
 	KEY::getInstance()->update();
 	if (KEY::getInstance()->isEnterDown)

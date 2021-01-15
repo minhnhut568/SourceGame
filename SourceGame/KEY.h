@@ -34,7 +34,9 @@ public:
 		isEnterDown,
 		changePlayerDown,
 		previousChangePlayerDown,
+		isSubWeaponDown,
 		changePlayer;
+		
 
 	static KEY* instance;
 	static KEY* getInstance();

@@ -30,6 +30,7 @@ void KEY::update()
 
 	previousChangePlayerDown = changePlayerDown;
 	changePlayerDown = GetAsyncKeyState(VK_RSHIFT);
+	isSubWeaponDown = GetAsyncKeyState(getKeyChar('x'));
 	/* nếu lần trước chưa nhấn key jump mà lần này nhấn key jump thì isJumpPress sẽ là true */
 	isJumpPress = (isPreviousJumpDown==false && isJumpDown==true);
 

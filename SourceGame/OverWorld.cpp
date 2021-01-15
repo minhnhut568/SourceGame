@@ -17,6 +17,7 @@
 #include "PlayerOverWorld.h"
 #include "Cannons.h"
 #include "Boss.h"
+#include "Teleporter.h"
 
 using namespace std;
 
@@ -59,6 +60,9 @@ void OverWorld::Init(const char* tilesheetPath,
 			break;
 		case SPRITE_INFO_BOSS:
 			obj = new Boss();
+			break;
+		case SPRITE_INFO_TELEPORTER:
+			obj = new Teleporter();
 			break;
 		default:
 			obj = new BaseObject();
