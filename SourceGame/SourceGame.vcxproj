@@ -171,6 +171,7 @@
     <ClInclude Include="MovableRect.h" />
     <ClInclude Include="OverWorld.h" />
     <ClInclude Include="Orbs.h" />
+    <ClInclude Include="OverworldSubBullet.h" />
     <ClInclude Include="PhysicsObject.h" />
     <ClInclude Include="Player.h" />
     <ClInclude Include="PlayerBullet.h" />
@@ -189,6 +190,7 @@
     <ClInclude Include="Space.h" />
     <ClInclude Include="Sprite.h" />
     <ClInclude Include="SpriteManager.h" />
+    <ClInclude Include="Teleporter.h" />
     <ClInclude Include="Tilemap.h" />
     <ClInclude Include="WindowGame.h" />
     <ClInclude Include="World.h" />
@@ -225,6 +227,7 @@
     <ClCompile Include="MovableRect.cpp" />
     <ClCompile Include="OverWorld.cpp" />
     <ClCompile Include="Orbs.cpp" />
+    <ClCompile Include="OverworldSubBullet.cpp" />
     <ClCompile Include="PhysicsObject.cpp" />
     <ClCompile Include="Player.cpp" />
     <ClCompile Include="PlayerBullet.cpp" />
@@ -242,6 +245,7 @@
     <ClCompile Include="Sound.cpp" />
     <ClCompile Include="Sprite.cpp" />
     <ClCompile Include="SpriteManager.cpp" />
+    <ClCompile Include="Teleporter.cpp" />
     <ClCompile Include="Tilemap.cpp" />
     <ClCompile Include="WindowGame.cpp" />
     <ClCompile Include="WinMain.cpp" />

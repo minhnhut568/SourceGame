@@ -108,6 +108,14 @@ SpriteManager::SpriteManager()
 
 	//SPRITE_INFO_INTRO
 	sprites[SPRITE_INFO_INTRO]->InitFromFile("assets/levels/intro");
+	
+	//SPRITE_INFO_OVERWORLD_BULLET
+	sprites[SPRITE_INFO_OVERWORLD_BULLET]->InitFromFile("assets/sprites/overworld-bullet");
+	sprites[SPRITE_INFO_OVERWORLD_BULLET]->image->direction = TEXTURE_DIRECTION_LEFT;
+
+	//SPRITE_INFO_TELEPORTER
+	sprites[SPRITE_INFO_TELEPORTER]->InitFromFile("assets/sprites/teleporter");
+	sprites[SPRITE_INFO_TELEPORTER]->image->direction = TEXTURE_DIRECTION_LEFT;
 }
 SpriteManager::~SpriteManager()
 {

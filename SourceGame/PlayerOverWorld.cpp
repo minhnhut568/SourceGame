@@ -6,6 +6,7 @@
 #include "SpriteManager.h"
 #include "KEY.h"
 #include "Collision.h"
+#include "OverworldSubBullet.h"
 
 
 PlayerOverWorld* PlayerOverWorld::instance = 0;
@@ -62,6 +63,37 @@ void PlayerOverWorld::onUpdate(float dt)
 		}
 	}
 
+	if (KEY::getInstance()->isSubWeaponDown)
+	{
+		if (!shootDelay.isOnTime())
+		{
+			OverworldSubBullet* bullet = new OverworldSubBullet();
+			bullet->setX(getMidX());
+			bullet->setY(getMidY());
+
+			if (this->playerDirection == PLAYER_OW_DIRECTION_RIGHT)
+			{
+				bullet->setDx(S("player-bullet-over-world-dx"));
+			}
+
+			if (this->playerDirection == PLAYER_OW_DIRECTION_LEFT)
+			{
+				bullet->setDx(-S("player-bullet-over-world-dx"));
+			}
+
+			if (this->playerDirection == PLAYER_OW_DIRECTION_UP)
+			{
+				bullet->setDy(S("player-bullet-over-world-dx"));
+			}
+
+			if (this->playerDirection == PLAYER_OW_DIRECTION_DOWN)
+			{
+				bullet->setDy(-S("player-bullet-over-world-dx"));
+			}
+
+			shootDelay.start();
+		}
+	}
 	setPauseAnimation(false);
 	if (keyLeftDown)
 	{

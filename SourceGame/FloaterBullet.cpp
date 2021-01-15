@@ -1,6 +1,7 @@
 #include "FloaterBullet.h"
 #include "SpriteManager.h"
 #include"Player.h"
+#include"PlayerOverWorld.h"
 #include"Explosion.h"
 
 FloaterBullet::FloaterBullet()
@@ -18,6 +19,13 @@ void FloaterBullet::onAABBCheck(MovableRect* other)
 		markForDelete = true;
 		Explosion::setExplosion(this);
 	}
+
+	if (other == PlayerOverWorld::getInstance())
+	{
+		markForDelete = true;
+		Explosion::setExplosion(this);
+	}
+
 }
 
 void FloaterBullet::onUpdate(float dt)

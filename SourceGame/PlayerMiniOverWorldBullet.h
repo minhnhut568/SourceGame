@@ -1,5 +1,6 @@
 #pragma once
 #include "AriseBase.h"
+
 class PlayerMiniOverWorldBullet :
 	public AriseBase
 {
