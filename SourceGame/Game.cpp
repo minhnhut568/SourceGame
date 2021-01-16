@@ -37,7 +37,7 @@ void Game::GameInit()
 
 	// over world
 	//worldType = WT_OVER_WORLD_SPACE0;
-	//overWorld->setCurrentSpace(1);
+	//overWorld->setCurrentSpace(2);
 	//overWorld->resetLocationInSpace();
 
 	 //intro
@@ -60,6 +60,8 @@ void Game::GameInit()
 	//ENEMY'S SOUND
 	Sound::getInstance()->loadSound("Sound/Blaster Master SFX (27).wav", "EnemyDie");
 	Sound::getInstance()->loadSound("Sound/Blaster Master SFX (30).wav", "SkullFire");
+	Sound::getInstance()->loadSound("Sound/Blaster Master SFX (22).wav", "TeleporterTransform");
+
 
 	//BOSS
 	Sound::getInstance()->loadSound("Sound/Boss.wav", "Boss");
@@ -70,12 +72,10 @@ void Game::GameInit()
 	Sound::getInstance()->loadSound("Sources/Sound/rawSound/Blaster Master SFX (13).wav", "PlayerBulletHitBrick");
 	Sound::getInstance()->loadSound("Sources/Sound/rawSound/Blaster Master SFX (9).wav", "BossFire");
 	Sound::getInstance()->loadSound("Sources/Sound/rawSound/Blaster Master SFX (16).wav", "EnemyBulletBang");
-	Sound::getInstance()->loadSound("Sources/Sound/rawSound/Blaster Master SFX (22).wav", "TeleporterTransform");
 	Sound::getInstance()->loadSound("Sources/Sound/rawSound/Blaster Master SFX (36).wav", "BossIntro");
 	Sound::getInstance()->loadSound("Sources/Sound/rawSound/GameOver.wav", "GameOver");
 	Sound::getInstance()->loadSound("Sources/Sound/rawSound/LifeLost.wav", "LifeLost");
 	Sound::getInstance()->loadSound("Sources/Sound/rawSound/Blaster Master SFX (15).wav", "MineBip");
-	Sound::getInstance()->loadSound("Sources/Sound/rawSound/Blaster Master SFX (16).wav", "EnemyBulletBang");
 	Sound::getInstance()->loadSound("Sources/Sound/rawSound/Blaster Master SFX (23).wav", "FireRocket");
 	Sound::getInstance()->loadSound("Sources/Sound/rawSound/Blaster Master SFX (24).wav", "TransingWeaponScene");
 	Sound::getInstance()->loadSound("Sources/Sound/rawSound/Blaster Master SFX (25).wav", "FireHomingMissles");
@@ -102,10 +102,13 @@ void Game::GameUpdate(float dt)
 		world->update(dt);
 		Sound::getInstance()->stop("Intro");
 		Sound::getInstance()->play("Area2", true, 0);
+		Sound::getInstance()->setVolume(90, "Area2");
+
 		break;
 	case WT_OVER_WORLD_SPACE0:
 		overWorld->update(dt);
 		Sound::getInstance()->play("Area2", true, 0);
+		Sound::getInstance()->setVolume(90, "Area2");
 		break;
 	case WT_OVER_WORLD_SPACE1:
 		overWorld->update(dt);

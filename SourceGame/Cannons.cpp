@@ -1,6 +1,7 @@
 #include "Cannons.h"
 #include "Cannons.h"
 #include "FloaterBullet.h"
+#include "Sound.h"
 
 Cannons::Cannons()
 {
@@ -22,6 +23,7 @@ void Cannons::onUpdate(float dt)
 		bullet2->setY(this->getY() - 3);
 		if (isVertical)
 		{
+			Sound::getInstance()->play("PlayerFireArea2", false, 1);
 			bullet1->setDy(3);
 			bullet1->setDx(0);
 
@@ -30,6 +32,7 @@ void Cannons::onUpdate(float dt)
 		}
 		else
 		{
+			Sound::getInstance()->play("PlayerFireArea2", false, 1);
 			bullet1->setDx(3);
 			bullet1->setDy(0);
 

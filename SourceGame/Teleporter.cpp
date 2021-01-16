@@ -1,5 +1,6 @@
 #include "Teleporter.h"
 #include "PlayerOverWorld.h"
+#include "Sound.h"
 
 
 Teleporter::Teleporter()
@@ -47,6 +48,7 @@ void Teleporter::onUpdate(float dt)
 		setAnimation(TELEPORTER_ACTION_WEAR);
 		if (!standDelay.isOnTime() && abs(getX() - PlayerOverWorld::getInstance()->getX()) < S("teleporter_to_player_distance"))
 		{
+			Sound::getInstance()->play("TeleporterTransform", false, 1);
 			state = TELEPORTER_STATE_MOVE;
 		}
 
