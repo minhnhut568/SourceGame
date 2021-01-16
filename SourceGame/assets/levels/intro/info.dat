@@ -53,8 +53,8 @@ FrameX		FrameY		FrameWidth		FrameHeight		AnchorX		AnchorY
 3840			0			256				224				0			0
 4096			0			256				224				0			0
 4352			0			256				224				0			0
-0			    224			256				224				0			0
 256		    	224			256				224				0			0
+0			    224			256				224				0			0
 
 
 Name

@@ -5,6 +5,7 @@
 #include"CollisionTypeCollide.h"
 #include"Space.h"
 #include "QuadTree.h"
+#include "Sound.h"
 
 enum CHANGE_SPACE
 {

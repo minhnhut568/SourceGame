@@ -11,12 +11,9 @@ WorldIntro::WorldIntro()
 {
 	introImage = new GameTexture();
 	introImage->Init("assets/levels/intro/intro.png");
-	Sound::getInstance()->loadSound("Sound/Intro.wav", "intro");
-	Sound::getInstance()->play("intro", true, 0);
-
 	introFrameIndex = 0;
 	introAction = 0;
-	introSprite = SpriteManager::getSprite(SPRITE_INFO_INTRO);
+	introStory = SpriteManager::getSprite(SPRITE_INFO_INTRO_STORY);
 	introTime.init(200);
 	introDelay.init(3000);
 	GameDirectX::getInstance()->backbufferWidth = 256;
@@ -26,19 +23,18 @@ WorldIntro::WorldIntro()
 
 void WorldIntro::update()
 {
-
 	introDelay.update();
-	if (introDelay.isTerminated() && introAction < introSprite->animations.Count)
+	if (introDelay.isTerminated() && introAction < introStory->animations.Count)
 	{
 		introAction++;
 		introFrameIndex = 0;
 	}
-	if (!introDelay.isOnTime() && introAction < introSprite->animations.Count)
+	if (!introDelay.isOnTime() && introAction < introStory->animations.Count)
 	{
 		if (introTime.atTime())
 		{
-			introSprite->update(introAction, introFrameIndex);
-			if (introFrameIndex == introSprite->animations.at(introAction)->frames.Count - 1)
+			introStory->update(introAction, introFrameIndex);
+			if (introFrameIndex == introStory->animations.at(introAction)->frames.Count - 1)
 			{
 				introDelay.start();
 			}
@@ -49,7 +45,6 @@ void WorldIntro::update()
 	KEY::getInstance()->update();
 	if (KEY::getInstance()->isEnterDown)
 	{
-		Sound::getInstance()->stop();
 		Game::getInstance()->setWorldType(WorldType::WT_WORLD);
 		Game::getInstance()->world->setCurrentSpace(0);
 		Game::getInstance()->world->resetLocationInSpace();
@@ -60,7 +55,7 @@ void WorldIntro::render()
 {	
 	RECT r;
 	SetRect(&r, 0, 0, GameDirectX::getInstance()->backbufferWidth, GameDirectX::getInstance()->backbufferHeight);
-	if (introAction == introSprite->animations.Count)
+	if (introAction == introStory->animations.Count)
 	{
 		GameDirectX::getInstance()->backbufferWidth = 256;
 		GameDirectX::getInstance()->backbufferHeight = 280;
@@ -68,7 +63,7 @@ void WorldIntro::render()
 	}
 	else
 	{
-		auto r = introSprite->animations.at(introAction)->frames.at(introFrameIndex);
-		introSprite->render(0, 0, introAction, introFrameIndex);
+		auto r = introStory->animations.at(introAction)->frames.at(introFrameIndex);
+		introStory->render(0, 0, introAction, introFrameIndex);
 	}
 }

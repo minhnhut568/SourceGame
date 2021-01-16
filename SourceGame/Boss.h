@@ -2,6 +2,7 @@
 #include "Enemy.h"
 #include"BossClaw.h"
 #include"DelayTime.h"
+#include"Sound.h"
 class Boss :
 	public Enemy
 {

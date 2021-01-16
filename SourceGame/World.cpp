@@ -26,6 +26,8 @@ void World::Init(const char* tilesheetPath,
 	const char* spacePath,
 	const char* quadTreePath)
 {
+
+
 	/* khởi tạo vị trí player */
 
 

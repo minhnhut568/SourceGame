@@ -253,9 +253,6 @@
     <ClCompile Include="WorldIntro.cpp" />
     <ClCompile Include="Worm.cpp" />
   </ItemGroup>
-  <ItemGroup>
-    <Media Include="assets\sound\Intro.wav" />
-  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>

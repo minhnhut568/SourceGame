@@ -390,9 +390,4 @@
       <Filter>Objects\Enemies</Filter>
     </ClCompile>
   </ItemGroup>
-  <ItemGroup>
-    <Media Include="assets\sound\Intro.wav">
-      <Filter>Resource Files</Filter>
-    </Media>
-  </ItemGroup>
 </Project>

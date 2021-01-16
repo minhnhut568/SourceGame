@@ -3,6 +3,7 @@
 #include "SpriteManager.h"
 #include "Enemy.h"
 #include"Explosion.h"
+#include "Sound.h"
 
 SkullsBullet::SkullsBullet()
 {
@@ -11,6 +12,7 @@ SkullsBullet::SkullsBullet()
 	setHeight(10);
 	liveDelay.init(S("skulls_bullet_live_delay"));
 	setCollisionType(COLLISION_TYPE_ENEMY);
+	Sound::getInstance()->play("SkullBullet", false, 1);
 }
 
 void SkullsBullet::onUpdate(float dt)

@@ -21,6 +21,7 @@ void ItemP::onAABBCheck(MovableRect* other)
 {
 	if (other == Player::getInstance())
 	{
+		Sound::getInstance()->play("PickingItems", false, 1);
 		this->alive = false;
 		Scorebar::getInstance()->decreaseHealth(-1);
 	}

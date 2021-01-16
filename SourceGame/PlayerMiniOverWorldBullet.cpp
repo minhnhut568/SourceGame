@@ -1,6 +1,7 @@
 #include "PlayerMiniOverWorldBullet.h"
 #include "SpriteManager.h"
 #include "Enemy.h"
+#include "Sound.h"
 
 void PlayerMiniOverWorldBullet::onUpdate(float dt)
 {
@@ -29,6 +30,6 @@ PlayerMiniOverWorldBullet::PlayerMiniOverWorldBullet()
 	setWidth(getSprite()->image->Height);
 	//setPhysicsEnable(false);
 	setDirection(TEXTURE_DIRECTION_RIGHT);
-
+	Sound::getInstance()->play("PlayerFireOverWorld", false, 1);
 	//animationGameTime.init(500);
 }

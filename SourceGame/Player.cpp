@@ -170,6 +170,7 @@ void Player::onUpdate(float dt)
 		if (keyJumpPress)
 		{
 			setVy(GLOBALS_D("player_vy_jump"));
+			Sound::getInstance()->play("PlayerJump", false, 1);
 		}
 	}
 	else /* nếu nhân vật không đứng trên sàn (đang lơ lững trên không) */
@@ -253,6 +254,7 @@ void Player::onAABBCheck(MovableRect* other)
 		blinkCantControlDelay.start();
 		setVx(S("player_blink_vx"));
 		Scorebar::getInstance()->decreaseHealth(1);
+		Sound::getInstance()->play("PlayerInjured", false, 1);
 	}
 
 }

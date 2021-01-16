@@ -200,6 +200,7 @@ void Boss::onUpdate(float dt)
 
 void Boss::setConflicBullet(BaseObject* bullet)
 {
+	Sound::getInstance()->play("BulletTouchBoss", false, 1);
 	bullet->alive = false;
 	if (infinityDelay.isTerminated())
 	{
@@ -208,6 +209,7 @@ void Boss::setConflicBullet(BaseObject* bullet)
 	}
 	if (health <= 0)
 	{
+		Sound::getInstance()->play("BossDie", false, 1);
 		Enemy::setConflicBullet(bullet);
 	}
 }

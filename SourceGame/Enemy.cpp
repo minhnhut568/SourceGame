@@ -32,6 +32,7 @@ void Enemy::setConflicBullet(BaseObject* bullet)
 {
 	bullet->alive = false;
 	alive = false;
+	Sound::getInstance()->play("EnemyDie", false, 1);
 	ItemP* item = new ItemP();
 	item->setX(getX());
 	item->setY(getY() + 16);

@@ -3,6 +3,7 @@
 #include"SpriteManager.h"
 #include"KEY.h"
 #include "DelayTime.h"
+#include"Game.h"
 
 enum PLAYER_ACTION
 {

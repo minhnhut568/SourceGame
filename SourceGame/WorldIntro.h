@@ -6,7 +6,7 @@ class WorldIntro
 {
 private:
 	GameTexture* introImage;
-	Sprite* introSprite;
+	Sprite* introStory;
 	int introFrameIndex;
 	int introAction;
 

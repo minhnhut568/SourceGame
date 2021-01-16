@@ -1,6 +1,7 @@
 #include "PlayerBullet.h"
 #include "SpriteManager.h"
 #include "Enemy.h"
+#include "Sound.h"
 
 void PlayerBullet::onUpdate(float dt)
 {
@@ -24,4 +25,5 @@ PlayerBullet::PlayerBullet()
 	setWidth(getSprite()->image->Width);
 	setHeight(getSprite()->image->Height);
 	setDirection(TEXTURE_DIRECTION_RIGHT);
+	Sound::getInstance()->play("PlayerFireArea2", false, 1);
 }
