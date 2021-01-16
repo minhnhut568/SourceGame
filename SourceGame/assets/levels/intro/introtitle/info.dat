@@ -2,13 +2,13 @@ Sprite ss
 R	G	B
 255	255	255	255
 Animation Count
-1
+2
 
 
 Name
 Animation
 Frame Count
-10
+11
 
 FrameX		FrameY		FrameWidth		FrameHeight		AnchorX		AnchorY
 0			0			256				280				0			0
@@ -21,3 +21,13 @@ FrameX		FrameY		FrameWidth		FrameHeight		AnchorX		AnchorY
 1792 		0			256				280				0			0
 2048 		0			256				280				0			0
 2304 		0			256				280				0			0
+0			0			256				280				0			0
+
+
+Name
+Animation
+Frame Count
+1
+
+FrameX		FrameY		FrameWidth		FrameHeight		AnchorX		AnchorY
+0			0			256				280				0			0

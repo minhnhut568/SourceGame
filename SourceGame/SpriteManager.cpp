@@ -121,7 +121,7 @@ SpriteManager::SpriteManager()
 	sprites[SPRITE_INFO_INTRO_STORY]->InitFromFile("assets/levels/intro");
 
 	//SPRITE_INFO_INTRO_TITLE
-	//sprites[SPRITE_INFO_INTRO_TITLE]->InitFromFile("assets/levels/intro/introtitle");
+	sprites[SPRITE_INFO_INTRO_TITLE]->InitFromFile("assets/levels/intro/introtitle");
 
 	//SPRITE_INFO_INTRO_CAR
 	sprites[SPRITE_INFO_INTRO_CAR]->InitFromFile("assets/levels/intro/introcar");

@@ -44,8 +44,12 @@ void Game::GameInit()
 	worldType = WT_INTRO;
 
 
-	//MAP'S SOUND
-	Sound::getInstance()->loadSound("Sound/Intro.wav", "Intro");
+	//INTRO'S SOUND
+	Sound::getInstance()->loadSound("Sound/Opening.wav", "Intro");
+	Sound::getInstance()->loadSound("Sound/CarSplash.wav", "CarSplash");
+	Sound::getInstance()->loadSound("Sound/CarBackground.wav", "CarBackground");
+
+	//AREA2'S SOUND
 	Sound::getInstance()->loadSound("Sound/Area2.wav", "Area2");
 
 	// PLAYER SOUND
@@ -83,9 +87,6 @@ void Game::GameInit()
 	Sound::getInstance()->loadSound("Sources/Sound/rawSound/Blaster Master SFX (22).wav", "Blink");
 	Sound::getInstance()->loadSound("Sources/Sound/rawSound/Blaster Master SFX (26).wav", "SwitchScene");
 	Sound::getInstance()->loadSound("Sources/Sound/rawSound//Blaster Master SFX (17).wav", "Thunder");
-	Sound::getInstance()->loadSound("Sources/Sound/Intro/Opening.wav", "Opening");
-	Sound::getInstance()->loadSound("Sources/Sound/Intro/CarSplash.wav", "CarSplash");
-	Sound::getInstance()->loadSound("Sources/Sound/Intro/CarBackground.wav", "CarBackground");
 	Sound::getInstance()->loadSound("Sources/Sound/Ending.wav", "Ending");
 	Sound::getInstance()->loadSound("Sources/Sound/Ending/Mountain.wav", "Mountain");
 }
@@ -96,14 +97,12 @@ void Game::GameUpdate(float dt)
 	{
 	case WT_INTRO:
 		worldIntro->update();
-		Sound::getInstance()->play("Intro", true, 0);
 		break;
 	case WT_WORLD:
 		world->update(dt);
 		Sound::getInstance()->stop("Intro");
 		Sound::getInstance()->play("Area2", true, 0);
 		Sound::getInstance()->setVolume(90, "Area2");
-
 		break;
 	case WT_OVER_WORLD_SPACE0:
 		overWorld->update(dt);
