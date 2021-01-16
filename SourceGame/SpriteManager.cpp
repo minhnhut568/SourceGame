@@ -106,7 +106,6 @@ SpriteManager::SpriteManager()
 	sprites[SPRITE_INFO_ITEM_P]->InitFromImage("assets/sprites/item_p/item_p.png");
 	sprites[SPRITE_INFO_ITEM_P]->image->direction = TEXTURE_DIRECTION_LEFT;
 
-<<<<<<< Updated upstream
 	//SPRITE_INFO_INTRO
 	sprites[SPRITE_INFO_INTRO]->InitFromFile("assets/levels/intro");
 	
@@ -117,7 +116,7 @@ SpriteManager::SpriteManager()
 	//SPRITE_INFO_TELEPORTER
 	sprites[SPRITE_INFO_TELEPORTER]->InitFromFile("assets/sprites/teleporter");
 	sprites[SPRITE_INFO_TELEPORTER]->image->direction = TEXTURE_DIRECTION_LEFT;
-=======
+
 	//SPRITE_INFO_INTRO_STORY
 	sprites[SPRITE_INFO_INTRO_STORY]->InitFromFile("assets/levels/intro");
 
@@ -126,7 +125,7 @@ SpriteManager::SpriteManager()
 
 	//SPRITE_INFO_INTRO_CAR
 	sprites[SPRITE_INFO_INTRO_CAR]->InitFromFile("assets/levels/intro/introcar");
->>>>>>> Stashed changes
+
 }
 SpriteManager::~SpriteManager()
 {
