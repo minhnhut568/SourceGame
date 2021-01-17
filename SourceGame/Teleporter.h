@@ -19,6 +19,7 @@ class Teleporter :
 	POINT* positions;
 	DelayTime standDelay;
 	GameTime moveTime;
+	GameTime shootTime;
 	TELEPORTER_STATE state;
 	int positionIndex;
 public:

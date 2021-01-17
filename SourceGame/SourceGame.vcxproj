@@ -152,6 +152,7 @@
     <ClInclude Include="Domes.h" />
     <ClInclude Include="Enemy.h" />
     <ClInclude Include="Explosion.h" />
+    <ClInclude Include="Eyeballs.h" />
     <ClInclude Include="Floater.h" />
     <ClInclude Include="FloaterBullet.h" />
     <ClInclude Include="FrameAnimation.h" />
@@ -210,6 +211,7 @@
     <ClCompile Include="Domes.cpp" />
     <ClCompile Include="Enemy.cpp" />
     <ClCompile Include="Explosion.cpp" />
+    <ClCompile Include="Eyeballs.cpp" />
     <ClCompile Include="Floater.cpp" />
     <ClCompile Include="FloaterBullet.cpp" />
     <ClCompile Include="Game.cpp" />

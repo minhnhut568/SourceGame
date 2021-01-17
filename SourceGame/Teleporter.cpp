@@ -35,6 +35,7 @@ Teleporter::Teleporter()
 	positions[8].y = 0;
 
 	positionIndex = 0;
+
 	moveTime.init(100);
 	standDelay.init(200);
 }
@@ -61,6 +62,8 @@ void Teleporter::onUpdate(float dt)
 			setY(positions[positionIndex].y + getY());
 			positionIndex++;
 			if (positionIndex == 9) {
+				setAnimation(TELEPORTER_ACTION_WEAR);
+				state = TELEPORTER_STATE_STAND;
 				positionIndex = 1;
 			}
 		}
