@@ -10,7 +10,7 @@
 /* ta tạo 1 sprite info để lưu thông tin của các sprite */
 enum SPRITE_INFO
 {
-	SPRIET_INFO_GATE = -2,
+	SPRITE_INFO_GATE = -2,
 
 	/* đối tượng không có hình ảnh ta sẽ đặt số âm */
 	SPRITE_INFO_GROUND = -1,
@@ -68,8 +68,8 @@ enum SPRITE_INFO
 
 	SPRITE_INFO_INTRO_TITLE = 27,
 
-
 	SPRITE_INFO_INTRO_CAR = 28,
+
 	SPRITE_INFO_ENDGAME_HEAD = 29,
 	
 	SPRITE_COUNT

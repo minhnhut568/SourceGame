@@ -1,5 +1,5 @@
 SpaceCount
-4
+5
 
 Space0
 X       Y       Width       Height
@@ -32,3 +32,11 @@ CameraX     CameraY
 1668           859
 PlayerX     PlayerY
 1680          1010
+
+Space4
+X       Y       Width       Height
+0           474   1022    1574
+CameraX     CameraY
+0           1771
+PlayerX     PlayerY
+95          1903
