@@ -58,8 +58,7 @@ void World::Init(const char* tilesheetPath,
 		fs >> id;
 		switch (id)
 		{
-
-		case SPRIET_INFO_GATE:
+		case SPRITE_INFO_GATE:
 			obj = new Gate();
 			((Gate*)obj)->world = this;
 			break;
@@ -79,19 +78,15 @@ void World::Init(const char* tilesheetPath,
 		case SPRITE_INFO_INSECT:
 			obj = new Insect();
 			break;
-		
 		case SPRITE_INFO_ORBS:
 			obj = new Orbs();
 			break;
-		
 		case SPRITE_INFO_SKULLS:
 			obj = new Skulls();
 			break;
-		
 		case SPRITE_INFO_SNAILS:
 			obj = new Snails();
 			break;
-		
 		default:
 			obj = new BaseObject();
 			break;

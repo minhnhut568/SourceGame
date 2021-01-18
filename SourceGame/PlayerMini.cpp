@@ -194,7 +194,15 @@ void PlayerMini::onAABBCheck(MovableRect* other)
 			Game::getInstance()->overWorld->resetLocationInSpace();
 		}
 	}
-
+	if (other->getCollisionType() == COLLISION_TYPE_GATE_OVER_WORLD_SPACE4)
+	{
+		if (KEY::getInstance()->isDownDown)
+		{
+			Game::getInstance()->setWorldType(WorldType::WT_OVER_WORLD_SPACE4);
+			Game::getInstance()->overWorld->setCurrentSpace(4);
+			Game::getInstance()->overWorld->resetLocationInSpace();
+		}
+	}
 	if (other->getCollisionType() == COLLISION_TYPE_LADDER)
 	{
 		if (KEY::getInstance()->isUpDown || KEY::getInstance()->isDownDown)
