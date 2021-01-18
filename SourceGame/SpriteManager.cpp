@@ -125,6 +125,9 @@ SpriteManager::SpriteManager()
 
 	//SPRITE_INFO_INTRO_CAR
 	sprites[SPRITE_INFO_INTRO_CAR]->InitFromFile("assets/levels/intro/introcar");
+	
+	//SPRITE_INFO_ENDGAME_HEAD
+	sprites[SPRITE_INFO_ENDGAME_HEAD]->InitFromFile("assets/levels/end/head");
 
 }
 SpriteManager::~SpriteManager()

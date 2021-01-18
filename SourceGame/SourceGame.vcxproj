@@ -195,6 +195,7 @@
     <ClInclude Include="Tilemap.h" />
     <ClInclude Include="WindowGame.h" />
     <ClInclude Include="World.h" />
+    <ClInclude Include="WorldEnd.h" />
     <ClInclude Include="WorldIntro.h" />
     <ClInclude Include="Worm.h" />
   </ItemGroup>
@@ -252,6 +253,7 @@
     <ClCompile Include="WindowGame.cpp" />
     <ClCompile Include="WinMain.cpp" />
     <ClCompile Include="World.cpp" />
+    <ClCompile Include="WorldEnd.cpp" />
     <ClCompile Include="WorldIntro.cpp" />
     <ClCompile Include="Worm.cpp" />
   </ItemGroup>

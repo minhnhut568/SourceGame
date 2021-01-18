@@ -70,6 +70,8 @@ void Camera::update()
 	case WT_WORLD:
 		player = Player::getInstance();
 		break;
+	case WT_END:
+		return;
 	default:
 		break;
 	}

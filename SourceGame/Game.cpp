@@ -24,6 +24,8 @@ void Game::GameInit()
 
 	worldIntro = new WorldIntro();
 
+	worldEnd = new WorldEnd();
+
 	Camera::getInstance()->setSize(
 		/* kích thước của camera bằng với kích thước của backbuffer */
 		GLOBALS_D("backbuffer_width"),
@@ -36,13 +38,16 @@ void Game::GameInit()
 	world->resetLocationInSpace();*/
 
 	// over world
-	worldType = WT_OVER_WORLD_SPACE0;
-	overWorld->setCurrentSpace(2);
-	overWorld->resetLocationInSpace();
+	/*worldType = WT_OVER_WORLD_SPACE0;
+	overWorld->setCurrentSpace(3);
+	overWorld->resetLocationInSpace();*/
 
 	 //intro
 	/*worldType = WT_INTRO;*/
 
+	//world end
+	/*worldType = WT_END;
+	worldEnd->start();*/
 
 	//INTRO'S SOUND
 	Sound::getInstance()->loadSound("Sound/Opening.wav", "Intro");
@@ -115,6 +120,9 @@ void Game::GameUpdate(float dt)
 	case WT_OVER_WORLD_SPACE2:
 		overWorld->update(dt);
 		break;
+	case WT_END:
+		worldEnd->update();
+		break;
 	default:
 		break;
 	}
@@ -146,6 +154,9 @@ void Game::GameRender()
 		overWorld->render();
 		Scorebar::getInstance()->render();
 		break;
+	case WT_END:
+		worldEnd->render();
+		break;
 	default:
 		break;
 	}
@@ -168,6 +179,10 @@ void Game::setWorldType(WorldType worldType)
 		break;
 	case WT_WORLD:
 		gameDirectx->backbufferWidth = 240;
+		gameDirectx->backbufferHeight = 224;
+		break;
+	case WT_END:
+		gameDirectx->backbufferWidth = 258;
 		gameDirectx->backbufferHeight = 224;
 		break;
 	case WT_OVER_WORLD_SPACE0:
