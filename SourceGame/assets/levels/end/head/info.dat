@@ -1,0 +1,18 @@
+Sprite ssss
+R	G	B
+236	69	80	255
+Animation Count
+1
+
+
+Name
+Animation
+Frame Count
+3
+
+FrameX		FrameY		FrameWidth		FrameHeight		AnchorX		AnchorY
+0			0			16				15				0			0
+16			0			16				15				0			0
+32			0			16				15				0			0
+
+

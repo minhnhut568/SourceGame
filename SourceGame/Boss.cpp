@@ -2,6 +2,7 @@
 #include"Camera.h"
 #include<time.h>
 #include<string>
+#include "Game.h"
 Boss* Boss::instance = 0;
 Boss* Boss::getInstance()
 {
@@ -211,5 +212,8 @@ void Boss::setConflicBullet(BaseObject* bullet)
 	{
 		Sound::getInstance()->play("BossDie", false, 1);
 		Enemy::setConflicBullet(bullet);
+		Game::getInstance()->setWorldType(WorldType::WT_END);
+		Game::getInstance()->worldEnd->start();
+		
 	}
 }

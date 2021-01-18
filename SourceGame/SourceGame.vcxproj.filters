@@ -225,6 +225,9 @@
     <ClInclude Include="Teleporter.h">
       <Filter>Objects\Enemies</Filter>
     </ClInclude>
+    <ClInclude Include="WorldEnd.h">
+      <Filter>WorldAndCamera</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Sprite.cpp">
@@ -388,6 +391,9 @@
     </ClCompile>
     <ClCompile Include="Teleporter.cpp">
       <Filter>Objects\Enemies</Filter>
+    </ClCompile>
+    <ClCompile Include="WorldEnd.cpp">
+      <Filter>WorldAndCamera</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>
