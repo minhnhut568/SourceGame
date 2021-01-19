@@ -1,4 +1,5 @@
 #include "Domes.h"
+#include "Player.h"
 
 Domes::Domes()
 {
@@ -13,6 +14,7 @@ Domes::Domes()
 
 void Domes::onUpdate(float dt)
 {
+	auto player = Player::getInstance();
 	switch (domesState)
 	{
 	case DOMES_STATE_RUN:
@@ -53,6 +55,8 @@ void Domes::onUpdate(float dt)
 				}
 				if (getBottom() < ground->getBottom()) {
 					setAnimation(DOMES_DOWN);
+					if (getleft() == (player->getRight() - 25))
+						domesState = DOMES_STATE_WAIT;
 				}
 			}
 			if (moveY != 0)
@@ -78,8 +82,12 @@ void Domes::onUpdate(float dt)
 		break;
 	}
 	case DOMES_STATE_WAIT:
+		setDx(0);
+		setDy(0);
+		domesState = DOMES_STATE_FIRE;
 		break;
 	case DOMES_STATE_FIRE:
+		setDy(-(player->getRight()));
 		break;
 	default:
 		break;
