@@ -33,21 +33,21 @@ void Game::GameInit()
 
 
 	// world
-	/*worldType = WT_WORLD;
+	worldType = WT_WORLD;
 	world->setCurrentSpace(0);
-	world->resetLocationInSpace();*/
+	world->resetLocationInSpace();
 
 	// over world
-	/*worldType = WT_OVER_WORLD_SPACE0;
-	overWorld->setCurrentSpace(3);
-	overWorld->resetLocationInSpace();*/
+	//worldType = WT_OVER_WORLD_SPACE0;
+	//overWorld->setCurrentSpace(4);
+	//overWorld->resetLocationInSpace();
 
 	 //intro
-	worldType = WT_INTRO;
+	//worldType = WT_INTRO;
 
 	//world end
-	/*worldType = WT_END;
-	worldEnd->start();*/
+	//worldType = WT_END;
+	//worldEnd->start();
 
 	//INTRO'S SOUND
 	Sound::getInstance()->loadSound("Sound/Opening.wav", "Intro");
