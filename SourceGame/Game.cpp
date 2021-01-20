@@ -33,9 +33,9 @@ void Game::GameInit()
 
 
 	// world
-	/*worldType = WT_WORLD;
+	worldType = WT_WORLD;
 	world->setCurrentSpace(0);
-	world->resetLocationInSpace();*/
+	world->resetLocationInSpace();
 
 	// over world
 	worldType = WT_OVER_WORLD_SPACE0;
@@ -46,8 +46,8 @@ void Game::GameInit()
 	/*worldType = WT_INTRO;*/
 
 	//world end
-	/*worldType = WT_END;
-	worldEnd->start();*/
+	//worldType = WT_END;
+	//worldEnd->start();
 
 	//INTRO'S SOUND
 	Sound::getInstance()->loadSound("Sound/Opening.wav", "Intro");
