@@ -19,7 +19,13 @@ void PlayerMiniOverWorldBullet::onAABBCheck(MovableRect* other)
 {
 	if (other->getCollisionType() == COLLISION_TYPE_ENEMY)
 	{
-		((Enemy*)other)->setConflicBullet(this);
+		((BaseObject*)other)->setConflicBullet(this);
+	}
+
+	if (other->getCollisionType() == 7)
+	{
+		((BaseObject*)other)->alive = false;
+		this->markForDelete = true;
 	}
 }
 

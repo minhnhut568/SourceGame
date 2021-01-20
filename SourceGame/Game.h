@@ -29,11 +29,11 @@ class Game
 private:
 	/* singleton pattern */
 	static Game* instance;
-	WorldType worldType;
 
 
 public:
 	World* world;
+	WorldType worldType;
 
 	OverWorld* overWorld;
 	WorldIntro* worldIntro;

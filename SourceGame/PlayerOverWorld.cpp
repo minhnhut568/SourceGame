@@ -127,7 +127,7 @@ void PlayerOverWorld::onUpdate(float dt)
 
 void PlayerOverWorld::onCollision(MovableRect * other, float collisionTime, int nx, int ny)
 {
-	if (other->getCollisionType() == COLLISION_TYPE_GROUND)
+	if (other->getCollisionType() == COLLISION_TYPE_GROUND || other->getCollisionType() == 7)
 	{
 		/* ngăn chặn di chuyển */
 		preventMovementWhenCollision(collisionTime, nx, ny);
@@ -170,6 +170,13 @@ void PlayerOverWorld::onAABBCheck(MovableRect* other)
 			Game::getInstance()->world->setCurrentSpace(5);
 			Game::getInstance()->world->resetLocationInSpace();
 		}
+	}
+
+	if (other->getCollisionType() == 6)
+	{
+		Game::getInstance()->worldType = WT_OVER_WORLD_SPACE0;
+		Game::getInstance()->overWorld->setCurrentSpace(3);
+		Game::getInstance()->overWorld->resetLocationInSpace();
 	}
 
 }

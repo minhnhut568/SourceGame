@@ -65,7 +65,7 @@ void Sprite::InitFromFile(const char* folderPath)
 void Sprite::InitFromImage(const char* imagePath)
 {
 	image = new GameTexture();
-	image->Init(imagePath, D3DCOLOR_ARGB(255, 255, 255, 255));
+	image->Init(imagePath, D3DCOLOR_ARGB(254, 255, 255, 255));
 	Animation* animation = new Animation();
 	FrameAnimation* frame = new FrameAnimation();
 

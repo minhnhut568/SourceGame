@@ -31,7 +31,6 @@ void OverWorld::Init(const char* tilesheetPath,
 	const char* spacePath,
 	const char* quadTreePath)
 {
-
 	/* khởi tạo tilemap */
 	tilemap.Init(tilesheetPath, matrixPath);
 
@@ -272,6 +271,12 @@ void OverWorld::render()
 	}
 	AriseBase::renderAriseObjects();
 	PlayerOverWorld::getInstance()->render();
+
+	for (size_t i = 0; i < camera->objectCategories[5]->Count; i++)
+	{
+		/* vẽ đối tượng */
+		camera->objectCategories[5]->at(i)->render();
+	}
 }
 
 OverWorld::OverWorld()

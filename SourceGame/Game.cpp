@@ -38,12 +38,12 @@ void Game::GameInit()
 	world->resetLocationInSpace();*/
 
 	// over world
-	/*worldType = WT_OVER_WORLD_SPACE0;
-	overWorld->setCurrentSpace(3);
-	overWorld->resetLocationInSpace();*/
+	worldType = WT_OVER_WORLD_SPACE0;
+	overWorld->setCurrentSpace(4);
+	overWorld->resetLocationInSpace();
 
 	 //intro
-	worldType = WT_INTRO;
+	/*worldType = WT_INTRO;*/
 
 	//world end
 	/*worldType = WT_END;
@@ -120,6 +120,9 @@ void Game::GameUpdate(float dt)
 	case WT_OVER_WORLD_SPACE2:
 		overWorld->update(dt);
 		break;
+	case WT_OVER_WORLD_SPACE4:
+		overWorld->update(dt);
+		break;
 	case WT_END:
 		worldEnd->update();
 		break;
@@ -151,6 +154,10 @@ void Game::GameRender()
 		Scorebar::getInstance()->render();
 		break;
 	case WT_OVER_WORLD_SPACE2:
+		overWorld->render();
+		Scorebar::getInstance()->render();
+		break;
+	case WT_OVER_WORLD_SPACE4:
 		overWorld->render();
 		Scorebar::getInstance()->render();
 		break;

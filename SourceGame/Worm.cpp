@@ -39,11 +39,6 @@ void Worm::onUpdate(float dt)
 		break;
 	}
 
-	//if (getIsOnGround())
-	//{
-	//	setPhysicsEnable(false);
-	//}
-
 	Enemy::onUpdate(dt);
 }
 

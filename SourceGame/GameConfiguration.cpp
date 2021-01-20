@@ -32,7 +32,6 @@ double GameConfiguration::GetConfiguration(const char * key)
 
 		globalsConfigurationDouble->insert(pair<const char*, double>("max-health", 8));
 
-
 		/*  PLAYER  */
 		globalsConfigurationDouble->insert(pair<const char*, double>("player_vx", 190)); /* 60 pixel/s */
 		globalsConfigurationDouble->insert(pair<const char*, double>("player_blink_vx", -100)); /* 60 pixel/s */
@@ -83,12 +82,6 @@ double GameConfiguration::GetConfiguration(const char * key)
 		globalsConfigurationDouble->insert(pair<const char*, double>("overworld-sub-explosion-delay", 100));
 
 		globalsConfigurationDouble->insert(pair<const char*, double>("teleporter_to_player_distance", 50));
-		
-
-		/* TODO tạo thêm các giá trị cấu hình double game tại đây 
-		Ví dụ: globalsConfiguration->insert(pair<const char*, double>("gia_tri_key", 10)); 10 la gia tri cua gia_tri_key
-		*/
-
 		
 	}
 	/* trả ra giá trị cấu hình tại key */
