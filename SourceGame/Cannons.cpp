@@ -2,6 +2,7 @@
 #include "Cannons.h"
 #include "FloaterBullet.h"
 #include "Sound.h"
+#include "ItemP.h"
 
 Cannons::Cannons()
 {
@@ -9,6 +10,7 @@ Cannons::Cannons()
 	shootDelay.init(S("cannons_shoot_delay"));
 	setDirection(-1);
 	isVertical = true;
+	
 }
 
 void Cannons::onUpdate(float dt)
@@ -45,3 +47,5 @@ void Cannons::onUpdate(float dt)
 void Cannons::onCollision(MovableRect* other, float collisionTime, int nx, int ny)
 {
 }
+
+

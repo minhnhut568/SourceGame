@@ -67,6 +67,9 @@ void Camera::update()
 	case WT_OVER_WORLD_SPACE2:
 		player = PlayerOverWorld::getInstance();
 		break;
+	case WT_OVER_WORLD_SPACE4:
+		player = PlayerOverWorld::getInstance();
+		break;
 	case WT_WORLD:
 		player = Player::getInstance();
 		break;

@@ -125,9 +125,21 @@ SpriteManager::SpriteManager()
 
 	//SPRITE_INFO_INTRO_CAR
 	sprites[SPRITE_INFO_INTRO_CAR]->InitFromFile("assets/levels/intro/introcar");
-	
+
 	//SPRITE_INFO_ENDGAME_HEAD
 	sprites[SPRITE_INFO_ENDGAME_HEAD]->InitFromFile("assets/levels/end/head");
+
+	//SPRITE_INFO_STONE
+	sprites[SPRITE_INFO_STONE]->InitFromImage("assets/sprites/misc/stone.png");
+	
+	//SPRITE_INFO_STONE2
+	sprites[SPRITE_INFO_STONE2]->InitFromImage("assets/sprites/misc/stone2.png");
+	
+	//SPRITE_INFO_STONE3
+	sprites[SPRITE_INFO_STONE3]->InitFromImage("assets/sprites/misc/stone3.png");
+	
+	//SPRITE_INFO_ROCK
+	sprites[SPRITE_INFO_ROCK]->InitFromImage("assets/sprites/rock/33.png");
 
 }
 SpriteManager::~SpriteManager()

@@ -5,7 +5,8 @@
 #include"CollisionTypeCollide.h"
 #include"Space.h"
 #include"Quadtree.h"
-
+#include"DelayTime.h"
+#include"GameTime.h"
 
 
 class OverWorld
