@@ -15,8 +15,7 @@ Boss* Boss::getInstance()
 }
 Boss::Boss()
 {
-	Sound::getInstance()->stop("Area2");
-	Sound::getInstance()->play("Boss", true, 0);
+
 	bossAtiveHeight = 100;
 	dirX = 1;
 	dirY = -1;

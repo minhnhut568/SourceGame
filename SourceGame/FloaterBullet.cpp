@@ -42,6 +42,7 @@ void FloaterBullet::onCollision(MovableRect* other, float collisionTime, int nx,
 	if (other->getCollisionType() == COLLISION_TYPE_GROUND)
 	{
 		/* ngăn chặn di chuyển */
+		markForDelete = true;
 		preventMovementWhenCollision(collisionTime, nx, ny);
 		PhysicsObject::onCollision(other, collisionTime, nx, ny);
 	}

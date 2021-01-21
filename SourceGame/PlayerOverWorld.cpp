@@ -174,6 +174,8 @@ void PlayerOverWorld::onAABBCheck(MovableRect* other)
 
 	if (other->getCollisionType() == 6)
 	{
+		Sound::getInstance()->stop("Area2");
+		Sound::getInstance()->play("Boss", true, 0);
 		Game::getInstance()->worldType = WT_OVER_WORLD_SPACE0;
 		Game::getInstance()->overWorld->setCurrentSpace(3);
 		Game::getInstance()->overWorld->resetLocationInSpace();
@@ -217,7 +219,7 @@ PlayerOverWorld::PlayerOverWorld()
 {
 	setSprite(SpriteManager::getInstance()->getSprite(SPRITE_INFO_PLAYER_ONE_WORLD));
 	setWidth(17);
-	setHeight(30);
+	setHeight(28);
 	shootDelay.init(300);
 	blinkDelay.init(200);
 }

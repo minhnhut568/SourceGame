@@ -1,5 +1,6 @@
 #include "WorldEnd.h"
 #include "SpriteManager.h"
+#include "Sound.h"
 
 WorldEnd::WorldEnd()
 {

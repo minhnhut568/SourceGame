@@ -34,12 +34,12 @@ void Game::GameInit()
 
 	// world
 	//worldType = WT_WORLD;
-	//world->setCurrentSpace(6);
+	//world->setCurrentSpace(10);
 	//world->resetLocationInSpace();
 
 	// over world
 	worldType = WT_OVER_WORLD_SPACE0;
-	overWorld->setCurrentSpace(3);
+	overWorld->setCurrentSpace(4);
 	overWorld->resetLocationInSpace();
 
 	 //intro
@@ -53,6 +53,8 @@ void Game::GameInit()
 	Sound::getInstance()->loadSound("Sound/Opening.wav", "Intro");
 	Sound::getInstance()->loadSound("Sound/CarSplash.wav", "CarSplash");
 	Sound::getInstance()->loadSound("Sound/CarBackground.wav", "CarBackground");
+	Sound::getInstance()->loadSound("Sound/Ending.wav", "Ending");
+
 
 	//AREA2'S SOUND
 	Sound::getInstance()->loadSound("Sound/Area2.wav", "Area2");
@@ -88,7 +90,6 @@ void Game::GameInit()
 	Sound::getInstance()->loadSound("Sources/Sound/rawSound/Blaster Master SFX (29).wav", "TankDie");
 	Sound::getInstance()->loadSound("Sources/Sound/rawSound/Blaster Master SFX (22).wav", "Blink");
 	Sound::getInstance()->loadSound("Sources/Sound/rawSound//Blaster Master SFX (17).wav", "Thunder");
-	Sound::getInstance()->loadSound("Sources/Sound/Ending.wav", "Ending");
 	Sound::getInstance()->loadSound("Sources/Sound/Ending/Mountain.wav", "Mountain");
 }
 /* Các câu lệnh cập nhật game */
@@ -120,6 +121,9 @@ void Game::GameUpdate(float dt)
 		overWorld->update(dt);
 		break;
 	case WT_END:
+		Sound::getInstance()->stop("Area2");
+		Sound::getInstance()->stop("Boss");
+		Sound::getInstance()->play("Ending", true, 0);
 		worldEnd->update();
 		break;
 	default:
