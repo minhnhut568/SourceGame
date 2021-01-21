@@ -87,7 +87,7 @@ void Domes::onUpdate(float dt)
 		domesState = DOMES_STATE_FIRE;
 		break;
 	case DOMES_STATE_FIRE:
-		setDy(-(player->getRight()));
+		setDy(-3);
 		break;
 	default:
 		break;
