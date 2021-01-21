@@ -10,6 +10,7 @@ ItemP::ItemP()
 	setHeight(getSprite()->image->Height);
 	setDirection(TEXTURE_DIRECTION_LEFT);
 	setCollisionType(COLLISION_TYPE::COLLISION_TYPE_ITEM);
+	PhysicsObject::setAy(0); // treo item P
 }
 
 void ItemP::onCollision(MovableRect* other, float collisionTime, int nx, int ny)
