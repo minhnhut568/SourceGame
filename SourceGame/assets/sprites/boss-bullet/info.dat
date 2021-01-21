@@ -1,0 +1,16 @@
+Sprite boss-bullet
+R	G	B
+255	12	0	255
+Animation Count
+1
+
+
+Name
+Animation
+Frame Count
+1
+
+FrameX		FrameY		FrameWidth		FrameHeight		AnchorX		AnchorY
+0			0			7				7				0			0
+
+

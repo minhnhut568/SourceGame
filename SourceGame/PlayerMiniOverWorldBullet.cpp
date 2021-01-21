@@ -1,7 +1,8 @@
-#include "PlayerMiniOverWorldBullet.h"
+﻿#include "PlayerMiniOverWorldBullet.h"
 #include "SpriteManager.h"
 #include "Enemy.h"
 #include "Sound.h"
+#include "Explosion.h"
 
 void PlayerMiniOverWorldBullet::onUpdate(float dt)
 {
@@ -38,4 +39,15 @@ PlayerMiniOverWorldBullet::PlayerMiniOverWorldBullet()
 	setDirection(TEXTURE_DIRECTION_RIGHT);
 	Sound::getInstance()->play("PlayerFireOverWorld", false, 1);
 	//animationGameTime.init(500);
+}
+
+void PlayerMiniOverWorldBullet::onCollision(MovableRect* other, float collisionTime, int nx, int ny)
+{
+	if (other->getCollisionType() == COLLISION_TYPE_GROUND)
+	{
+		/* ngăn chặn di chuyển */
+		preventMovementWhenCollision(collisionTime, nx, ny);
+		PhysicsObject::onCollision(other, collisionTime, nx, ny);
+		Explosion::setExplosion(this);
+	}
 }

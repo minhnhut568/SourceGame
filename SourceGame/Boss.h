@@ -2,6 +2,7 @@
 #include "Enemy.h"
 #include"BossClaw.h"
 #include"DelayTime.h"
+#include "GameTime.h"
 #include"Sound.h"
 class Boss :
 	public Enemy
@@ -10,6 +11,8 @@ class Boss :
 	int dirX, dirY;
 	int isStop;
 	int runCount;
+	DelayTime delayBullet;
+	GameTime shootTime;
 
 	int delta;
 	int health;

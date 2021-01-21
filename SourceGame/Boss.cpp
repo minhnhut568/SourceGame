@@ -1,8 +1,13 @@
 #include "Boss.h"
+#include "BossBullet.h"
+#include "PlayerOverWorld.h"
+
 #include"Camera.h"
 #include<time.h>
 #include<string>
 #include "Game.h"
+#include "Explosion.h"
+#include <ctime>
 Boss* Boss::instance = 0;
 Boss* Boss::getInstance()
 {
@@ -24,6 +29,9 @@ Boss::Boss()
 	bossClawDyDirection = -1;
 	bossRightArm = new BaseObject();
 	health = 20;
+
+	delayBullet.init(1);
+	shootTime.init(2000);
 
 	infinityDelay.init(100);
 	infinityDelay.start();
@@ -147,6 +155,68 @@ void Boss::runWave(List<BaseObject*>* objects)
 
 void Boss::onUpdate(float dt)
 {
+	//
+	//bullet shoot follow direct Player
+	delayBullet.update();
+	if (shootTime.atTime()) {
+		delayBullet.start();
+
+		BossBullet* bullet = new BossBullet();
+		bullet->setX(this->getMidX());
+		bullet->setY(this->getMidY());
+
+		auto player = PlayerOverWorld::getInstance();
+
+		auto xb = bullet->getX();
+		auto yb = bullet->getY();
+		auto xp = player->getX();
+		auto yp = player->getY();
+		auto r = 2;
+
+		if (abs(yp - yb) <= 20)
+		{
+			if (getMidX() <= player->getMidX())
+			{
+				bullet->setDx(r);
+			}
+			else
+			{
+				bullet->setDx(-r);
+			}
+		}
+		else
+		{
+			auto m = ((xp - xb) * (xp - xb)) / ((yp - yb) * (yp - yb));
+
+			auto dx = sqrt(r * r * m / (1 + m));
+
+			if (getMidX() < player->getMidX())
+			{
+				bullet->setDx(dx);
+			}
+			else
+			{
+				bullet->setDx(-dx);
+			}
+
+			auto dy = sqrt(abs(r * r - dx * dx));
+
+			if (getMidY() < player->getMidY())
+			{
+				bullet->setDy(dy);
+			}
+			else
+			{
+				bullet->setDy(-dy);
+			}
+		}
+		auto xx = bullet->getDx();
+		auto yy = bullet->getDy();
+		TRACE_VAL_LN("dx", xx);
+		TRACE_VAL_LN("dy", yy);
+	}
+	
+
 	infinityDelay.update();
 	srand(time(NULL));
 	bossRightArm->setY(getY());
@@ -208,6 +278,7 @@ void Boss::setConflicBullet(BaseObject* bullet)
 	if (infinityDelay.isTerminated())
 	{
 		health--;
+		Explosion::setExplosion(this);
 		infinityDelay.start();
 	}
 	if (health <= 0)

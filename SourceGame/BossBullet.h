@@ -1,14 +1,15 @@
 #pragma once
 #include "AriseBase.h"
 
-class PlayerMiniOverWorldBullet :
+class BossBullet :
 	public AriseBase
 {
 public:
+
 	void onUpdate(float dt);
 	void onAABBCheck(MovableRect* other) override;
 	void onCollision(MovableRect* other, float collisionTime, int nx, int ny) override;
 
-	PlayerMiniOverWorldBullet();
+	BossBullet();
 };
 

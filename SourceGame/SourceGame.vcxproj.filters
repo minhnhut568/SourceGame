@@ -231,6 +231,9 @@
     <ClInclude Include="WorldEnd.h">
       <Filter>WorldAndCamera</Filter>
     </ClInclude>
+    <ClInclude Include="BossBullet.h">
+      <Filter>Objects\Arise</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Sprite.cpp">
@@ -400,6 +403,9 @@
     </ClCompile>
     <ClCompile Include="WorldEnd.cpp">
       <Filter>WorldAndCamera</Filter>
+    </ClCompile>
+    <ClCompile Include="BossBullet.cpp">
+      <Filter>Objects\Arise</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>
