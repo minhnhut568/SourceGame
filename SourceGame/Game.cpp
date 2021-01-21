@@ -38,12 +38,12 @@ void Game::GameInit()
 	world->resetLocationInSpace();*/
 
 	// over world
-	worldType = WT_OVER_WORLD_SPACE0;
+	/*worldType = WT_OVER_WORLD_SPACE0;
 	overWorld->setCurrentSpace(4);
-	overWorld->resetLocationInSpace();
+	overWorld->resetLocationInSpace();*/
 
 	 //intro
-	/*worldType = WT_INTRO;*/
+	worldType = WT_INTRO;
 
 	//world end
 	//worldType = WT_END;
