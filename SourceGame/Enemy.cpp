@@ -1,7 +1,7 @@
 #include "Enemy.h"
 #include "Player.h"
 #include "ItemP.h"
-
+#include "Explosion.h"
 void Enemy::onCollision(MovableRect* other, float collisionTime, int nx, int ny)
 {
 	if (other->getCollisionType() == COLLISION_TYPE_GROUND)
@@ -33,7 +33,10 @@ void Enemy::setConflicBullet(BaseObject* bullet)
 	bullet->alive = false;
 	alive = false;
 	Sound::getInstance()->play("EnemyDie", false, 1);
+	Explosion::setExplosion(this);
 	ItemP* item = new ItemP();
+
 	item->setX(getX());
-	item->setY(getY() + 16);
+	item->setY(getY());
+
 }
