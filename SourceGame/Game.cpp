@@ -33,13 +33,13 @@ void Game::GameInit()
 
 
 	// world
-	/*worldType = WT_WORLD;
-	world->setCurrentSpace(0);
-	world->resetLocationInSpace();*/
+	//worldType = WT_WORLD;
+	//world->setCurrentSpace(6);
+	//world->resetLocationInSpace();
 
 	// over world
 	worldType = WT_OVER_WORLD_SPACE0;
-	overWorld->setCurrentSpace(4);
+	overWorld->setCurrentSpace(3);
 	overWorld->resetLocationInSpace();
 
 	 //intro
@@ -85,12 +85,8 @@ void Game::GameInit()
 	Sound::getInstance()->loadSound("Sources/Sound/rawSound/GameOver.wav", "GameOver");
 	Sound::getInstance()->loadSound("Sources/Sound/rawSound/LifeLost.wav", "LifeLost");
 	Sound::getInstance()->loadSound("Sources/Sound/rawSound/Blaster Master SFX (15).wav", "MineBip");
-	Sound::getInstance()->loadSound("Sources/Sound/rawSound/Blaster Master SFX (23).wav", "FireRocket");
-	Sound::getInstance()->loadSound("Sources/Sound/rawSound/Blaster Master SFX (24).wav", "TransingWeaponScene");
-	Sound::getInstance()->loadSound("Sources/Sound/rawSound/Blaster Master SFX (25).wav", "FireHomingMissles");
 	Sound::getInstance()->loadSound("Sources/Sound/rawSound/Blaster Master SFX (29).wav", "TankDie");
 	Sound::getInstance()->loadSound("Sources/Sound/rawSound/Blaster Master SFX (22).wav", "Blink");
-	Sound::getInstance()->loadSound("Sources/Sound/rawSound/Blaster Master SFX (26).wav", "SwitchScene");
 	Sound::getInstance()->loadSound("Sources/Sound/rawSound//Blaster Master SFX (17).wav", "Thunder");
 	Sound::getInstance()->loadSound("Sources/Sound/Ending.wav", "Ending");
 	Sound::getInstance()->loadSound("Sources/Sound/Ending/Mountain.wav", "Mountain");
