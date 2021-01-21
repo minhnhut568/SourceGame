@@ -1,4 +1,4 @@
-#include "FloaterBullet.h"
+﻿#include "FloaterBullet.h"
 #include "SpriteManager.h"
 #include"Player.h"
 #include"PlayerOverWorld.h"
@@ -35,4 +35,14 @@ void FloaterBullet::onUpdate(float dt)
 		setPauseAnimation(true);
 	}
 	AriseBase::onUpdate(dt);
+}
+
+void FloaterBullet::onCollision(MovableRect* other, float collisionTime, int nx, int ny)
+{
+	if (other->getCollisionType() == COLLISION_TYPE_GROUND)
+	{
+		/* ngăn chặn di chuyển */
+		preventMovementWhenCollision(collisionTime, nx, ny);
+		PhysicsObject::onCollision(other, collisionTime, nx, ny);
+	}
 }
