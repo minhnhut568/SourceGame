@@ -22,6 +22,7 @@ class Player :
 	static PhysicsObject* playerMain;
 	static PhysicsObject* playerMini;
 public:
+
 	static PhysicsObject* getPlayerMain();
 	static PhysicsObject* getPlayerMini();
 

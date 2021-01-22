@@ -27,12 +27,14 @@ enum PLAYER_OW_DIRECTION
 class PlayerOverWorld :
 	public PhysicsObject
 {
+	int health = 8;
 	int moveX, moveY;
 	static PlayerOverWorld* instance;
 	PLAYER_OW_DIRECTION playerDirection;
 
 	DelayTime shootDelay;
 public:
+
 	static PlayerOverWorld* getInstance();
 	void onUpdate(float dt) override;
 	void onCollision(MovableRect* other, float collisionTime, int nx, int ny) override;

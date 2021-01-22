@@ -142,6 +142,10 @@ void PlayerOverWorld::onAABBCheck(MovableRect* other)
 		blinkDelay.start();
 		blinkCantControlDelay.start();
 		Scorebar::getInstance()->decreaseHealth(1);
+		health--;
+		if (health == 0) {
+			setPlayerDirection(PLAYER_OW_DIRECTION_RIGHT);
+		}
 	}
 
 	if (other->getCollisionType() == COLLISION_TYPE_GATE_TO_WORLD_SPACE6)
@@ -168,6 +172,16 @@ void PlayerOverWorld::onAABBCheck(MovableRect* other)
 		{
 			Game::getInstance()->setWorldType(WorldType::WT_WORLD);
 			Game::getInstance()->world->setCurrentSpace(5);
+			Game::getInstance()->world->resetLocationInSpace();
+		}
+	}
+	
+	if (other->getCollisionType() == COLLISION_TYPE_GATE_TO_WORLD_SPACE9)
+	{
+		if (KEY::getInstance()->isEnterDown)
+		{
+			Game::getInstance()->setWorldType(WorldType::WT_WORLD);
+			Game::getInstance()->world->setCurrentSpace(9);
 			Game::getInstance()->world->resetLocationInSpace();
 		}
 	}

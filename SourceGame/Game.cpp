@@ -33,14 +33,14 @@ void Game::GameInit()
 
 
 	// world
-	worldType = WT_WORLD;
+	/*worldType = WT_WORLD;
 	world->setCurrentSpace(0);
-	world->resetLocationInSpace();
+	world->resetLocationInSpace()*/
 
 	// over world
-	/*worldType = WT_OVER_WORLD_SPACE0;
-	overWorld->setCurrentSpace(4);
-	overWorld->resetLocationInSpace();*/
+	worldType = WT_OVER_WORLD_SPACE0;
+	overWorld->setCurrentSpace(3);
+	overWorld->resetLocationInSpace();
 
 	 //intro
 	/*worldType = WT_INTRO;*/
@@ -198,6 +198,7 @@ void Game::setWorldType(WorldType worldType)
 	case WT_TO_WORLD_SPACE6:
 	case WT_TO_WORLD_SPACE4:
 	case WT_TO_WORLD_SPACE5:
+	case WT_TO_WORLD_SPACE9:
 		gameDirectx->backbufferWidth = 256;
 		gameDirectx->backbufferHeight = 224;
 	default:
