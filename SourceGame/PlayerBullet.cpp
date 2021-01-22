@@ -36,6 +36,7 @@ void PlayerBullet::onCollision(MovableRect* other, float collisionTime, int nx, 
 		/* ngăn chặn di chuyển */
 		preventMovementWhenCollision(collisionTime, nx, ny);
 		PhysicsObject::onCollision(other, collisionTime, nx, ny);
+		Sound::getInstance()->play("PlayerBulletHitBrick", false, 1);
 		Explosion::setExplosion(this);
 
 	}

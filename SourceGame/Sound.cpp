@@ -244,17 +244,6 @@ void Sound :: setVolume(float percentage, std:: string name)
 	}
 }
 
-void Sound::mute()
-{
-	isMute = true;
-	Sound::getInstance()->stop();
-}
-
-void Sound::unMute()
-{
-	isMute = false;
-}
-
 void Sound::cleanUp()
 {
 	delete this;

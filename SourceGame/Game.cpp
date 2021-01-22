@@ -33,14 +33,14 @@ void Game::GameInit()
 
 
 	// world
-	/*worldType = WT_WORLD;
+	worldType = WT_WORLD;
 	world->setCurrentSpace(0);
-	world->resetLocationInSpace()*/
+	world->resetLocationInSpace();
 
 	// over world
-	worldType = WT_OVER_WORLD_SPACE0;
-	overWorld->setCurrentSpace(3);
-	overWorld->resetLocationInSpace();
+	//worldType = WT_OVER_WORLD_SPACE0;
+	//overWorld->setCurrentSpace(3);
+	//overWorld->resetLocationInSpace();
 
 	 //intro
 	/*worldType = WT_INTRO;*/
@@ -66,27 +66,25 @@ void Game::GameInit()
 	Sound::getInstance()->loadSound("Sound/Blaster Master SFX (21).wav", "PickingItems");
 	Sound::getInstance()->loadSound("Sound/Blaster Master SFX (8).wav", "PlayerFireOverWorld");
 	Sound::getInstance()->loadSound("Sound/Blaster Master SFX (4).wav", "BulletTouchBoss");
+	Sound::getInstance()->loadSound("Sound/Blaster Master SFX (13).wav", "PlayerBulletHitBrick");
 
 
 	//ENEMY'S SOUND
 	Sound::getInstance()->loadSound("Sound/Blaster Master SFX (27).wav", "EnemyDie");
 	Sound::getInstance()->loadSound("Sound/Blaster Master SFX (30).wav", "SkullFire");
 	Sound::getInstance()->loadSound("Sound/Blaster Master SFX (22).wav", "TeleporterTransform");
+	Sound::getInstance()->loadSound("Sound/Blaster Master SFX (15).wav", "MineBip");
 
 
 	//BOSS
 	Sound::getInstance()->loadSound("Sound/Boss.wav", "Boss");
 	Sound::getInstance()->loadSound("Sound/Blaster Master SFX (35).wav", "BossDie");
+	Sound::getInstance()->loadSound("Sound/Blaster Master SFX (9).wav", "BossFire");
 
 
 
-	Sound::getInstance()->loadSound("Sources/Sound/rawSound/Blaster Master SFX (13).wav", "PlayerBulletHitBrick");
-	Sound::getInstance()->loadSound("Sources/Sound/rawSound/Blaster Master SFX (9).wav", "BossFire");
-	Sound::getInstance()->loadSound("Sources/Sound/rawSound/Blaster Master SFX (16).wav", "EnemyBulletBang");
-	Sound::getInstance()->loadSound("Sources/Sound/rawSound/Blaster Master SFX (36).wav", "BossIntro");
 	Sound::getInstance()->loadSound("Sources/Sound/rawSound/GameOver.wav", "GameOver");
 	Sound::getInstance()->loadSound("Sources/Sound/rawSound/LifeLost.wav", "LifeLost");
-	Sound::getInstance()->loadSound("Sources/Sound/rawSound/Blaster Master SFX (15).wav", "MineBip");
 	Sound::getInstance()->loadSound("Sources/Sound/rawSound/Blaster Master SFX (29).wav", "TankDie");
 	Sound::getInstance()->loadSound("Sources/Sound/rawSound/Blaster Master SFX (22).wav", "Blink");
 	Sound::getInstance()->loadSound("Sources/Sound/rawSound//Blaster Master SFX (17).wav", "Thunder");

@@ -48,6 +48,7 @@ void PlayerMiniOverWorldBullet::onCollision(MovableRect* other, float collisionT
 		/* ngăn chặn di chuyển */
 		preventMovementWhenCollision(collisionTime, nx, ny);
 		PhysicsObject::onCollision(other, collisionTime, nx, ny);
+		Sound::getInstance()->play("PlayerBulletHitBrick", false, 1);
 		Explosion::setExplosion(this);
 	}
 }

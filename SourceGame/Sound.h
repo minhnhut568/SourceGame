@@ -38,8 +38,7 @@ public:
 	float getVolume();
 	~Sound();
 	static Sound* getInstance();
-	void mute();
-	void unMute();
+
 	void cleanUp();
 private:
 	Sound(HWND hWnd);

@@ -213,6 +213,7 @@ void Boss::onUpdate(float dt)
 		auto yy = bullet->getDy();
 		TRACE_VAL_LN("dx", xx);
 		TRACE_VAL_LN("dy", yy);
+		Sound::getInstance()->play("BossFire", false, 1);
 	}
 	
 
