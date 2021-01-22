@@ -18,6 +18,7 @@
 #include "Cannons.h"
 #include "Boss.h"
 #include "Teleporter.h"
+#include "Eyeballs.h"
 
 using namespace std;
 
@@ -62,6 +63,9 @@ void OverWorld::Init(const char* tilesheetPath,
 			break;
 		case SPRITE_INFO_TELEPORTER:
 			obj = new Teleporter();
+			break;
+		case SPRITE_INFO_EYEBALLS:
+			obj = new Eyeballs();
 			break;
 		default:
 			obj = new BaseObject();
