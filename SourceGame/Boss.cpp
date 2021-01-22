@@ -1,4 +1,4 @@
-#include "Boss.h"
+﻿#include "Boss.h"
 #include "BossBullet.h"
 #include "PlayerOverWorld.h"
 
@@ -53,11 +53,15 @@ void Boss::onInitFromFile(ifstream& fs, int mapHeight)
 void Boss::initClaw()
 {
 	leftWaveObjects = new List<BaseObject*>();
+	rightWaveObjects = new List<BaseObject*>();
+
+	//Mang xoay chiều
 	leftWaveObjectsRevert = new List<BaseObject*>();
 	rightWaveObjectsRevert = new List<BaseObject*>();
-	rightWaveObjects = new List<BaseObject*>();
+
 	leftWaveObjects->_Add(this);
 	rightWaveObjects->_Add(bossRightArm);
+
 	int clawNodeCount = 5;
 	bossClawLeft = new BossClaw();
 	bossClawLeft->setDirection(-1);
@@ -65,6 +69,7 @@ void Boss::initClaw()
 	bossClawLeft->boss = this;
 	bossClawLeft->setX(getX());
 	bossClawLeft->setY(getY());
+
 	bossClawRight = new BossClaw();
 	bossClawRight->setDirection(1);
 	bossClawRight->setAnimation(1);
@@ -96,6 +101,7 @@ void Boss::initClaw()
 	leftWaveObjects->_Add(bossClawLeft);
 	rightWaveObjects->_Add(bossClawRight);
 
+	//Đổi chiều mãng
 	for (int i = leftWaveObjects->Count - 1; i > 0; i--)
 	{
 		leftWaveObjectsRevert->_Add(leftWaveObjects->at(i));
@@ -115,6 +121,7 @@ void Boss::runWave(List<BaseObject*>* objects)
 		auto preObj = objects->at(i);
 
 		auto distance = distanceTwoObj(preObj, curObj);
+		//Tính công thức toán
 		if (distance > delta)
 		{
 			float x1 = curObj->getX() - preObj->getX();
@@ -154,8 +161,7 @@ void Boss::runWave(List<BaseObject*>* objects)
 
 void Boss::onUpdate(float dt)
 {
-	//
-	//bullet shoot follow direct Player
+	//Đạn bắn theo Player
 	delayBullet.update();
 	if (shootTime.atTime()) {
 		delayBullet.start();
@@ -211,30 +217,33 @@ void Boss::onUpdate(float dt)
 		}
 		auto xx = bullet->getDx();
 		auto yy = bullet->getDy();
-		TRACE_VAL_LN("dx", xx);
-		TRACE_VAL_LN("dy", yy);
 		Sound::getInstance()->play("BossFire", false, 1);
 	}
 	
 
 	infinityDelay.update();
 	srand(time(NULL));
+
 	bossRightArm->setY(getY());
 	bossRightArm->setX(getRight() - 10);
+
 	if (clawDyDelayTime.atTime())
 	{
 		bossClawDyDirection = -bossClawDyDirection;
 	}
 
+	//Hướng thay đổi
 	auto sign = (rand() % 2) == 0? 1 : -1;
 
 	leftWaveObjectsRevert->at(0)->setDy(10 * bossClawDyDirection);
-	leftWaveObjectsRevert->at(0)->setDx(-sign*rand() % 10 + getDx());
+	//leftWaveObjectsRevert->at(0)->setDx(-sign*rand() % 10 + getDx());
+	leftWaveObjectsRevert->at(0)->setDx(-sign + getDx());
 	runWave(leftWaveObjectsRevert);
 	runWave(leftWaveObjects);
 
 	rightWaveObjectsRevert->at(0)->setDy(10 * bossClawDyDirection);
-	rightWaveObjectsRevert->at(0)->setDx(sign * rand() % 10 + getDx());
+	rightWaveObjectsRevert->at(0)->setDx(sign + getDx());
+	//rightWaveObjectsRevert->at(0)->setDx(sign * rand() % 10 + getDx());
 	runWave(rightWaveObjectsRevert);
 	runWave(rightWaveObjects);
 	//runWave(rightWaveObjects);
@@ -246,7 +255,7 @@ void Boss::onUpdate(float dt)
 
 	auto nextY = y + dy;
 
-
+	//Giới hạn di chuyển boss
 	if ((dy < 0 && nextY < camera->getY() - bossAtiveHeight) || (dy > 0 && nextY > camera->getY()))
 	{
 		dirY = -dirY;
@@ -257,6 +266,7 @@ void Boss::onUpdate(float dt)
 		dirX = -dirX;
 	}
 
+	//Chuyển hướng đổi dấu
 	if (isStop == 0)
 	{
 		setDx(dirX);

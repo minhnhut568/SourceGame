@@ -35,7 +35,6 @@ void BossClaw::onAABBCheck(MovableRect* other)
 	{
 		if (!player->blinkDelay.isOnTime())
 		{
-			TRACE_VAL_LN("onAABBCheck PlayerOverWorld", 0);
 			player->blinkDelay.start();
 			player->blinkCantControlDelay.start();
 			Scorebar::getInstance()->decreaseHealth(1);
