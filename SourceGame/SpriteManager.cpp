@@ -120,6 +120,10 @@ SpriteManager::SpriteManager()
 	sprites[SPRITE_INFO_TELEPORTER]->InitFromFile("assets/sprites/teleporter");
 	sprites[SPRITE_INFO_TELEPORTER]->image->direction = TEXTURE_DIRECTION_LEFT;
 
+	//SPRITE_INFO_TELEPORTER
+	sprites[SPRITE_INFO_EYEBALLS]->InitFromFile("assets/sprites/eyeballs");
+	sprites[SPRITE_INFO_EYEBALLS]->image->direction = TEXTURE_DIRECTION_LEFT;
+
 	//SPRITE_INFO_INTRO_STORY
 	sprites[SPRITE_INFO_INTRO_STORY]->InitFromFile("assets/levels/intro");
 
@@ -145,6 +149,7 @@ SpriteManager::SpriteManager()
 	
 	//SPRITE_INFO_ROCK
 	sprites[SPRITE_INFO_ROCK]->InitFromImage("assets/sprites/rock/33.png");
+
 
 }
 SpriteManager::~SpriteManager()
