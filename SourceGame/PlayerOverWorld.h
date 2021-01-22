@@ -34,6 +34,8 @@ class PlayerOverWorld :
 	PLAYER_OW_DIRECTION playerDirection;
 
 	DelayTime shootDelay;
+	GameTime liveAgain;
+
 public:
 
 	static PlayerOverWorld* getInstance();

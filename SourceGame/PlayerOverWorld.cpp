@@ -145,6 +145,15 @@ void PlayerOverWorld::onAABBCheck(MovableRect* other)
 		health--;
 		if (health == 0) {
 			setAnimation(PLAYER_OW_ACTION_DIE);
+			setDirection(0);
+			if (liveAgain.atTime())
+			{
+				Game::getInstance()->setWorldType(WorldType::WT_OVER_WORLD_SPACE4);
+				Game::getInstance()->overWorld->setCurrentSpace(4);
+				Game::getInstance()->overWorld->resetLocationInSpace();
+				setAnimation(PLAYER_OW_DIRECTION_DOWN);
+				Scorebar::getInstance()->decreaseHealth(-8);
+			}
 		}
 	}
 
@@ -233,9 +242,10 @@ PlayerOverWorld::PlayerOverWorld()
 {
 	setSprite(SpriteManager::getInstance()->getSprite(SPRITE_INFO_PLAYER_ONE_WORLD));
 	setWidth(17);
-	setHeight(28);
+	setHeight(24);
 	shootDelay.init(300);
 	blinkDelay.init(200);
+	liveAgain.init(2000);
 }
 
 
