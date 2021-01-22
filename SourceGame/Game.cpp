@@ -34,7 +34,7 @@ void Game::GameInit()
 
 	// world
 	worldType = WT_WORLD;
-	world->setCurrentSpace(4);
+	world->setCurrentSpace(0);
 	world->resetLocationInSpace();
 
 	// over world

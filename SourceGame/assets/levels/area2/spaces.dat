@@ -37,9 +37,9 @@ Space4
 X       Y       Width       Height
 2560    1759      524       280
 CameraX     CameraY
-2560    1759
+2789    1794
 PlayerX     PlayerY
-2627        1892
+2973        1905
 
 Space5
 X       Y       Width       Height
@@ -53,9 +53,9 @@ Space6
 X       Y       Width       Height
 2048    503      512      280
 CameraX     CameraY
-2069    503
+2263    504
 PlayerX     PlayerY
-2195        625
+2405        687
 
 Space7
 X       Y       Width       Height
