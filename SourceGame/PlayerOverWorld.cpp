@@ -144,7 +144,7 @@ void PlayerOverWorld::onAABBCheck(MovableRect* other)
 		Scorebar::getInstance()->decreaseHealth(1);
 		health--;
 		if (health == 0) {
-			setPlayerDirection(PLAYER_OW_DIRECTION_RIGHT);
+			setAnimation(PLAYER_OW_ACTION_DIE);
 		}
 	}
 

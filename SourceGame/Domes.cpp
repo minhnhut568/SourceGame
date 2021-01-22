@@ -87,7 +87,7 @@ void Domes::onUpdate(float dt)
 		domesState = DOMES_STATE_FIRE;
 		break;
 	case DOMES_STATE_FIRE:
-		setDy(-3);
+		setDy(-5);
 		break;
 	default:
 		break;
@@ -96,6 +96,10 @@ void Domes::onUpdate(float dt)
 
 void Domes::onCollision(MovableRect* other, float collisionTime, int nx, int ny)
 {
+	if (other->getCollisionType() == COLLISION_TYPE_GROUND && domesState == DOMES_STATE_FIRE) {
+		ground = 0;
+		ny = 0;
+	}
 	if (other->getCollisionType() == COLLISION_TYPE_GROUND)
 	{
 		if (ground != 0)

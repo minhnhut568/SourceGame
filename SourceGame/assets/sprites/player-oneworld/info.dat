@@ -2,7 +2,7 @@ Sprite fff
 R	G	B
 255	25	151	255
 Animation Count
-6
+7
 
 
 Name
@@ -63,5 +63,15 @@ Frame Count
 
 FrameX		FrameY		FrameWidth		FrameHeight		AnchorX		AnchorY
 143			1			24				31				0			0
+
+
+Name
+Die
+Frame Count
+1
+
+FrameX		FrameY		FrameWidth		FrameHeight		AnchorX		AnchorY
+323			16			24				16				0			0
+
 
 
